@@ -1,0 +1,302 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		639DA1C414D4494500EA3372 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C314D4494500EA3372 /* UIKit.framework */; };
+		639DA1C614D4494500EA3372 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C514D4494500EA3372 /* Foundation.framework */; };
+		639DA1C814D4494500EA3372 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C714D4494500EA3372 /* CoreGraphics.framework */; };
+		639DA1CE14D4494500EA3372 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1CC14D4494500EA3372 /* InfoPlist.strings */; };
+		639DA1D014D4494500EA3372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1CF14D4494500EA3372 /* main.m */; };
+		639DA1D414D4494500EA3372 /* duiosAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1D314D4494500EA3372 /* duiosAppDelegate.m */; };
+		639DA1D714D4494500EA3372 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */; };
+		639DA1DA14D4494500EA3372 /* duiosFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1D914D4494500EA3372 /* duiosFirstViewController.m */; };
+		639DA1DC14D4494500EA3372 /* first.png in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1DB14D4494500EA3372 /* first.png */; };
+		639DA1DE14D4494500EA3372 /* first@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1DD14D4494500EA3372 /* first@2x.png */; };
+		639DA1E114D4494500EA3372 /* duiosSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1E014D4494500EA3372 /* duiosSecondViewController.m */; };
+		639DA1E314D4494500EA3372 /* second.png in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1E214D4494500EA3372 /* second.png */; };
+		639DA1E514D4494500EA3372 /* second@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1E414D4494500EA3372 /* second@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		639DA1BF14D4494500EA3372 /* DUiOS.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DUiOS.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		639DA1C314D4494500EA3372 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		639DA1C514D4494500EA3372 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		639DA1C714D4494500EA3372 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		639DA1CB14D4494500EA3372 /* DUiOS-Info.plist */ = {isa = PBXFileReference; path = "DUiOS-Info.plist"; sourceTree = "<group>"; };
+		639DA1CD14D4494500EA3372 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		639DA1CF14D4494500EA3372 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		639DA1D114D4494500EA3372 /* DUiOS-Prefix.pch */ = {isa = PBXFileReference; path = "DUiOS-Prefix.pch"; sourceTree = "<group>"; };
+		639DA1D214D4494500EA3372 /* duiosAppDelegate.h */ = {isa = PBXFileReference; path = duiosAppDelegate.h; sourceTree = "<group>"; };
+		639DA1D314D4494500EA3372 /* duiosAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duiosAppDelegate.m; sourceTree = "<group>"; };
+		639DA1D614D4494500EA3372 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
+		639DA1D814D4494500EA3372 /* duiosFirstViewController.h */ = {isa = PBXFileReference; path = duiosFirstViewController.h; sourceTree = "<group>"; };
+		639DA1D914D4494500EA3372 /* duiosFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duiosFirstViewController.m; sourceTree = "<group>"; };
+		639DA1DB14D4494500EA3372 /* first.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = first.png; sourceTree = "<group>"; };
+		639DA1DD14D4494500EA3372 /* first@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "first@2x.png"; sourceTree = "<group>"; };
+		639DA1DF14D4494500EA3372 /* duiosSecondViewController.h */ = {isa = PBXFileReference; path = duiosSecondViewController.h; sourceTree = "<group>"; };
+		639DA1E014D4494500EA3372 /* duiosSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duiosSecondViewController.m; sourceTree = "<group>"; };
+		639DA1E214D4494500EA3372 /* second.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = second.png; sourceTree = "<group>"; };
+		639DA1E414D4494500EA3372 /* second@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "second@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		639DA1BC14D4494500EA3372 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639DA1C414D4494500EA3372 /* UIKit.framework in Frameworks */,
+				639DA1C614D4494500EA3372 /* Foundation.framework in Frameworks */,
+				639DA1C814D4494500EA3372 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		639DA1B414D4494500EA3372 = {
+			isa = PBXGroup;
+			children = (
+				639DA1C914D4494500EA3372 /* DUiOS */,
+				639DA1C214D4494500EA3372 /* Frameworks */,
+				639DA1C014D4494500EA3372 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		639DA1C014D4494500EA3372 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				639DA1BF14D4494500EA3372 /* DUiOS.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		639DA1C214D4494500EA3372 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				639DA1C314D4494500EA3372 /* UIKit.framework */,
+				639DA1C514D4494500EA3372 /* Foundation.framework */,
+				639DA1C714D4494500EA3372 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		639DA1C914D4494500EA3372 /* DUiOS */ = {
+			isa = PBXGroup;
+			children = (
+				639DA1D214D4494500EA3372 /* duiosAppDelegate.h */,
+				639DA1D314D4494500EA3372 /* duiosAppDelegate.m */,
+				639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */,
+				639DA1D814D4494500EA3372 /* duiosFirstViewController.h */,
+				639DA1D914D4494500EA3372 /* duiosFirstViewController.m */,
+				639DA1DB14D4494500EA3372 /* first.png */,
+				639DA1DD14D4494500EA3372 /* first@2x.png */,
+				639DA1DF14D4494500EA3372 /* duiosSecondViewController.h */,
+				639DA1E014D4494500EA3372 /* duiosSecondViewController.m */,
+				639DA1E214D4494500EA3372 /* second.png */,
+				639DA1E414D4494500EA3372 /* second@2x.png */,
+				639DA1CA14D4494500EA3372 /* Supporting Files */,
+			);
+			path = DUiOS;
+			sourceTree = "<group>";
+		};
+		639DA1CA14D4494500EA3372 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				639DA1CB14D4494500EA3372 /* DUiOS-Info.plist */,
+				639DA1CC14D4494500EA3372 /* InfoPlist.strings */,
+				639DA1CF14D4494500EA3372 /* main.m */,
+				639DA1D114D4494500EA3372 /* DUiOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		639DA1BE14D4494500EA3372 /* DUiOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 639DA1E814D4494500EA3372 /* Build configuration list for PBXNativeTarget "DUiOS" */;
+			buildPhases = (
+				639DA1BB14D4494500EA3372 /* Sources */,
+				639DA1BC14D4494500EA3372 /* Frameworks */,
+				639DA1BD14D4494500EA3372 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = DUiOS;
+			productName = DUiOS;
+			productReference = 639DA1BF14D4494500EA3372 /* DUiOS.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		639DA1B614D4494500EA3372 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+				ORGANIZATIONNAME = ORSYP;
+			};
+			buildConfigurationList = 639DA1B914D4494500EA3372 /* Build configuration list for PBXProject "DUiOS" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 639DA1B414D4494500EA3372;
+			productRefGroup = 639DA1C014D4494500EA3372 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				639DA1BE14D4494500EA3372 /* DUiOS */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		639DA1BD14D4494500EA3372 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639DA1CE14D4494500EA3372 /* InfoPlist.strings in Resources */,
+				639DA1D714D4494500EA3372 /* MainStoryboard.storyboard in Resources */,
+				639DA1DC14D4494500EA3372 /* first.png in Resources */,
+				639DA1DE14D4494500EA3372 /* first@2x.png in Resources */,
+				639DA1E314D4494500EA3372 /* second.png in Resources */,
+				639DA1E514D4494500EA3372 /* second@2x.png in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		639DA1BB14D4494500EA3372 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				639DA1D014D4494500EA3372 /* main.m in Sources */,
+				639DA1D414D4494500EA3372 /* duiosAppDelegate.m in Sources */,
+				639DA1DA14D4494500EA3372 /* duiosFirstViewController.m in Sources */,
+				639DA1E114D4494500EA3372 /* duiosSecondViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		639DA1CC14D4494500EA3372 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				639DA1CD14D4494500EA3372 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				639DA1D614D4494500EA3372 /* en */,
+			);
+			name = MainStoryboard.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		639DA1E614D4494500EA3372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		639DA1E714D4494500EA3372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		639DA1E914D4494500EA3372 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
+				INFOPLIST_FILE = "DUiOS/DUiOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		639DA1EA14D4494500EA3372 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
+				INFOPLIST_FILE = "DUiOS/DUiOS-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		639DA1B914D4494500EA3372 /* Build configuration list for PBXProject "DUiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				639DA1E614D4494500EA3372 /* Debug */,
+				639DA1E714D4494500EA3372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		639DA1E814D4494500EA3372 /* Build configuration list for PBXNativeTarget "DUiOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				639DA1E914D4494500EA3372 /* Debug */,
+				639DA1EA14D4494500EA3372 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 639DA1B614D4494500EA3372 /* Project object */;
+}
