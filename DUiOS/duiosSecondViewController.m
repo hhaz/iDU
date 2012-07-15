@@ -7,8 +7,11 @@
 //
 
 #import "duiosSecondViewController.h"
+#import "DuWebServiceSvc.h"
+#import "duiosAppDelegate.h"
 
 @implementation duiosSecondViewController
+@synthesize delegate;
 
 - (void)didReceiveMemoryWarning
 {
@@ -21,7 +24,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+  	// Do any additional setup after loading the view, typically from a nib.
 }
 
 - (void)viewDidUnload

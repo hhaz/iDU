@@ -8,6 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
-@interface duiosSecondViewController : UIViewController
+@protocol duiosSecondViewController;
+#import "DuWebServiceSvc.h"
 
+
+@interface duiosSecondViewController : UIViewController <UITextViewDelegate> {
+    
+    id<duiosSecondViewController> delegate;
+ }
+
+@property (nonatomic,retain) id <duiosSecondViewController> delegate;
 @end
+
+

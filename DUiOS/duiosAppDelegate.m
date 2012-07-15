@@ -7,10 +7,17 @@
 //
 
 #import "duiosAppDelegate.h"
+#import "ManageDefaults.h"
 
 @implementation duiosAppDelegate
 
 @synthesize window = _window;
+@synthesize navigationController;
+@synthesize binding;
+@synthesize uvmsHost,uvmsPort,uvmsUser,company,area,url,nodeList,isConnected,theContext,nbJobs,nbPeriods,period,suffix;
+@synthesize periodArray;
+@synthesize statusKeys;
+@synthesize contentStatus;
 
 - (void)dealloc
 {
@@ -21,6 +28,58 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    ManageDefaults *duiosDefault = [[ManageDefaults alloc]init];
+    periodArray = [[NSMutableArray alloc] init];
+    [duiosDefault loadDefaults];
+    
+    [window addSubview:[navigationController view]];
+    
+    isConnected = FALSE;
+    
+    
+    // Initialize status dictionary
+    
+    NSMutableArray *keys = [[NSMutableArray alloc] init];
+    NSMutableDictionary *contents = [[NSMutableDictionary alloc] init];
+	
+    NSString *completed     = @"COMPLETED";
+    NSString *running       = @"RUNNING";
+    NSString *timeoverrun   = @"TIME_OVERRUN";
+    NSString *eventwait     = @"EVENT_WAIT";
+    NSString *aborted       = @"ABORTED";
+    NSString *refused       = @"REFUSED";
+    NSString *pending       = @"PENDING";
+    NSString *launching     = @"LAUNCH_WAIT";
+    
+	
+    [contents setObject:[NSArray arrayWithObjects:@"Completed",[UIColor greenColor],@"greenflag.png",nil] forKey:completed];
+    [contents setObject:[NSArray arrayWithObjects:@"Running",[UIColor blueColor],@"greenflag.png",nil] forKey:running];
+    [contents setObject:[NSArray arrayWithObjects:@"Time Overrun",[UIColor orangeColor],@"redflag.png",nil] forKey:timeoverrun];
+    [contents setObject:[NSArray arrayWithObjects:@"Event Wait",[UIColor purpleColor],@"redflag.png",nil] forKey:eventwait];
+    [contents setObject:[NSArray arrayWithObjects:@"Aborted",[UIColor redColor],@"redflag.png",nil] forKey:aborted];
+    [contents setObject:[NSArray arrayWithObjects:@"Refused",[UIColor redColor],@"redflag.png",nil] forKey:refused];
+    [contents setObject:[NSArray arrayWithObjects:@"Pending",[UIColor redColor],@"redflag.png",nil] forKey:pending];
+    [contents setObject:[NSArray arrayWithObjects:@"Launch Wait",[UIColor yellowColor],@"redflag.png",nil] forKey:launching];
+    
+    [keys addObject:completed];
+    [keys addObject:running];
+    [keys addObject:timeoverrun];
+    [keys addObject:eventwait];
+    [keys addObject:aborted];
+    [keys addObject:refused];
+    [keys addObject:pending];
+    [keys addObject:launching];
+	
+    [self setStatusKeys:keys];
+    [self setContentStatus:contents];
+	
+    [keys release], keys = nil;
+    [contents release], contents = nil;
+    
+    // Let the device know we want to receive push notifications
+	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
+     (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+
     return YES;
 }
 							
@@ -61,6 +120,16 @@
      Save data if appropriate.
      See also applicationDidEnterBackground:.
      */
+}
+
+- (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
+{
+	NSLog(@"My token is: %@", deviceToken);
+}
+
+- (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
+{
+	NSLog(@"Failed to get token, error: %@", error);
 }
 
 @end

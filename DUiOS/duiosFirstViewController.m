@@ -7,8 +7,183 @@
 //
 
 #import "duiosFirstViewController.h"
+#import "DuWebServiceSvc.h"
+#import "duiosAppDelegate.h"
+#import "WebServiceConnection.h"
+#import "computePeriod.h"
+#import "ActivityAlertView.h"
+
 
 @implementation duiosFirstViewController
+@synthesize nodeList;
+@synthesize myTableView;
+@synthesize aSecondController;
+@synthesize launchList;
+@synthesize executionList;
+@synthesize theNode;
+@synthesize appDelegate;
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    static NSString *CellIdentifier = @"Cell";
+    
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];	
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    }
+    
+    // Configure the cell.
+    NSString *nodeItem = [[NSString alloc]init];
+    nodeItem = [appDelegate.nodeList objectAtIndex: [indexPath row]];
+    cell.textLabel.text = nodeItem;
+    UIImage *tableImage = [UIImage imageNamed:@"DU.png"]; 
+    [cell.imageView setImage:tableImage]; 
+    CGSize imageSize = CGSizeMake(25,25);	
+    UIGraphicsBeginImageContext(imageSize); 
+    CGRect imageRect = CGRectMake(1.0, 0.5, imageSize.width, imageSize.height); 
+    [tableImage drawInRect:imageRect]; 
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext(); 
+    UIGraphicsEndImageContext(); 
+    
+    return cell;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
+    
+        return @"Nodes";
+}
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+   Boolean goNext = TRUE;
+    computePeriod *computeDate = [[computePeriod alloc] init];
+    
+    // Show the alert
+    ActivityAlertView *activityAlert = [[[ActivityAlertView alloc] 
+                                         initWithTitle:@"Retrieving Information"
+                                         message:@"Please wait..."
+                                         delegate:self cancelButtonTitle:nil 
+                                         otherButtonTitles:nil] autorelease];                                    
+    [activityAlert show];
+    
+    [computeDate compute];
+    
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyyMMdd"];
+    [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    NSDateFormatter *hourFormatter = [[NSDateFormatter alloc] init];
+    [hourFormatter setDateFormat:@"HHmmss"];
+    [hourFormatter setTimeZone:[NSTimeZone localTimeZone]];
+    
+    NSString *endDateMin = [dateFormatter stringFromDate:[appDelegate.periodArray lastObject]];
+    NSString *endDateMax = [dateFormatter stringFromDate:[appDelegate.periodArray objectAtIndex:0]]; 
+    
+   UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
+        
+   DuWebServiceSvc_launchFilter *filter = [[DuWebServiceSvc_launchFilter alloc] init];
+    
+   DuWebServiceSvc_getListLaunch *listLaunch = [[DuWebServiceSvc_getListLaunch alloc] init];
+    
+   DuWebServiceSvc_getListLaunchResponse *listLaunchResponse = [[DuWebServiceSvc_getListLaunchResponse alloc] init];
+    
+    filter.mu = @"*";
+    filter.beginDateMax = endDateMax;
+    filter.beginDateMin = endDateMin;
+    filter.maximumResults = appDelegate.nbJobs;
+    filter.order = @"ASC";
+
+   appDelegate.theContext.context.envir.node_ = cell.textLabel.text;
+    
+    listLaunch.context = appDelegate.theContext;
+    listLaunch.filter = filter;
+
+    // GetLaunchList
+    
+   DuWebServiceSoapBindingResponse *response = [appDelegate.binding getListLaunchUsingParameters:listLaunch];
+  
+    if (response.error == 0 && goNext ) {
+        
+        @try {      
+            listLaunchResponse = (DuWebServiceSvc_getListLaunchResponse *)([response.bodyParts objectAtIndex:0]);        
+
+            launchList = [[NSMutableArray alloc] initWithCapacity:listLaunchResponse.launchList.count];
+        
+            for (DuWebServiceSvc_launchItem *s in listLaunchResponse.launchList ) 
+            {
+                [launchList addObject:s];            
+            }
+        }
+        @catch (NSException *excep) {
+            goNext  = FALSE;
+            SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        @finally {
+            NSLog(@"Finally");
+        }
+    }
+    
+    // GetExecutionList
+  
+   DuWebServiceSvc_executionFilter *executionFilter = [[DuWebServiceSvc_executionFilter alloc] init];
+    
+   DuWebServiceSvc_getListExecution *listExecution = [[DuWebServiceSvc_getListExecution alloc] init];
+    
+   DuWebServiceSvc_getListExecutionResponse *listExecutionResponse = [[DuWebServiceSvc_getListExecutionResponse alloc] init];
+    
+    executionFilter.mu = @"*";
+    executionFilter.beginDateMax = endDateMax;
+    executionFilter.beginDateMin = endDateMin;
+    executionFilter.maximumResults = appDelegate.nbJobs;
+    executionFilter.order = @"ASC";
+    
+    appDelegate.theContext.context.envir.node_ = cell.textLabel.text;
+    
+    listExecution.context = appDelegate.theContext;
+    listExecution.filter = executionFilter;
+
+   DuWebServiceSoapBindingResponse *responseExecution = [appDelegate.binding getListExecutionUsingParameters:listExecution];
+    
+    if (responseExecution.error == 0 && goNext) {
+        @try {
+            listExecutionResponse = (DuWebServiceSvc_getListExecutionResponse *)([responseExecution.bodyParts objectAtIndex:0]);
+
+            executionList = [[NSMutableArray alloc] initWithCapacity:listExecutionResponse.executionList.count];
+            
+            for (DuWebServiceSvc_executionItem *s in listExecutionResponse.executionList ) 
+            {
+                [executionList addObject:s];
+            }
+        }
+        @catch (NSException *excep) {
+            SOAPFault *result = (SOAPFault *)[responseExecution.bodyParts objectAtIndex:0];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+        }
+        @finally {
+            NSLog(@"Finally");
+        }
+    }
+    theNode = appDelegate.theContext.context.envir.node_;
+
+    if (goNext) {
+     [self performSegueWithIdentifier:@"seguegraph" sender:cell];
+    }
+    
+        [activityAlert close];
+}
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [appDelegate.nodeList count];
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfSections:(NSInteger)section {
+    return 1;
+}
+
 
 - (void)didReceiveMemoryWarning
 {
@@ -21,6 +196,20 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    UINavigationController *controller = [[UINavigationController alloc] init ];
+    
+    controller = [self.tabBarController.viewControllers  objectAtIndex:1];
+    
+    aSecondController = [controller.childViewControllers objectAtIndex:0];
+    
+    WebServiceConnection *connection = [[WebServiceConnection alloc]init];
+    
+    if(!appDelegate.isConnected)
+    {    
+        [connection TryConnection:theNodes];
+    }
+    
 	// Do any additional setup after loading the view, typically from a nib.
 }
 
@@ -34,11 +223,15 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+  
+    nodeList = appDelegate.nodeList;
+    [theNodes reloadData];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
+   
 }
 
 - (void)viewWillDisappear:(BOOL)animated
