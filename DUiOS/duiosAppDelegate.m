@@ -36,6 +36,14 @@
     
     isConnected = FALSE;
     
+    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    
+    if (remoteNotif != nil)
+    {
+        application.applicationIconBadgeNumber = 0;
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[remoteNotif valueForKey:@"aps"] objectForKey:@"alert"]  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]; 
+        [alert show];        
+    }
     
     // Initialize status dictionary
     
