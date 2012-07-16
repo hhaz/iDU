@@ -18,6 +18,7 @@
 @synthesize periodArray;
 @synthesize statusKeys;
 @synthesize contentStatus;
+@synthesize tbController;
 
 - (void)dealloc
 {
@@ -39,10 +40,8 @@
     NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     
     if (remoteNotif != nil)
-    {
-        application.applicationIconBadgeNumber = 0;
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:[[remoteNotif valueForKey:@"aps"] objectForKey:@"alert"]  delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil]; 
-        [alert show];        
+    {              
+        [self handleRemoteNotification:application userInfo:remoteNotif];        
     }
     
     // Initialize status dictionary
@@ -138,6 +137,27 @@
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+}
+
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    [self handleRemoteNotification:application userInfo:userInfo];    
+}
+
+-(void) handleRemoteNotification:(UIApplication *)application userInfo:(NSDictionary *)userInfo {
+    application.applicationIconBadgeNumber = 0;
+    
+    NSArray *args;
+    
+    args = [[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"];
+    
+    UINavigationController *controller = [[UINavigationController alloc] init ];
+    
+    controller = [tbController.viewControllers  objectAtIndex:0];
+    
+    tbController.selectedViewController = controller;
+    
 }
 
 @end
