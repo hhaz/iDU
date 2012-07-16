@@ -37,5 +37,6 @@
 
 @property (nonatomic, retain) NSMutableDictionary *contentStatus;
 @property (nonatomic, retain) NSMutableArray *statusKeys;
+@property (nonatomic, retain) UITabBarController *tbController;
 
 @end
