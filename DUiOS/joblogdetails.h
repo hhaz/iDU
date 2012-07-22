@@ -17,7 +17,6 @@
 
 @property (nonatomic, retain) IBOutlet UITextView *myTextView;
 @property (nonatomic, retain) NSString *theLog;
-@property (retain) IBOutlet joblog *aJoblog;
 @property (nonatomic, retain) DuWebServiceSvc_executionItem *currentJob;
 
 @end

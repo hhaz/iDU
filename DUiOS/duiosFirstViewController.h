@@ -27,6 +27,9 @@
 
 @property (nonatomic, retain) NSMutableArray *executionList;
 @property (nonatomic, retain) NSString *theNode;
+@property (nonatomic, retain) NSString *theLog;
 @property (nonatomic, retain) duiosAppDelegate *appDelegate;
+
+@property (nonatomic, retain) DuWebServiceSvc_executionItem *job;
 
 @end

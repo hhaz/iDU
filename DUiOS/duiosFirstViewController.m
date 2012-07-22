@@ -12,6 +12,7 @@
 #import "WebServiceConnection.h"
 #import "computePeriod.h"
 #import "ActivityAlertView.h"
+#import "joblog.h"
 
 
 @implementation duiosFirstViewController
@@ -22,6 +23,8 @@
 @synthesize executionList;
 @synthesize theNode;
 @synthesize appDelegate;
+@synthesize job;
+@synthesize theLog;
 
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -197,18 +200,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 {
     [super viewDidLoad];
     appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    appDelegate.tbController = self.tabBarController;
+    
     UINavigationController *controller = [[UINavigationController alloc] init ];
     
     controller = [self.tabBarController.viewControllers  objectAtIndex:1];
     
     aSecondController = [controller.childViewControllers objectAtIndex:0];
     
-    WebServiceConnection *connection = [[WebServiceConnection alloc]init];
+    /*WebServiceConnection *connection = [[WebServiceConnection alloc]init];
     
     if(!appDelegate.isConnected)
     {    
         [connection TryConnection:theNodes];
     }
+     */
     
 	// Do any additional setup after loading the view, typically from a nib.
 }
@@ -222,10 +228,130 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)viewWillAppear:(BOOL)animated
 {
+    NSLog(@"In View Will Appear");
+    
     [super viewWillAppear:animated];
   
     nodeList = appDelegate.nodeList;
     [theNodes reloadData];
+    
+    if (appDelegate.isRemoteNotif && appDelegate.isConnected) {                     
+         appDelegate.isRemoteNotif = FALSE;
+        
+        NSString *area      = [appDelegate.args objectAtIndex:2];
+        NSString *company   = [appDelegate.args objectAtIndex:1];
+        
+        if(![appDelegate.company isEqualToString:company])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Job Detail Display Error" message:@"You are not connected to the same company" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+            return;
+        }
+        
+        if(![appDelegate.area isEqualToString:area])
+        {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Job Detail Display Error" message:@"You are not connected to the same area" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+            return;
+        }
+
+        // Get the job
+
+        DuWebServiceSvc_executionId *execId = [[DuWebServiceSvc_executionId alloc]init];
+        
+        DuWebServiceSvc_getExecution *Execution = [[DuWebServiceSvc_getExecution alloc] init];
+        
+        DuWebServiceSvc_getExecutionResponse *ExecutionResponse = [[DuWebServiceSvc_getExecutionResponse alloc] init];
+        
+        execId.numLanc          = [appDelegate.args objectAtIndex:6];
+        execId.numProc          = [appDelegate.args objectAtIndex:7];
+        execId.uproc            = [appDelegate.args objectAtIndex:4];
+        execId.mu               = [appDelegate.args objectAtIndex:5];
+        execId.session          = [appDelegate.args objectAtIndex:10];
+        execId.sessionVersion   = [appDelegate.args objectAtIndex:11];   
+        execId.numSess          = [appDelegate.args objectAtIndex:12];
+        execId.task             = [appDelegate.args objectAtIndex:8];
+        // à gérer : pas de numéro de version quand on est en X
+        //execId.uprocVersion = @"000";
+        
+        appDelegate.theContext.context.envir.node_ = [appDelegate.args objectAtIndex:3];
+        
+        Execution.context       = appDelegate.theContext;       
+        Execution.executionId   = execId;
+        
+        DuWebServiceSoapBindingResponse *response = [appDelegate.binding getExecutionUsingParameters:Execution];
+        
+        if (response.error == 0 ) {
+            @try {
+                ExecutionResponse = (DuWebServiceSvc_getExecutionResponse *)([response.bodyParts objectAtIndex:0]);
+                
+                DuWebServiceSvc_execution *exec = ExecutionResponse.execution;
+    
+                job = exec.data;
+            }
+            @catch (NSException *excep) {
+                SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+            }
+            @finally {
+                NSLog(@"Finally");
+            }
+        }
+        
+        // Get the job Log
+        
+        DuWebServiceSvc_getExecutionLog *joblog = [[DuWebServiceSvc_getExecutionLog alloc] init];
+        
+        DuWebServiceSvc_getExecutionLogResponse *joblogResponse = [[DuWebServiceSvc_getExecutionLogResponse alloc] init];
+
+        joblog.context = appDelegate.theContext;
+        
+        joblog.executionId  = execId;
+        
+        DuWebServiceSoapBindingResponse *Response = [appDelegate.binding getExecutionLogUsingParameters:joblog];
+        
+        theLog = @"";
+        
+        if (Response.error == 0)
+        {
+            @try { 
+                
+                joblogResponse = (DuWebServiceSvc_getExecutionLogResponse *)([Response.bodyParts objectAtIndex:0]);
+                
+                for (NSString *logligne in joblogResponse.executionLog.log)
+                {
+                    theLog = [theLog stringByAppendingString:logligne];
+                }
+            }           
+            @catch (NSException *excep) {
+                appDelegate.isConnected = FALSE;
+                SOAPFault *result = (SOAPFault *)[Response.bodyParts objectAtIndex:0];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error - No Log" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+                [alert show];
+                return;
+            }
+            @finally {
+                NSLog(@"Finally");
+            }
+        }
+        [self performSegueWithIdentifier:@"showjob" sender:self];   
+    }
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+{
+    if ([[segue identifier] isEqualToString:@"showjob"])
+    {
+        joblog *jobLogController = [segue destinationViewController];
+        
+        jobLogController.currentJob     = job;
+        jobLogController.theLog         = theLog;
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

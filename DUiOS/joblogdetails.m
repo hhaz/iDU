@@ -11,7 +11,6 @@
 @implementation joblogdetails
 @synthesize myTextView;
 @synthesize theLog;
-@synthesize aJoblog;
 @synthesize currentJob;
 
 
@@ -46,10 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    aJoblog = [self.navigationController.viewControllers objectAtIndex:2]; 
     
-    theLog = aJoblog.theLog;
-    currentJob = aJoblog.currentJob;
     myTextView.editable = false;
     
     

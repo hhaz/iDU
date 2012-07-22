@@ -14,7 +14,6 @@
     
 }
 @property (nonatomic, retain) NSString *theLog;
-@property (retain) IBOutlet jobruns *aJobRuns;
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) NSMutableDictionary *contentsList;
 @property (nonatomic, retain) NSMutableArray *sectionKeys;

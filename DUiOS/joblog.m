@@ -7,11 +7,10 @@
 //
 
 #import "joblog.h"
+#import "joblogdetails.h"
 
 @implementation joblog
-
 @synthesize theLog;
-@synthesize aJobRuns;
 @synthesize myTableView;
 @synthesize contentsList;
 @synthesize sectionKeys;
@@ -198,10 +197,7 @@ titleForHeaderInSection:(NSInteger)section
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-     aJobRuns = [self.navigationController.viewControllers objectAtIndex:2]; 
-    theLog = [[NSString alloc] initWithString:aJobRuns.theLog];
-    currentJob = aJobRuns.currentJob;
-    currentLaunch = aJobRuns.currentLaunch;
+
     beginDate = [[NSString alloc] init];
     endDate = [[NSString alloc] init];
     
@@ -257,6 +253,16 @@ titleForHeaderInSection:(NSInteger)section
     [contents release], contents = nil;
 }
 
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+{
+    joblogdetails *jobLogDetailsController = [segue destinationViewController];
+    
+    jobLogDetailsController.currentJob  = currentJob;
+    jobLogDetailsController.theLog      = theLog;        
+    
+}
 
 - (void)viewDidUnload
 {

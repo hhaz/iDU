@@ -1,0 +1,9 @@
+/* 
+  Localizable.strings
+  DUiOS
+
+  Created by Hervé Azoulay on 16/07/12.
+  Copyright (c) 2012 ORSYP. All rights reserved.
+*/
+
+"JOB_ERROR_MESSAGE" = "Job %5$@ failed on node %4$@";

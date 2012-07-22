@@ -7,6 +7,7 @@
 //
 
 #import "jobruns.h"
+#import "joblog.h"
 #import "duiosAppDelegate.h"
 #import "DuWebServiceSvc.h"
 #import "ActivityAlertView.h"
@@ -307,6 +308,23 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
 }
+
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+{
+    if ([[segue identifier] isEqualToString:@"DisplayJobLog"])
+
+    {
+        joblog *jobLogController = [segue destinationViewController];
+        
+        jobLogController.currentJob     = currentJob;
+        jobLogController.currentLaunch  = currentLaunch;
+        jobLogController.theLog         = theLog;
+    }
+
+}
+
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
 

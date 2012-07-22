@@ -39,4 +39,8 @@
 @property (nonatomic, retain) NSMutableArray *statusKeys;
 @property (nonatomic, retain) UITabBarController *tbController;
 
+@property (nonatomic, retain) NSArray *args;
+@property (nonatomic) Boolean isRemoteNotif;
+
+
 @end

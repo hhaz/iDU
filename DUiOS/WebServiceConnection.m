@@ -178,6 +178,17 @@
                 
             }
             
+            // Refresh node list
+            
+            UINavigationController *controller = [[UINavigationController alloc] init ];
+            
+            controller = [appDelegate.tbController.viewControllers  objectAtIndex:0];
+            
+            appDelegate.tbController.selectedViewController = controller;
+            
+            [controller viewWillAppear:TRUE];
+
+            
             //Remove the alert
             [activityAlert close];
             

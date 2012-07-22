@@ -8,6 +8,7 @@
 
 #import "duiosAppDelegate.h"
 #import "ManageDefaults.h"
+#import "WebServiceConnection.h"
 
 @implementation duiosAppDelegate
 
@@ -19,6 +20,8 @@
 @synthesize statusKeys;
 @synthesize contentStatus;
 @synthesize tbController;
+@synthesize args;
+@synthesize isRemoteNotif;
 
 - (void)dealloc
 {
@@ -35,14 +38,8 @@
     
     [window addSubview:[navigationController view]];
     
-    isConnected = FALSE;
-    
-    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
-    
-    if (remoteNotif != nil)
-    {              
-        [self handleRemoteNotification:application userInfo:remoteNotif];        
-    }
+    isConnected     = FALSE;
+    isRemoteNotif   = FALSE;
     
     // Initialize status dictionary
     
@@ -86,6 +83,19 @@
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
+    
+    WebServiceConnection *connection = [[WebServiceConnection alloc]init];
+    
+    if(!isConnected)
+    {    
+        [connection TryConnection:nil];
+    }
+    
+    NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
+    if (remoteNotif != nil)
+    {              
+        [self handleRemoteNotification:application userInfo:remoteNotif];        
+    }
 
     return YES;
 }
@@ -118,6 +128,8 @@
     /*
      Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
      */
+    
+    NSLog(@"Application activated");
 }
 
 - (void)applicationWillTerminate:(UIApplication *)application
@@ -141,22 +153,32 @@
 
 
 - (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
-{
-    [self handleRemoteNotification:application userInfo:userInfo];    
-}
-
--(void) handleRemoteNotification:(UIApplication *)application userInfo:(NSDictionary *)userInfo {
+{ 
+    isRemoteNotif = TRUE;
     application.applicationIconBadgeNumber = 0;
     
-    NSArray *args;
-    
-    args = [[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"];
+    args = [[NSArray alloc] initWithArray:[[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"]];
     
     UINavigationController *controller = [[UINavigationController alloc] init ];
     
     controller = [tbController.viewControllers  objectAtIndex:0];
     
     tbController.selectedViewController = controller;
+    
+    [controller viewWillAppear:TRUE];
+}
+
+-(void) handleRemoteNotification:(UIApplication *)application userInfo:(NSDictionary *)userInfo {
+
+    isRemoteNotif = TRUE;
+    application.applicationIconBadgeNumber = 0;
+    
+    args = [[NSArray alloc] initWithArray:[[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"]];
+    
+    //args = [[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"];
+    
+    NSLog(@"User info : %d", [userInfo count]);
+    NSLog(@"%d",[args count]);
     
 }
 

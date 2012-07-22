@@ -49,10 +49,11 @@
                     <connections>
                         <outlet property="myTableView" destination="1OT-nv-YuA" id="PwX-Eq-ztp"/>
                         <outlet property="theNodes" destination="1OT-nv-YuA" id="N4w-Lk-QMr"/>
+                        <segue destination="dvi-Sz-sGc" kind="push" identifier="showjob" id="9ms-NF-0SF"/>
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1191" y="-162"/>
+            <point key="canvasLocation" x="1019" y="-292"/>
         </scene>
         <!--Jobruns-->
         <scene sceneID="Bfn-cF-BJQ">
@@ -89,7 +90,7 @@
                     </connections>
                 </tableViewController>
             </objects>
-            <point key="canvasLocation" x="2119" y="-66"/>
+            <point key="canvasLocation" x="2119" y="262"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
@@ -372,7 +373,7 @@
                     </connections>
                 </viewController>
             </objects>
-            <point key="canvasLocation" x="1639" y="-123"/>
+            <point key="canvasLocation" x="1535" y="177"/>
         </scene>
         <!--Navigation Controller - Preferences-->
         <scene sceneID="GIB-Pc-TJB">
@@ -399,83 +400,12 @@
         <image name="filter.png" width="52" height="52"/>
         <image name="preferences.png" width="52" height="52"/>
     </resources>
-    <classes>
-        <class className="duiosFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/duiosFirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aSecondController" candidateClass="settings"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theNodes" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="filterpreferences" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/filterpreferences.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nbJobs" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nbPeriods" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="periods" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="graphview" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/graphview.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aFirstController" candidateClass="duiosFirstViewController"/>
-                <relationship kind="outlet" name="hostingView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="joblog" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblog.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aJobRuns" candidateClass="jobruns"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="joblogdetails" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblogdetails.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aJoblog" candidateClass="joblog"/>
-                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="jobruns" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aFirstController" candidateClass="duiosFirstViewController"/>
-                <relationship kind="outlet" name="aGraphView" candidateClass="graphview"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="settings" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="webservicedetails" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/webservicedetails.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aSettings" candidateClass="settings"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theSuffix" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="9ms-NF-0SF"/>
+    </inferredMetricsTieBreakers>
 </document>
