@@ -228,8 +228,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 
 - (void)viewWillAppear:(BOOL)animated
 {
-    NSLog(@"In View Will Appear");
-    
     [super viewWillAppear:animated];
   
     nodeList = appDelegate.nodeList;
