@@ -36,7 +36,4 @@
 @property (nonatomic, assign) NSInteger openSectionIndex;
 @property (nonatomic, assign) NSInteger uniformRowHeight;
 
-@property (retain) IBOutlet duiosFirstViewController *aFirstController;
-@property (retain) IBOutlet graphview *aGraphView;
-
 @end

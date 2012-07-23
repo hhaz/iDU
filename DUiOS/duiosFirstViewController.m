@@ -350,6 +350,14 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         jobLogController.theLog         = theLog;
     }
     
+    if ([[segue identifier] isEqualToString:@"seguegraph"])
+    {
+        graphview *graphviewController = [segue destinationViewController];
+        
+        graphviewController.nodeName        = theNode;
+        graphviewController.launchList      = launchList;
+        graphviewController.executionList   = executionList;
+    }
 }
 
 - (void)viewDidAppear:(BOOL)animated

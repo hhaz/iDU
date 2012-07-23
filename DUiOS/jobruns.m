@@ -19,14 +19,12 @@
 @synthesize nodeList;
 @synthesize myTableView;
 @synthesize launchList;
-@synthesize aFirstController;
 @synthesize executionList;
 @synthesize theLog;
 @synthesize currentJob;
 @synthesize filteredLaunchList;
 @synthesize filteredExecutionList;
 @synthesize filterStatus;
-@synthesize aGraphView;
 @synthesize appDelegate;
 @synthesize sectionKeys;
 @synthesize contentsList;
@@ -370,8 +368,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    launchList              = aFirstController.launchList;
-    executionList           = aFirstController.executionList;
     theLaunches.rowHeight   = 20;
     
     [filteredExecutionList removeAllObjects];
@@ -531,10 +527,7 @@ return sectionInfo.headerView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    aFirstController = [self.navigationController.viewControllers objectAtIndex:0]; 
     
-    aGraphView = [self.navigationController.viewControllers objectAtIndex:1]; 
-    filterStatus = aGraphView.filterStatus;
     filteredLaunchList = [[NSMutableArray alloc] init];
     filteredExecutionList = [[NSMutableArray alloc] init];
     

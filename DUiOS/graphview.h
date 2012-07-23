@@ -11,7 +11,6 @@
 #import "CorePlot-CocoaTouch.h"
 #import "PlotGallery.h"
 #import "PlotItem.h"
-#import "duiosFirstViewController.h"
 
 
 @interface graphview : UIViewController {
@@ -27,6 +26,7 @@
 @property (nonatomic, retain) IBOutlet UIScrollView *hostingView;
 @property (nonatomic, retain) NSArray *data;
 @property (nonatomic, retain) NSString *nodeName;
-@property (retain) IBOutlet duiosFirstViewController *aFirstController;
 @property (nonatomic, retain) NSString *filterStatus;
+@property (nonatomic, retain) NSMutableArray *executionList;
+@property (nonatomic, retain) NSMutableArray *launchList;
 @end

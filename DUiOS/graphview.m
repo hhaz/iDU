@@ -11,6 +11,7 @@
 #import "duiosAppDelegate.h"
 #import "SimplePieChart.h"
 #import "PlotItem.h"
+#import "jobruns.h"
 
 @interface graphview()
 
@@ -19,14 +20,14 @@
 @end
 
 @implementation graphview
-
+@synthesize executionList;
 @synthesize bindingAddress;
 @synthesize theContext;
 @synthesize hostingView;
 @synthesize data;
 @synthesize nodeName;
-@synthesize aFirstController;
 @synthesize filterStatus;
+@synthesize launchList;
 @dynamic detailItem;
 
 #pragma mark -
@@ -88,10 +89,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    aFirstController = [self.navigationController.viewControllers objectAtIndex:0]; 
-    nodeName = aFirstController.theNode;
-    
+        
     NSInteger nbOK          = 0;
     NSInteger nbOverrun     = 0;
     NSInteger nbEventWait   = 0;
@@ -107,7 +105,7 @@
 
     SimplePieChart *plotItem = (SimplePieChart *)[[PlotGallery sharedPlotGallery] objectAtIndex:0];
     
-    for (DuWebServiceSvc_executionItem *item in aFirstController.executionList ) 
+    for (DuWebServiceSvc_executionItem *item in executionList ) 
             {
                 
                 if([item.status isEqualToString:@"TIME_OVERRUN"])
@@ -157,7 +155,7 @@
                 }                
             }
     
-    for (DuWebServiceSvc_launchItem *item in aFirstController.launchList ) 
+    for (DuWebServiceSvc_launchItem *item in launchList ) 
     {
         
         if([item.status isEqualToString:@"TIME_OVERRUN"])
@@ -256,6 +254,19 @@
 
 }
 
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+{
+    if ([[segue identifier] isEqualToString:@"seguejoblist"])
+    {
+        jobruns *jobRunsController = [segue destinationViewController];
+        
+        jobRunsController.executionList = executionList;
+        jobRunsController.launchList    = launchList;
+        jobRunsController.filterStatus  = filterStatus;
+    }
+    
+}
 
 - (void)viewDidUnload
 {

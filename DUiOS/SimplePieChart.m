@@ -7,6 +7,7 @@
 //
 
 #import "SimplePieChart.h"
+#import "jobruns.h"
 
 @implementation SimplePieChart
 @synthesize plotData;
@@ -161,6 +162,9 @@
         [aGraphView performSegueWithIdentifier:@"seguejoblist" sender:self];
     }
 }
+
+
+
 
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
 {
