@@ -24,8 +24,8 @@
 
 - (void) dealloc
 {
-	[activityView release];
-	[super dealloc];
+	//[activityView release];
+	//[super dealloc];
 }
 
 @end

@@ -53,8 +53,8 @@
     
     aSettings = [self.navigationController.viewControllers  objectAtIndex:0];
     
-    [keys release], keys = nil;
-    [contents release], contents = nil;
+    //[keys release], keys = nil;
+    //[contents release], contents = nil;
 }
 
 - (void)viewDidUnload
@@ -137,7 +137,7 @@ titleForHeaderInSection:(NSInteger)section
     
     if (cell == nil)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     // Configure the cell...
     
     if ([indexPath section] == 0) {

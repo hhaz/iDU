@@ -30,7 +30,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
        
         if ([indexPath section] == 0) {
             UITextField *uproc = [[UITextField alloc] initWithFrame:CGRectMake(130, 15, 185, 30)];
@@ -249,8 +249,8 @@ titleForHeaderInSection:(NSInteger)section
     [self setSectionKeys:keys];
     [self setContentsList:contents];
 	
-    [keys release], keys = nil;
-    [contents release], contents = nil;
+    //[keys release], keys = nil;
+    //[contents release], contents = nil;
 }
 
 

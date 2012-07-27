@@ -9,8 +9,6 @@
 #import "settings.h"
 #import "duiosAppDelegate.h"
 #import "ManageDefaults.h"
-#import "WebServiceConnection.h"
-
 
 @implementation settings
 @synthesize myTableView;
@@ -21,6 +19,7 @@
 @synthesize delegate;
 @synthesize arrayArea;
 @synthesize WSSuffix;
+@synthesize connection;
 
 
 // Customize the appearance of table view cells.
@@ -46,7 +45,7 @@
     
     if (cell == nil)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
     
     if ([indexPath section] == 0) {
             connectionStatus = cell;
@@ -192,7 +191,7 @@
 -(IBAction)TryConnection
 {
     duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
-    WebServiceConnection *connection = [[WebServiceConnection alloc]init];
+    connection = [[WebServiceConnection alloc]init];
     
     appDelegate.uvmsPort    = thePort.text;
     appDelegate.uvmsHost    = theUVMS.text;
@@ -272,8 +271,8 @@
     [self setSectionKeys:keys];
     [self setContentsList:contents];
 	
-    [keys release], keys = nil;
-    [contents release], contents = nil;
+    //[keys release], keys = nil;
+    //[contents release], contents = nil;
     
     arrayArea = [[NSMutableArray alloc] init];
     [arrayArea addObject:@"X"];

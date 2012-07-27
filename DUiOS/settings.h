@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DuWebServiceSvc.h"
+#import "WebServiceConnection.h"
 
 @protocol settings;
 
@@ -40,6 +41,7 @@
 @property (nonatomic, retain) DuWebServiceSvc_contextHolder *theContext;
 @property (nonatomic, retain) NSString *WSURL;
 @property (nonatomic, retain) NSString *WSSuffix;
+@property (nonatomic, retain) WebServiceConnection *connection;
 
 
 @end

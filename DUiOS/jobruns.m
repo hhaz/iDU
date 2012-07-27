@@ -121,10 +121,10 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
      
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithFrame:CGRectZero] autorelease];
+        cell = [[UITableViewCell alloc] initWithFrame:CGRectZero];
         
         UIPinchGestureRecognizer *twoFingerPinch = 
-        [[[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)] autorelease];
+        [[UIPinchGestureRecognizer alloc] initWithTarget:self action:@selector(handlePinchGesture:)];
         [cell addGestureRecognizer:twoFingerPinch];
         
 		[cell addSubview:[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(cell.frame)+50, CGRectGetMinY(cell.frame), CGRectGetWidth(cell.frame)-200 , ROW_HEIGHT)]];

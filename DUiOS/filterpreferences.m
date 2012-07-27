@@ -33,7 +33,7 @@
     
     if (cell == nil)
 	{
-		cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         if ([indexPath section] == 0) {
              UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(210, 13, 185, 30)];
@@ -151,8 +151,8 @@
     [arrayPeriods addObject:@"Days"];
     [arrayPeriods addObject:@"Weeks"];
 	
-    [keys release], keys = nil;
-    [contents release], contents = nil;
+    //[keys release], keys = nil;
+    //[contents release], contents = nil;
     
 }
 

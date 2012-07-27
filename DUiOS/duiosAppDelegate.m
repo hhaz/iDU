@@ -10,6 +10,7 @@
 #import "ManageDefaults.h"
 #import "WebServiceConnection.h"
 
+
 @implementation duiosAppDelegate
 
 @synthesize window = _window;
@@ -22,11 +23,12 @@
 @synthesize tbController;
 @synthesize args;
 @synthesize isRemoteNotif;
+@synthesize connection;
 
 - (void)dealloc
 {
-    [_window release];
-    [super dealloc];
+    //[_window release];
+    //[super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -77,14 +79,14 @@
     [self setStatusKeys:keys];
     [self setContentStatus:contents];
 	
-    [keys release], keys = nil;
-    [contents release], contents = nil;
+    //[keys release], keys = nil;
+    //[contents release], contents = nil;
     
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
     
-    WebServiceConnection *connection = [[WebServiceConnection alloc]init];
+    connection = [[WebServiceConnection alloc]init];
     
     if(!isConnected)
     {    

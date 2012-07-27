@@ -12,21 +12,21 @@
 #import "ActivityAlertView.h"
 
 @implementation WebServiceConnection
-@synthesize bindingAddress,theContext,myNodeView,appDelegate;
-
+@synthesize bindingAddress,theContext,myNodeView;
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     switch (alertView.tag) {
         case 1: // Try to connect to the Web Service
         if (buttonIndex == 1)
         {           
             // Show the alert
-            ActivityAlertView *activityAlert = [[[ActivityAlertView alloc] 
+            ActivityAlertView *activityAlert = [[ActivityAlertView alloc]
                                                  initWithTitle:@"Connecting"
                                                  message:@"Please wait..."
-                                                 delegate:self cancelButtonTitle:nil 
-                                                 otherButtonTitles:nil] autorelease];                                    
+                                                 delegate:nil cancelButtonTitle:nil
+                                                 otherButtonTitles:nil];                                    
             [activityAlert show];
             
             // Check connection values
@@ -61,7 +61,7 @@
             {
                 [activityAlert close];
                 
-                UIAlertView *alert = [[[UIAlertView alloc] initWithTitle:@"Connection Error" message:[NSString stringWithFormat:@"%@%@",incorrectField, @" cannot be empty"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil] autorelease];
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:[NSString stringWithFormat:@"%@%@",incorrectField, @" cannot be empty"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
                 [alert show];
                 return;
             }
@@ -206,7 +206,7 @@
 
 -(void)TryConnection:(UITableView *)nodeView
 {
-    appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     UIAlertView *messageBox = [[UIAlertView alloc] initWithTitle:@"Credentials" message:@"Enter UVMS User & Password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     messageBox.tag = 1;
@@ -219,8 +219,6 @@
     myNodeView = nodeView;
     
     [messageBox show];
-    
-    
 }
 
 

@@ -40,8 +40,8 @@
 
 -(void)dealloc
 {
-	[plotData release];
-	[super dealloc];
+	//[plotData release];
+	//[super dealloc];
 }
 
 -(void)generateData
@@ -58,7 +58,7 @@
 
     layerView = layerHostingView;
     
-	CPTGraph *graph = [[[CPTXYGraph alloc] initWithFrame:bounds] autorelease];
+	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:bounds];
 	[self addGraph:graph toHostingView:layerHostingView];
 	[self applyTheme:theme toGraph:graph withDefault:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
 
@@ -93,7 +93,7 @@
 	graph.axisSet = nil;
 
 	// Overlay gradient for pie chart
-	CPTGradient *overlayGradient = [[[CPTGradient alloc] init] autorelease];
+	CPTGradient *overlayGradient = [[CPTGradient alloc] init];
 	overlayGradient.gradientType = CPTGradientTypeRadial;
 	overlayGradient				 = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.0] atPosition:0.0];
 	overlayGradient				 = [overlayGradient addColorStop:[[CPTColor blackColor] colorWithAlphaComponent:0.3] atPosition:0.9];
@@ -111,7 +111,7 @@
 
 	piePlot.delegate = self;
 	[graph addPlot:piePlot];
-	[piePlot release];
+	//[piePlot release];
 
 	// Add legend
 	CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];
@@ -175,8 +175,8 @@
 		whiteText.color = [CPTColor blackColor];
 	}
 
-	CPTTextLayer *newLayer = [[[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%3.0f", [[plotData objectAtIndex:index] floatValue]]
-														   style:whiteText] autorelease];
+	CPTTextLayer *newLayer = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%3.0f", [[plotData objectAtIndex:index] floatValue]]
+														   style:whiteText];
 	return newLayer;
 }
 

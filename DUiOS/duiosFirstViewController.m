@@ -9,7 +9,6 @@
 #import "duiosFirstViewController.h"
 #import "DuWebServiceSvc.h"
 #import "duiosAppDelegate.h"
-#import "WebServiceConnection.h"
 #import "computePeriod.h"
 #import "ActivityAlertView.h"
 #import "joblog.h"
@@ -33,7 +32,7 @@
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];	
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
@@ -65,11 +64,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     computePeriod *computeDate = [[computePeriod alloc] init];
     
     // Show the alert
-    ActivityAlertView *activityAlert = [[[ActivityAlertView alloc] 
+    ActivityAlertView *activityAlert = [[ActivityAlertView alloc]
                                          initWithTitle:@"Retrieving Information"
                                          message:@"Please wait..."
                                          delegate:self cancelButtonTitle:nil 
-                                         otherButtonTitles:nil] autorelease];                                    
+                                         otherButtonTitles:nil];                                    
     [activityAlert show];
     
     [computeDate compute];
@@ -207,14 +206,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     controller = [self.tabBarController.viewControllers  objectAtIndex:1];
     
     aSecondController = [controller.childViewControllers objectAtIndex:0];
-    
-    /*WebServiceConnection *connection = [[WebServiceConnection alloc]init];
-    
-    if(!appDelegate.isConnected)
-    {    
-        [connection TryConnection:theNodes];
-    }
-     */
     
 	// Do any additional setup after loading the view, typically from a nib.
 }

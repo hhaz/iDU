@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "DuWebServiceSvc.h"
+#import "WebServiceConnection.h"
 
 @interface duiosAppDelegate : UIResponder <UIApplicationDelegate>
 {
@@ -38,6 +39,9 @@
 @property (nonatomic, retain) NSMutableDictionary *contentStatus;
 @property (nonatomic, retain) NSMutableArray *statusKeys;
 @property (nonatomic, retain) UITabBarController *tbController;
+
+@property (nonatomic, retain) WebServiceConnection *connection;
+
 
 @property (nonatomic, retain) NSArray *args;
 @property (nonatomic) Boolean isRemoteNotif;
