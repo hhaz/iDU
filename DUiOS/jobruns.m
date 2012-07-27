@@ -3,7 +3,7 @@
 //  DUiOS
 //
 //  Created by Hervé Azoulay on 30/01/12.
-//  Copyright (c) 2012 ORSYP. All rights reserved.
+//  Copyright (c) 2012 Hervé Azoulay. All rights reserved.
 //
 
 #import "jobruns.h"
