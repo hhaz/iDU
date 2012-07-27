@@ -413,7 +413,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         NSDate *date = [appDelegate.periodArray objectAtIndex:i];
    
         NSMutableArray *temp = [[NSMutableArray alloc] init];
-        NSDate *nextDate = [[NSDate alloc] init];
+        NSDate *nextDate; 
         
         if([date isEqualToDate:[appDelegate.periodArray lastObject]])
         {

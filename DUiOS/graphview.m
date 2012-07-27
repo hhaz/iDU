@@ -98,10 +98,6 @@
     NSInteger nbPending     = 0;
     NSInteger nbRunning     = 0;
     NSInteger nbLaunchWait  = 0;
-    
-    UINavigationController *controller = [[UINavigationController alloc] init ];
-    
-    controller = [self.tabBarController.viewControllers objectAtIndex:1];
 
     SimplePieChart *plotItem = (SimplePieChart *)[[PlotGallery sharedPlotGallery] objectAtIndex:0];
     

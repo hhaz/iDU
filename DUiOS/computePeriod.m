@@ -45,7 +45,7 @@
     refDay = [refDay dateByAddingTimeInterval:delayGMT];
 
     
-    NSDate *newDate = [[NSDate alloc] init];
+    NSDate *newDate;
    
     NSTimeInterval delay;
     

@@ -37,8 +37,8 @@
     }
     
     // Configure the cell.
-    NSString *nodeItem = [[NSString alloc]init];
-    nodeItem = [appDelegate.nodeList objectAtIndex: [indexPath row]];
+    //NSString *nodeItem = [[NSString alloc]init];
+    NSString *nodeItem  = [appDelegate.nodeList objectAtIndex: [indexPath row]];
     cell.textLabel.text = nodeItem;
     UIImage *tableImage = [UIImage imageNamed:@"DU.png"]; 
     [cell.imageView setImage:tableImage]; 
@@ -201,9 +201,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.tbController = self.tabBarController;
     
-    UINavigationController *controller = [[UINavigationController alloc] init ];
-    
-    controller = [self.tabBarController.viewControllers  objectAtIndex:1];
+   UINavigationController *controller = [self.tabBarController.viewControllers  objectAtIndex:1];
     
     aSecondController = [controller.childViewControllers objectAtIndex:0];
     

@@ -161,9 +161,7 @@
     
     args = [[NSArray alloc] initWithArray:[[[userInfo objectForKey:@"aps"] objectForKey:@"alert"] objectForKey:@"loc-args"]];
     
-    UINavigationController *controller = [[UINavigationController alloc] init ];
-    
-    controller = [tbController.viewControllers  objectAtIndex:0];
+     UINavigationController *controller = [tbController.viewControllers  objectAtIndex:0];
     
     tbController.selectedViewController = controller;
     
