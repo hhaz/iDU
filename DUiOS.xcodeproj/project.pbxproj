@@ -22,13 +22,13 @@
 		633DF776150BC60C000B9B54 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 633DF774150BC5B3000B9B54 /* libCorePlot-CocoaTouch.a */; };
 		633DF778150BC91D000B9B54 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633DF777150BC91D000B9B54 /* QuartzCore.framework */; };
 		63412DA81583D73400C8768B /* WebServiceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 63412DA71583D73400C8768B /* WebServiceConnection.m */; };
-		634C8CC114E6B14200CCF1EA /* ActivityAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8CC014E6B14200CCF1EA /* ActivityAlertView.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
+		634C8CC114E6B14200CCF1EA /* ActivityAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8CC014E6B14200CCF1EA /* ActivityAlertView.m */; };
 		63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 6312DAAB15A0A49100F46301 /* DollarURetina.png */; };
 		63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63572CAA15B37EE0005F1E3A /* Localizable.strings */; };
-		6369169D14F978DC00C92B23 /* graphview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369169C14F978DC00C92B23 /* graphview.m */; };
+		6369169D14F978DC00C92B23 /* graphview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369169C14F978DC00C92B23 /* graphview.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		636DF69714D5C4DB009C93FF /* dollaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 636DF69614D5C4DB009C93FF /* dollaru.png */; };
-		638EE93C150BCC50006B10C1 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93B150BCC50006B10C1 /* PlotItem.m */; };
-		638EE93F150BCC70006B10C1 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93E150BCC70006B10C1 /* PlotGallery.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
+		638EE93C150BCC50006B10C1 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93B150BCC50006B10C1 /* PlotItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		638EE93F150BCC70006B10C1 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93E150BCC70006B10C1 /* PlotGallery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		638EE942150BDE6E006B10C1 /* SimplePieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE941150BDE6E006B10C1 /* SimplePieChart.m */; };
 		639DA1C414D4494500EA3372 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C314D4494500EA3372 /* UIKit.framework */; };
 		639DA1C614D4494500EA3372 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C514D4494500EA3372 /* Foundation.framework */; };
@@ -55,12 +55,12 @@
 		63DB3F0C14EFACEB00D30319 /* joblog.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DB3F0B14EFACEB00D30319 /* joblog.m */; };
 		63DFF031158D03B3004061CE /* computePeriod.m in Sources */ = {isa = PBXBuildFile; fileRef = 63DFF030158D03B3004061CE /* computePeriod.m */; };
 		63E0CEFC151E8ACC00CDE588 /* DU.png in Resources */ = {isa = PBXBuildFile; fileRef = 63E0CEFB151E8ACC00CDE588 /* DU.png */; };
-		63E9D5801576BA9300F59C97 /* DuWebServiceSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D5751576BA9300F59C97 /* DuWebServiceSvc.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
-		63E9D5811576BA9300F59C97 /* NSDate+ISO8601Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D5771576BA9300F59C97 /* NSDate+ISO8601Parsing.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
-		63E9D5821576BA9300F59C97 /* NSDate+ISO8601Unparsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D5791576BA9300F59C97 /* NSDate+ISO8601Unparsing.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
-		63E9D5831576BA9300F59C97 /* USAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D57B1576BA9300F59C97 /* USAdditions.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
-		63E9D5841576BA9300F59C97 /* USGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D57D1576BA9300F59C97 /* USGlobals.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
-		63E9D5851576BA9300F59C97 /* xs.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D57F1576BA9300F59C97 /* xs.m */; settings = {COMPILER_FLAGS = "-fno-obcj-arc"; }; };
+		63E9D5801576BA9300F59C97 /* DuWebServiceSvc.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D5751576BA9300F59C97 /* DuWebServiceSvc.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		63E9D5811576BA9300F59C97 /* NSDate+ISO8601Parsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D5771576BA9300F59C97 /* NSDate+ISO8601Parsing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		63E9D5821576BA9300F59C97 /* NSDate+ISO8601Unparsing.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D5791576BA9300F59C97 /* NSDate+ISO8601Unparsing.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		63E9D5831576BA9300F59C97 /* USAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D57B1576BA9300F59C97 /* USAdditions.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		63E9D5841576BA9300F59C97 /* USGlobals.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D57D1576BA9300F59C97 /* USGlobals.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		63E9D5851576BA9300F59C97 /* xs.m in Sources */ = {isa = PBXBuildFile; fileRef = 63E9D57F1576BA9300F59C97 /* xs.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		63EAEE2A14EFEB97008517FE /* joblogdetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EAEE2914EFEB97008517FE /* joblogdetails.m */; };
 		63EE8B77159F869100B53EAE /* carat-open.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EE8B75159F869100B53EAE /* carat-open.png */; };
 		63EE8B78159F869100B53EAE /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EE8B76159F869100B53EAE /* carat.png */; };
@@ -680,7 +680,7 @@
 		639DA1E914D4494500EA3372 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
@@ -717,7 +717,7 @@
 		639DA1EA14D4494500EA3372 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CLANG_ENABLE_OBJC_ARC = NO;
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
