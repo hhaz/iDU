@@ -40,8 +40,7 @@
 
 -(void)dealloc
 {
-	//[plotData release];
-	//[super dealloc];
+
 }
 
 -(void)generateData
@@ -111,7 +110,6 @@
 
 	piePlot.delegate = self;
 	[graph addPlot:piePlot];
-	//[piePlot release];
 
 	// Add legend
 	CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];

@@ -248,9 +248,7 @@ titleForHeaderInSection:(NSInteger)section
  	
     [self setSectionKeys:keys];
     [self setContentsList:contents];
-	
-    //[keys release], keys = nil;
-    //[contents release], contents = nil;
+
 }
 
 

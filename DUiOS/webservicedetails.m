@@ -53,8 +53,6 @@
     
     aSettings = [self.navigationController.viewControllers  objectAtIndex:0];
     
-    //[keys release], keys = nil;
-    //[contents release], contents = nil;
 }
 
 - (void)viewDidUnload

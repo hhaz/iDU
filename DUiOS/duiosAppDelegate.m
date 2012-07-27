@@ -27,8 +27,7 @@
 
 - (void)dealloc
 {
-    //[_window release];
-    //[super dealloc];
+ 
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -78,10 +77,7 @@
 	
     [self setStatusKeys:keys];
     [self setContentStatus:contents];
-	
-    //[keys release], keys = nil;
-    //[contents release], contents = nil;
-    
+	    
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];

@@ -150,10 +150,7 @@
     [arrayPeriods addObject:@"Hours"];
     [arrayPeriods addObject:@"Days"];
     [arrayPeriods addObject:@"Weeks"];
-	
-    //[keys release], keys = nil;
-    //[contents release], contents = nil;
-    
+	    
 }
 
 - (void)viewDidUnload

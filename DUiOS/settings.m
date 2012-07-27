@@ -271,8 +271,6 @@
     [self setSectionKeys:keys];
     [self setContentsList:contents];
 	
-    //[keys release], keys = nil;
-    //[contents release], contents = nil;
     
     arrayArea = [[NSMutableArray alloc] init];
     [arrayArea addObject:@"X"];
