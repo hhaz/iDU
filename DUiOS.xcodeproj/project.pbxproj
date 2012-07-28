@@ -681,7 +681,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -703,7 +703,7 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03A2CA6E-F35C-48E8-8031-67F2D5359D59";
+				PROVISIONING_PROFILE = "E7FC2C2E-7C59-4D9B-8D3F-FD257B03D0B4";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
 				WARNING_LDFLAGS = (
@@ -718,7 +718,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -740,7 +740,7 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "03A2CA6E-F35C-48E8-8031-67F2D5359D59";
+				PROVISIONING_PROFILE = "E7FC2C2E-7C59-4D9B-8D3F-FD257B03D0B4";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
 				WARNING_LDFLAGS = (
