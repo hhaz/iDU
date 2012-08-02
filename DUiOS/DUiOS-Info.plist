@@ -11,7 +11,7 @@
 	<key>CFBundleIconFiles</key>
 	<array>
 		<string>DollarU.png</string>
-		<string>dollaru2.png</string>
+		<string>DollarU.png</string>
 		<string>DollarU.png</string>
 		<string>DollarURetina.png</string>
 	</array>
@@ -21,9 +21,9 @@
 		<dict>
 			<key>CFBundleIconFiles</key>
 			<array>
-				<string>DollarU.png</string>
-				<string>dollaru2.png</string>
-				<string>DollarU.png</string>
+				<string>dollaru.png</string>
+				<string>dollaru.png</string>
+				<string>dollaru.png</string>
 				<string>DollarURetina.png</string>
 			</array>
 		</dict>
