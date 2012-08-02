@@ -3,6 +3,90 @@
 #if TARGET_OS_IPHONE
 #import <CFNetwork/CFNetwork.h>
 #endif
+DuWebServiceSvc_envirStatus DuWebServiceSvc_envirStatus_enumFromString(NSString *string)
+{
+	if([string isEqualToString:@"CONNECTING"]) {
+		return DuWebServiceSvc_envirStatus_CONNECTING;
+	}
+	if([string isEqualToString:@"CONNECTED"]) {
+		return DuWebServiceSvc_envirStatus_CONNECTED;
+	}
+	if([string isEqualToString:@"FAILED"]) {
+		return DuWebServiceSvc_envirStatus_FAILED;
+	}
+	if([string isEqualToString:@"BROKEN"]) {
+		return DuWebServiceSvc_envirStatus_BROKEN;
+	}
+	if([string isEqualToString:@"STOPPED"]) {
+		return DuWebServiceSvc_envirStatus_STOPPED;
+	}
+	if([string isEqualToString:@"UNREACHABLE"]) {
+		return DuWebServiceSvc_envirStatus_UNREACHABLE;
+	}
+	if([string isEqualToString:@"NODE_UNREACHABLE"]) {
+		return DuWebServiceSvc_envirStatus_NODE_UNREACHABLE;
+	}
+	if([string isEqualToString:@"IO_UNREACHABLE"]) {
+		return DuWebServiceSvc_envirStatus_IO_UNREACHABLE;
+	}
+	if([string isEqualToString:@"CONNECTED_WARNING"]) {
+		return DuWebServiceSvc_envirStatus_CONNECTED_WARNING;
+	}
+	if([string isEqualToString:@"UNKNOWN"]) {
+		return DuWebServiceSvc_envirStatus_UNKNOWN;
+	}
+	if([string isEqualToString:@"NO_UPWARDS_MESSAGE"]) {
+		return DuWebServiceSvc_envirStatus_NO_UPWARDS_MESSAGE;
+	}
+	if([string isEqualToString:@"BEING_COMPUTED"]) {
+		return DuWebServiceSvc_envirStatus_BEING_COMPUTED;
+	}
+	
+	return DuWebServiceSvc_envirStatus_none;
+}
+NSString * DuWebServiceSvc_envirStatus_stringFromEnum(DuWebServiceSvc_envirStatus enumValue)
+{
+	switch (enumValue) {
+		case DuWebServiceSvc_envirStatus_CONNECTING:
+			return @"CONNECTING";
+			break;
+		case DuWebServiceSvc_envirStatus_CONNECTED:
+			return @"CONNECTED";
+			break;
+		case DuWebServiceSvc_envirStatus_FAILED:
+			return @"FAILED";
+			break;
+		case DuWebServiceSvc_envirStatus_BROKEN:
+			return @"BROKEN";
+			break;
+		case DuWebServiceSvc_envirStatus_STOPPED:
+			return @"STOPPED";
+			break;
+		case DuWebServiceSvc_envirStatus_UNREACHABLE:
+			return @"UNREACHABLE";
+			break;
+		case DuWebServiceSvc_envirStatus_NODE_UNREACHABLE:
+			return @"NODE_UNREACHABLE";
+			break;
+		case DuWebServiceSvc_envirStatus_IO_UNREACHABLE:
+			return @"IO_UNREACHABLE";
+			break;
+		case DuWebServiceSvc_envirStatus_CONNECTED_WARNING:
+			return @"CONNECTED_WARNING";
+			break;
+		case DuWebServiceSvc_envirStatus_UNKNOWN:
+			return @"UNKNOWN";
+			break;
+		case DuWebServiceSvc_envirStatus_NO_UPWARDS_MESSAGE:
+			return @"NO_UPWARDS_MESSAGE";
+			break;
+		case DuWebServiceSvc_envirStatus_BEING_COMPUTED:
+			return @"BEING_COMPUTED";
+			break;
+		default:
+			return @"";
+	}
+}
 @implementation DuWebServiceSvc_envir
 - (id)init
 {
@@ -10,6 +94,8 @@
 		company = 0;
 		node_ = 0;
 		area = 0;
+		status = 0;
+		version = 0;
 	}
 	
 	return self;
@@ -19,6 +105,7 @@
 	if(company != nil) [company release];
 	if(node_ != nil) [node_ release];
 	if(area != nil) [area release];
+	if(version != nil) [version release];
 	
 	[super dealloc];
 }
@@ -63,11 +150,19 @@
 	if(self.area != 0) {
 		xmlAddChild(node, [self.area xmlNodeForDoc:node->doc elementName:@"area" elementNSPrefix:@"DuWebServiceSvc"]);
 	}
+	if(self.status != 0) {
+		xmlNewChild(node, NULL, (const xmlChar*)"DuWebServiceSvc:status", [DuWebServiceSvc_envirStatus_stringFromEnum(self.status) xmlString]);
+	}
+	if(self.version != 0) {
+		xmlAddChild(node, [self.version xmlNodeForDoc:node->doc elementName:@"version" elementNSPrefix:@"DuWebServiceSvc"]);
+	}
 }
 /* elements */
 @synthesize company;
 @synthesize node_;
 @synthesize area;
+@synthesize status;
+@synthesize version;
 /* attributes */
 - (NSDictionary *)attributes
 {
@@ -199,6 +294,44 @@
 				id newChild = [elementClass deserializeNode:cur];
 				
 				self.area = newChild;
+			}
+			if(xmlStrEqual(cur->name, (const xmlChar *) "status")) {
+				
+				DuWebServiceSvc_envirStatus enumRepresentation = DuWebServiceSvc_envirStatus_enumFromString(elementString);
+				self.status = enumRepresentation;
+			}
+			if(xmlStrEqual(cur->name, (const xmlChar *) "version")) {
+				
+				Class elementClass = nil;
+				xmlChar *instanceType = xmlGetNsProp(cur, (const xmlChar *) "type", (const xmlChar *) "http://www.w3.org/2001/XMLSchema-instance");
+				if(instanceType == NULL) {
+					elementClass = [NSString  class];
+				} else {
+					NSString *elementTypeString = [NSString stringWithCString:(char*)instanceType encoding:NSUTF8StringEncoding];
+					
+					NSArray *elementTypeArray = [elementTypeString componentsSeparatedByString:@":"];
+					
+					NSString *elementClassString = nil;
+					if([elementTypeArray count] > 1) {
+						NSString *prefix = [elementTypeArray objectAtIndex:0];
+						NSString *localName = [elementTypeArray objectAtIndex:1];
+						
+						xmlNsPtr elementNamespace = xmlSearchNs(cur->doc, cur, [prefix xmlString]);
+						
+						NSString *standardPrefix = [[USGlobals sharedInstance].wsdlStandardNamespaces objectForKey:[NSString stringWithCString:(char*)elementNamespace->href encoding:NSUTF8StringEncoding]];
+						
+						elementClassString = [NSString stringWithFormat:@"%@_%@", standardPrefix, localName];
+					} else {
+						elementClassString = [elementTypeString stringByReplacingOccurrencesOfString:@":" withString:@"_" options:0 range:NSMakeRange(0, [elementTypeString length])];
+					}
+					
+					elementClass = NSClassFromString(elementClassString);
+					xmlFree(instanceType);
+				}
+				
+				id newChild = [elementClass deserializeNode:cur];
+				
+				self.version = newChild;
 			}
 		}
 	}
@@ -28552,7 +28685,7 @@
 }
 + (DuWebServiceSoapBinding *)DuWebServiceSoapBinding
 {
-	return [[[DuWebServiceSoapBinding alloc] initWithAddress:@"http://192.168.0.7:8080/du6ws/DuwsSEI"] autorelease];
+	return [[[DuWebServiceSoapBinding alloc] initWithAddress:@"http://192.168.0.6:8080/du6ws/DuwsSEI"] autorelease];
 }
 @end
 @implementation DuWebServiceSoapBinding

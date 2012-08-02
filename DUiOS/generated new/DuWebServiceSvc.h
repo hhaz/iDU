@@ -154,12 +154,31 @@
 @class DuWebServiceSvc_nodeId;
 @class DuWebServiceSvc_DuwsException;
 @class DuWebServiceSvc_SessionTimedOutException;
+typedef enum {
+	DuWebServiceSvc_envirStatus_none = 0,
+	DuWebServiceSvc_envirStatus_CONNECTING,
+	DuWebServiceSvc_envirStatus_CONNECTED,
+	DuWebServiceSvc_envirStatus_FAILED,
+	DuWebServiceSvc_envirStatus_BROKEN,
+	DuWebServiceSvc_envirStatus_STOPPED,
+	DuWebServiceSvc_envirStatus_UNREACHABLE,
+	DuWebServiceSvc_envirStatus_NODE_UNREACHABLE,
+	DuWebServiceSvc_envirStatus_IO_UNREACHABLE,
+	DuWebServiceSvc_envirStatus_CONNECTED_WARNING,
+	DuWebServiceSvc_envirStatus_UNKNOWN,
+	DuWebServiceSvc_envirStatus_NO_UPWARDS_MESSAGE,
+	DuWebServiceSvc_envirStatus_BEING_COMPUTED,
+} DuWebServiceSvc_envirStatus;
+DuWebServiceSvc_envirStatus DuWebServiceSvc_envirStatus_enumFromString(NSString *string);
+NSString * DuWebServiceSvc_envirStatus_stringFromEnum(DuWebServiceSvc_envirStatus enumValue);
 @interface DuWebServiceSvc_envir : NSObject {
 	
 /* elements */
 	NSString * company;
 	NSString * node_;
 	NSString * area;
+	DuWebServiceSvc_envirStatus status;
+	NSString * version;
 /* attributes */
 }
 - (NSString *)nsPrefix;
@@ -173,6 +192,8 @@
 @property (retain) NSString * company;
 @property (retain) NSString * node_;
 @property (retain) NSString * area;
+@property (assign) DuWebServiceSvc_envirStatus status;
+@property (retain) NSString * version;
 /* attributes */
 - (NSDictionary *)attributes;
 @end
