@@ -156,7 +156,7 @@
                     {
                         if( [s.area isEqualToString:environment.area])
                         {
-                            [returnArray addObject:s.node_];
+                            [returnArray addObject:s];
                         }
                     }
                     
