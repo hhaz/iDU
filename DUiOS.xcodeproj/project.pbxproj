@@ -40,6 +40,7 @@
 		639DA1DA14D4494500EA3372 /* duiosFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1D914D4494500EA3372 /* duiosFirstViewController.m */; };
 		639DA1E114D4494500EA3372 /* duiosSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1E014D4494500EA3372 /* duiosSecondViewController.m */; };
 		639DA1FF14D44C2200EA3372 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1FE14D44C2200EA3372 /* libxml2.dylib */; };
+		63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A92B2F15CB1DF900D03CDF /* DUInactive.png */; };
 		63AF83E614D617DB004A2E3B /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E514D617DB004A2E3B /* preferences.png */; };
 		63AF83E814D617F6004A2E3B /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E714D617F6004A2E3B /* world.png */; };
 		63AF83EA14D61857004A2E3B /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E914D61857004A2E3B /* connections.png */; };
@@ -194,6 +195,7 @@
 		639DA1DF14D4494500EA3372 /* duiosSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = duiosSecondViewController.h; sourceTree = "<group>"; };
 		639DA1E014D4494500EA3372 /* duiosSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = duiosSecondViewController.m; sourceTree = "<group>"; };
 		639DA1FE14D44C2200EA3372 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		63A92B2F15CB1DF900D03CDF /* DUInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DUInactive.png; sourceTree = "<group>"; };
 		63AF83E514D617DB004A2E3B /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 		63AF83E714D617F6004A2E3B /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
 		63AF83E914D61857004A2E3B /* connections.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = connections.png; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				63E0CEFB151E8ACC00CDE588 /* DU.png */,
 				63D3756314DD51E10064CB02 /* arrowup.png */,
 				636DF69614D5C4DB009C93FF /* dollaru.png */,
+				63A92B2F15CB1DF900D03CDF /* DUInactive.png */,
 				6320045314E9D866006E2FFA /* ko.png */,
 				6320045614E9D879006E2FFA /* ok.png */,
 				630D3C9814D9FA53001E5224 /* dollaru3.png */,
@@ -571,6 +574,7 @@
 				632CE31215A23B3F002FCFAE /* emergency.m4a in Resources */,
 				63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */,
 				63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */,
+				63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -681,7 +685,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -703,7 +707,7 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E7FC2C2E-7C59-4D9B-8D3F-FD257B03D0B4";
+				PROVISIONING_PROFILE = "03A2CA6E-F35C-48E8-8031-67F2D5359D59";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
 				WARNING_LDFLAGS = (
@@ -718,7 +722,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/DUiOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -740,7 +744,7 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "E7FC2C2E-7C59-4D9B-8D3F-FD257B03D0B4";
+				PROVISIONING_PROFILE = "03A2CA6E-F35C-48E8-8031-67F2D5359D59";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
 				WARNING_LDFLAGS = (
