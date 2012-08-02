@@ -33,15 +33,30 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
     }
     
     // Configure the cell.
-    //NSString *nodeItem = [[NSString alloc]init];
-    NSString *nodeItem  = [appDelegate.nodeList objectAtIndex: [indexPath row]];
+    DuWebServiceSvc_envir *node = [appDelegate.nodeList objectAtIndex: [indexPath row]];
+    DuWebServiceSvc_envirStatus status = node.status;
+    NSString *imageFile = [[NSString alloc]init];
+    NSString *nodeItem  = node.node_;
     cell.textLabel.text = nodeItem;
-    UIImage *tableImage = [UIImage imageNamed:@"DU.png"]; 
-    [cell.imageView setImage:tableImage]; 
+    
+    if(status == DuWebServiceSvc_envirStatus_CONNECTED)
+    {
+        imageFile = @"DU.png";
+        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+    }
+    else
+    {
+        imageFile = @"DUInactive.png";
+        cell.accessoryType = UITableViewCellAccessoryNone;
+        cell.userInteractionEnabled = NO;
+        cell.textLabel.textColor = [UIColor darkGrayColor];
+    }
+    
+    UIImage *tableImage = [UIImage imageNamed:imageFile];
+    [cell.imageView setImage:tableImage];
     CGSize imageSize = CGSizeMake(25,25);	
     UIGraphicsBeginImageContext(imageSize); 
     CGRect imageRect = CGRectMake(1.0, 0.5, imageSize.width, imageSize.height); 
