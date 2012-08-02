@@ -146,10 +146,31 @@
             node.text = appDelegate.area;
             theSpace = node;
         }
+
         [node addTarget:self 
                  action:@selector(removeKeyBoard:)
        forControlEvents:UIControlEventEditingDidEndOnExit];
         [cell addSubview:node];
+    }
+        
+    if ([indexPath section] == 4)
+    {
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(30, 10, 270, 30)];
+        textField.adjustsFontSizeToFitWidth = YES;
+        textField.textColor = [UIColor blackColor];
+        textField.keyboardType = UIKeyboardTypeURL;
+        textField.returnKeyType = UIReturnKeyDefault;
+
+        NSString *dToken = [[appDelegate.tokenDevice description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        dToken = [dToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+        
+        textField.text = dToken;
+
+        textField.clearButtonMode = UITextFieldViewModeWhileEditing;
+        [textField addTarget:self
+                 action:@selector(removeKeyBoard:)
+       forControlEvents:UIControlEventEditingDidEndOnExit];
+        [cell addSubview:textField];
     }
 
 	[[cell textLabel] setText:contentForThisRow];
@@ -257,16 +278,29 @@
     NSString *url = @"Web Service URL";
     NSString *uvms = @"UVMS";
     NSString *nodeInfo = @"Node Information";
+    NSString *tokenInfo = @"Notification Device Token";
 	
     [contents setObject:[NSArray arrayWithObject:@"Not connected"] forKey:status];
     [contents setObject:[NSArray arrayWithObject:@"URL"] forKey:url];
     [contents setObject:[NSArray arrayWithObjects:@"Mgt server", @"Port", @"User Name", nil] forKey:uvms];
     [contents setObject:[NSArray arrayWithObjects:@"Company", @"Area", nil] forKey:nodeInfo];
+    [contents setObject:[NSArray arrayWithObject:@""] forKey:tokenInfo];
+   /* if(appDelegate.tokenDevice != nil)
+    {
+        NSString *dToken = [[appDelegate.tokenDevice description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+        dToken = [dToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+        [contents setObject:[NSArray arrayWithObject:dToken] forKey:tokenInfo];
+    }
+    else
+    {
+        [contents setObject:[NSArray arrayWithObject:@""] forKey:tokenInfo];
+    }*/
 	
     [keys addObject:status];
     [keys addObject:url];
     [keys addObject:uvms];
     [keys addObject:nodeInfo];
+    [keys addObject:tokenInfo];
 	
     [self setSectionKeys:keys];
     [self setContentsList:contents];
