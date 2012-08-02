@@ -30,6 +30,7 @@
 @property (nonatomic, retain) NSString *period;
 @property (nonatomic, retain) NSString *nbPeriods;
 @property (nonatomic, retain) NSString *nbJobs;
+@property (nonatomic, retain) NSData *tokenDevice;
 @property (nonatomic) Boolean isConnected;
 @property (nonatomic, retain) DuWebServiceSvc_contextHolder *theContext;
 @property (nonatomic, retain) NSMutableArray *periodArray;

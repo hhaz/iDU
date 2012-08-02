@@ -24,6 +24,7 @@
 @synthesize args;
 @synthesize isRemoteNotif;
 @synthesize connection;
+@synthesize tokenDevice;
 
 - (void)dealloc
 {
@@ -142,11 +143,15 @@
 - (void)application:(UIApplication*)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData*)deviceToken
 {
 	NSLog(@"My token is: %@", deviceToken);
+    
+    tokenDevice = deviceToken;
 }
 
 - (void)application:(UIApplication*)application didFailToRegisterForRemoteNotificationsWithError:(NSError*)error
 {
 	NSLog(@"Failed to get token, error: %@", error);
+    
+    tokenDevice = nil;
 }
 
 
