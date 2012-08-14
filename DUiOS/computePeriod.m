@@ -7,7 +7,7 @@
 //
 
 #import "computePeriod.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 
 @implementation computePeriod
 
@@ -22,7 +22,7 @@
 
 -(void)compute
 {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate]; 
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate]; 
     
     [appDelegate.periodArray removeAllObjects];
     

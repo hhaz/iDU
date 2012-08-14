@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 
 @interface ManageDefaults : UIView
 

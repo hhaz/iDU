@@ -8,7 +8,7 @@
 
 #import "graphview.h"
 #import "DuWebServiceSvc.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 #import "SimplePieChart.h"
 #import "PlotItem.h"
 #import "jobruns.h"

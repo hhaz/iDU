@@ -7,7 +7,7 @@
 //
 
 #import "filterpreferences.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 #import "computePeriod.h"
 
 
@@ -29,7 +29,7 @@
     NSString *CellIdentifier = [contents objectAtIndex:[indexPath row]];   
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     if (cell == nil)
 	{
@@ -105,7 +105,7 @@
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
 
     appDelegate.nbJobs = nbJobs.text;
     appDelegate.period = periods.text;

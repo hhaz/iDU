@@ -7,7 +7,7 @@
 //
 
 #import "settings.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 #import "ManageDefaults.h"
 
 @implementation settings
@@ -33,7 +33,7 @@
     NSString *CellIdentifier = [contents objectAtIndex:[indexPath row]];   
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
         
     if(appDelegate.isConnected)
     {
@@ -211,7 +211,7 @@
 
 -(IBAction)TryConnection
 {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     connection = [[WebServiceConnection alloc]init];
     
     appDelegate.uvmsPort    = thePort.text;
@@ -253,7 +253,7 @@
 {
     [super viewDidLoad];
     
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
         
     theCompany.text     = appDelegate.company;
     theSpace.text       = appDelegate.area;
@@ -325,7 +325,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     if(WSURL != @""  && WSURL !=nil)
     {
         theURL.placeholder = @"";
@@ -346,7 +346,7 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.isConnected) {
         connectionStatus.textLabel.text = @"Connected";    
     }

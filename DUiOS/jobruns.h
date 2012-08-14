@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "duiosFirstViewController.h"
+#import "iDUFirstViewController.h"
 #import "graphview.h"
 #import "SectionHeaderView.h"
 
@@ -31,7 +31,7 @@
 @property (nonatomic, retain) NSString *filterStatus;
 @property (nonatomic, retain) NSMutableDictionary *contentsList;
 @property (nonatomic, retain) NSMutableArray *sectionKeys;
-@property (nonatomic, retain) duiosAppDelegate *appDelegate;
+@property (nonatomic, retain) iDUAppDelegate *appDelegate;
 @property (nonatomic, strong) NSMutableArray* sectionInfoArray;
 @property (nonatomic, assign) NSInteger openSectionIndex;
 @property (nonatomic, assign) NSInteger uniformRowHeight;

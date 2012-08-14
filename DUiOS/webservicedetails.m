@@ -8,7 +8,7 @@
 
 #import "webservicedetails.h"
 #import "settings.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 
 @implementation webservicedetails
 @synthesize  contentsList;
@@ -128,7 +128,7 @@ titleForHeaderInSection:(NSInteger)section
     NSArray *contents = [[self contentsList] objectForKey:key];
     NSString *contentForThisRow = [contents objectAtIndex:[indexPath row]];
     
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
 
     
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];

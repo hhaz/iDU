@@ -22,7 +22,7 @@
 
 - (void)loadDefaults
 {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
     appDelegate.uvmsPort    = [defaults objectForKey:@"uvmsPort"];
@@ -49,7 +49,7 @@
 
 - (void)saveDefaults
 {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];

@@ -8,14 +8,14 @@
 
 #import "WebServiceConnection.h"
 #import "DuWebServiceSvc.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 #import "ActivityAlertView.h"
 
 @implementation WebServiceConnection
 @synthesize bindingAddress,theContext,myNodeView;
 
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     switch (alertView.tag) {
         case 1: // Try to connect to the Web Service
@@ -206,7 +206,7 @@
 
 -(void)TryConnection:(UITableView *)nodeView
 {
-    duiosAppDelegate *appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
     UIAlertView *messageBox = [[UIAlertView alloc] initWithTitle:@"Credentials" message:@"Enter UVMS User & Password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     messageBox.tag = 1;

@@ -8,7 +8,7 @@
 
 #import "jobruns.h"
 #import "joblog.h"
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 #import "DuWebServiceSvc.h"
 #import "ActivityAlertView.h"
 #import "computePeriod.h"
@@ -531,7 +531,7 @@ return sectionInfo.headerView;
     filteredLaunchList = [[NSMutableArray alloc] init];
     filteredExecutionList = [[NSMutableArray alloc] init];
     
-    appDelegate = (duiosAppDelegate *)[[UIApplication sharedApplication] delegate];   
+    appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];   
     
     currentLaunch = [[DuWebServiceSvc_launchItem alloc]init];
     currentJob = [[DuWebServiceSvc_executionItem alloc]init];
