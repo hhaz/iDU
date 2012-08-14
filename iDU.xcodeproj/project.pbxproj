@@ -46,6 +46,7 @@
 		63AF83EA14D61857004A2E3B /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E914D61857004A2E3B /* connections.png */; };
 		63AF83EE14D618D1004A2E3B /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83ED14D618D1004A2E3B /* house.png */; };
 		63BB22B014D755A200B7483F /* jobruns.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BB22AF14D755A200B7483F /* jobruns.m */; };
+		63C9E22A15DB1BAB00549A8D /* iDU2.app in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1BF14D4494500EA3372 /* iDU2.app */; };
 		63CEED4A157AA58D00459131 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CEED49157AA58D00459131 /* heart.png */; };
 		63CEED4D157AA60100459131 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CEED4C157AA60100459131 /* filter.png */; };
 		63CEED50157AA86000459131 /* filterpreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CEED4F157AA86000459131 /* filterpreferences.m */; };
@@ -181,7 +182,7 @@
 		638EE93E150BCC70006B10C1 /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
 		638EE940150BDE6E006B10C1 /* SimplePieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePieChart.h; sourceTree = "<group>"; };
 		638EE941150BDE6E006B10C1 /* SimplePieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePieChart.m; sourceTree = "<group>"; };
-		639DA1BF14D4494500EA3372 /* iDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		639DA1BF14D4494500EA3372 /* iDU2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDU2.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		639DA1C314D4494500EA3372 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		639DA1C514D4494500EA3372 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		639DA1C714D4494500EA3372 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -400,7 +401,7 @@
 		639DA1C014D4494500EA3372 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				639DA1BF14D4494500EA3372 /* iDU.app */,
+				639DA1BF14D4494500EA3372 /* iDU2.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -515,7 +516,7 @@
 			);
 			name = iDU;
 			productName = DUiOS;
-			productReference = 639DA1BF14D4494500EA3372 /* iDU.app */;
+			productReference = 639DA1BF14D4494500EA3372 /* iDU2.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -578,6 +579,7 @@
 				63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */,
 				63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */,
 				63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */,
+				63C9E22A15DB1BAB00549A8D /* iDU2.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
