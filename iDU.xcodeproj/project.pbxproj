@@ -27,6 +27,7 @@
 		63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63572CAA15B37EE0005F1E3A /* Localizable.strings */; };
 		6369169D14F978DC00C92B23 /* graphview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369169C14F978DC00C92B23 /* graphview.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		636DF69714D5C4DB009C93FF /* dollaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 636DF69614D5C4DB009C93FF /* dollaru.png */; };
+		6373C4F915DB0C9000FA50C5 /* iDUFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6373C4F815DB0C9000FA50C5 /* iDUFirstViewController.m */; };
 		638EE93C150BCC50006B10C1 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93B150BCC50006B10C1 /* PlotItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		638EE93F150BCC70006B10C1 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93E150BCC70006B10C1 /* PlotGallery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		638EE942150BDE6E006B10C1 /* SimplePieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE941150BDE6E006B10C1 /* SimplePieChart.m */; };
@@ -37,7 +38,6 @@
 		639DA1D014D4494500EA3372 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1CF14D4494500EA3372 /* main.m */; };
 		639DA1D414D4494500EA3372 /* iDUAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1D314D4494500EA3372 /* iDUAppDelegate.m */; };
 		639DA1D714D4494500EA3372 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */; };
-		639DA1DA14D4494500EA3372 /* iDUFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1D914D4494500EA3372 /* iDUFirstViewController.m */; };
 		639DA1E114D4494500EA3372 /* iDUSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1E014D4494500EA3372 /* iDUSecondViewController.m */; };
 		639DA1FF14D44C2200EA3372 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1FE14D44C2200EA3372 /* libxml2.dylib */; };
 		63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A92B2F15CB1DF900D03CDF /* DUInactive.png */; };
@@ -174,6 +174,7 @@
 		6369169C14F978DC00C92B23 /* graphview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphview.m; sourceTree = "<group>"; };
 		636DF69614D5C4DB009C93FF /* dollaru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dollaru.png; path = ../dollaru.png; sourceTree = "<group>"; };
 		6373C4F615DAEF5C00FA50C5 /* iDU copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iDU copy-Info.plist"; path = "/Users/haz/Documents/XCode/DUiOS/iDU copy-Info.plist"; sourceTree = "<absolute>"; };
+		6373C4F815DB0C9000FA50C5 /* iDUFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iDUFirstViewController.m; sourceTree = "<group>"; };
 		638EE93A150BCC50006B10C1 /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
 		638EE93B150BCC50006B10C1 /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
 		638EE93D150BCC70006B10C1 /* PlotGallery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotGallery.h; sourceTree = "<group>"; };
@@ -192,7 +193,6 @@
 		639DA1D314D4494500EA3372 /* iDUAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDUAppDelegate.m; sourceTree = "<group>"; };
 		639DA1D614D4494500EA3372 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/MainStoryboard.storyboard; sourceTree = "<group>"; };
 		639DA1D814D4494500EA3372 /* iDUFirstViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iDUFirstViewController.h; sourceTree = "<group>"; };
-		639DA1D914D4494500EA3372 /* iDUFirstViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDUFirstViewController.m; sourceTree = "<group>"; };
 		639DA1DF14D4494500EA3372 /* iDUSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iDUSecondViewController.h; sourceTree = "<group>"; };
 		639DA1E014D4494500EA3372 /* iDUSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDUSecondViewController.m; sourceTree = "<group>"; };
 		639DA1FE14D44C2200EA3372 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
@@ -457,7 +457,7 @@
 				63D51FE61584DA8500F53449 /* ManageDefaults.h */,
 				63D51FE71584DA8500F53449 /* ManageDefaults.m */,
 				639DA1D814D4494500EA3372 /* iDUFirstViewController.h */,
-				639DA1D914D4494500EA3372 /* iDUFirstViewController.m */,
+				6373C4F815DB0C9000FA50C5 /* iDUFirstViewController.m */,
 				639DA1DF14D4494500EA3372 /* iDUSecondViewController.h */,
 				639DA1E014D4494500EA3372 /* iDUSecondViewController.m */,
 				639DA1CA14D4494500EA3372 /* Supporting Files */,
@@ -590,7 +590,6 @@
 			files = (
 				639DA1D014D4494500EA3372 /* main.m in Sources */,
 				639DA1D414D4494500EA3372 /* iDUAppDelegate.m in Sources */,
-				639DA1DA14D4494500EA3372 /* iDUFirstViewController.m in Sources */,
 				639DA1E114D4494500EA3372 /* iDUSecondViewController.m in Sources */,
 				63BB22B014D755A200B7483F /* jobruns.m in Sources */,
 				63D3756914DD67480064CB02 /* settings.m in Sources */,
@@ -614,6 +613,7 @@
 				63DFF031158D03B3004061CE /* computePeriod.m in Sources */,
 				63EE8B7C159F86CF00B53EAE /* SectionHeaderView.m in Sources */,
 				63EE8B7F159F886900B53EAE /* SectionInfo.m in Sources */,
+				6373C4F915DB0C9000FA50C5 /* iDUFirstViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -645,7 +645,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -661,7 +661,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "03A2CA6E-F35C-48E8-8031-67F2D5359D59";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -672,7 +672,7 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Herve AZOULAY (UBNJQ4PPD7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -682,7 +682,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "03A2CA6E-F35C-48E8-8031-67F2D5359D59";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -692,7 +692,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/iDU-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -729,7 +729,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/iDU-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
