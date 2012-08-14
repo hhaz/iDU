@@ -8,11 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-#import "duiosAppDelegate.h"
+#import "iDUAppDelegate.h"
 
 int main(int argc, char *argv[])
 {
     @autoreleasepool {
-        return UIApplicationMain(argc, argv, nil, NSStringFromClass([duiosAppDelegate class]));
+        return UIApplicationMain(argc, argv, nil, NSStringFromClass([iDUAppDelegate class]));
     }
 }
