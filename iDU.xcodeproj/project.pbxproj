@@ -46,7 +46,6 @@
 		63AF83EA14D61857004A2E3B /* connections.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E914D61857004A2E3B /* connections.png */; };
 		63AF83EE14D618D1004A2E3B /* house.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83ED14D618D1004A2E3B /* house.png */; };
 		63BB22B014D755A200B7483F /* jobruns.m in Sources */ = {isa = PBXBuildFile; fileRef = 63BB22AF14D755A200B7483F /* jobruns.m */; };
-		63C9E22A15DB1BAB00549A8D /* iDU2.app in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1BF14D4494500EA3372 /* iDU2.app */; };
 		63CEED4A157AA58D00459131 /* heart.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CEED49157AA58D00459131 /* heart.png */; };
 		63CEED4D157AA60100459131 /* filter.png in Resources */ = {isa = PBXBuildFile; fileRef = 63CEED4C157AA60100459131 /* filter.png */; };
 		63CEED50157AA86000459131 /* filterpreferences.m in Sources */ = {isa = PBXBuildFile; fileRef = 63CEED4F157AA86000459131 /* filterpreferences.m */; };
@@ -174,7 +173,6 @@
 		6369169B14F978DC00C92B23 /* graphview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphview.h; sourceTree = "<group>"; };
 		6369169C14F978DC00C92B23 /* graphview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphview.m; sourceTree = "<group>"; };
 		636DF69614D5C4DB009C93FF /* dollaru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dollaru.png; path = ../dollaru.png; sourceTree = "<group>"; };
-		6373C4F615DAEF5C00FA50C5 /* iDU copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "iDU copy-Info.plist"; path = "/Users/haz/Documents/XCode/DUiOS/iDU copy-Info.plist"; sourceTree = "<absolute>"; };
 		6373C4F815DB0C9000FA50C5 /* iDUFirstViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = iDUFirstViewController.m; sourceTree = "<group>"; };
 		638EE93A150BCC50006B10C1 /* PlotItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlotItem.h; sourceTree = "<group>"; };
 		638EE93B150BCC50006B10C1 /* PlotItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotItem.m; sourceTree = "<group>"; };
@@ -182,7 +180,7 @@
 		638EE93E150BCC70006B10C1 /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
 		638EE940150BDE6E006B10C1 /* SimplePieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePieChart.h; sourceTree = "<group>"; };
 		638EE941150BDE6E006B10C1 /* SimplePieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePieChart.m; sourceTree = "<group>"; };
-		639DA1BF14D4494500EA3372 /* iDU2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDU2.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		639DA1BF14D4494500EA3372 /* iDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		639DA1C314D4494500EA3372 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		639DA1C514D4494500EA3372 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		639DA1C714D4494500EA3372 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -394,14 +392,13 @@
 				639DA1C914D4494500EA3372 /* iDU */,
 				639DA1C214D4494500EA3372 /* Frameworks */,
 				639DA1C014D4494500EA3372 /* Products */,
-				6373C4F615DAEF5C00FA50C5 /* iDU copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
 		639DA1C014D4494500EA3372 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				639DA1BF14D4494500EA3372 /* iDU2.app */,
+				639DA1BF14D4494500EA3372 /* iDU.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -516,7 +513,7 @@
 			);
 			name = iDU;
 			productName = DUiOS;
-			productReference = 639DA1BF14D4494500EA3372 /* iDU2.app */;
+			productReference = 639DA1BF14D4494500EA3372 /* iDU.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -579,7 +576,6 @@
 				63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */,
 				63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */,
 				63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */,
-				63C9E22A15DB1BAB00549A8D /* iDU2.app in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,8 +643,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Herve AZOULAY";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -663,7 +659,8 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -674,8 +671,8 @@
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = NO;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Herve AZOULAY";
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -684,7 +681,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -694,8 +692,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Herve AZOULAY";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/iDU-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -717,8 +715,8 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
 				WARNING_LDFLAGS = (
@@ -733,8 +731,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CLANG_ENABLE_OBJC_ARC = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Herve AZOULAY";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Herve AZOULAY";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DUiOS/iDU-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -756,8 +754,8 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "";
-				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
 				WARNING_LDFLAGS = (
