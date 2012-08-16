@@ -60,7 +60,12 @@
 	CPTGraph *graph = [[CPTXYGraph alloc] initWithFrame:bounds];
 	[self addGraph:graph toHostingView:layerHostingView];
 	[self applyTheme:theme toGraph:graph withDefault:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
-
+    
+    
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
+    
+    [layerHostingView addGestureRecognizer:tap];
+    
     UISwipeGestureRecognizer *swipeDown =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
     swipeDown.direction =UISwipeGestureRecognizerDirectionDown;    
     [layerHostingView addGestureRecognizer:swipeDown];
@@ -130,6 +135,14 @@
 	graph.legendDisplacement = CGPointMake(-boundsPadding - 10.0, 185.0);
 }
 
+- (void)handleTap:(UITapGestureRecognizer *)gesture {
+    if (gesture.state == UIGestureRecognizerStateEnded) {
+        
+        aGraphView.filterStatus = [plotStatus objectAtIndex:selectedIndex];
+        [aGraphView performSegueWithIdentifier:@"seguejoblist" sender:self];
+    }
+}
+
 - (void)handleSwipe:(UISwipeGestureRecognizer *)recognizer 
 { 
     if(recognizer.direction == UISwipeGestureRecognizerDirectionDown)
@@ -162,8 +175,6 @@
 }
 
 
-
-
 -(CPTLayer *)dataLabelForPlot:(CPTPlot *)plot recordIndex:(NSUInteger)index
 {
 	static CPTMutableTextStyle *whiteText = nil;
@@ -181,7 +192,7 @@
 -(void)pieChart:(CPTPieChart *)plot sliceWasSelectedAtRecordIndex:(NSUInteger)index
 {
 	NSLog(@"Slice was selected at index %d. Value = %f", (int)index, [[plotData objectAtIndex:index] floatValue]);
-    selectedIndex = index;    
+    selectedIndex = index;
 }
 
 -(CPTFill *)sliceFillForPieChart:(CPTPieChart *)pieChart recordIndex:(NSUInteger)index
