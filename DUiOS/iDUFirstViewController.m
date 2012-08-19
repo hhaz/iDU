@@ -85,6 +85,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                                          delegate:self cancelButtonTitle:nil 
                                          otherButtonTitles:nil];                                    
     [activityAlert show];
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     [computeDate compute];
     
@@ -186,6 +187,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         }
     }
     theNode = appDelegate.theContext.context.envir.node_;
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
 
     if (goNext) {
      [self performSegueWithIdentifier:@"seguegraph" sender:cell];

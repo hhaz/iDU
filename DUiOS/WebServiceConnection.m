@@ -28,6 +28,7 @@
                                                  delegate:nil cancelButtonTitle:nil
                                                  otherButtonTitles:nil];                                    
             [activityAlert show];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
             
             // Check connection values
             NSString *incorrectField = [[NSString alloc] init];
@@ -191,6 +192,7 @@
             
             //Remove the alert
             [activityAlert close];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             
         }
         break;
