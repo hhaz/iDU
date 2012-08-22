@@ -53,9 +53,9 @@
     {
         // Minutes. 
          newDate = refDate;
-        [appDelegate.periodArray addObject:newDate];
+         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
         delay = 1 * 60; 
-        for(int i = 1; i < [appDelegate.nbPeriods intValue] ; i++)
+        for(int i = 1; i < [appDelegate.nbPeriods intValue] +1 ; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -67,8 +67,8 @@
         // Hours. 
         newDate = refDate;
         delay = 1 * 60 * 60; 
-        [appDelegate.periodArray addObject:newDate];
-        for(int i = 1; i <[appDelegate.nbPeriods intValue] ; i++)
+         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        for(int i = 1; i <[appDelegate.nbPeriods intValue] +1; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -80,8 +80,8 @@
         // Days.
         newDate = refDay;
         delay = 24 * 60 * 60; 
-        [appDelegate.periodArray addObject:newDate];
-        for(int i = 1; i < [appDelegate.nbPeriods intValue] ; i++)
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        for(int i = 1; i < [appDelegate.nbPeriods intValue] + 1; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];            
@@ -94,8 +94,8 @@
         // Days.
         newDate = refDay;
         delay = 7 * 24 * 60 * 60; 
-        [appDelegate.periodArray addObject:newDate];
-        for(int i = 1; i < [appDelegate.nbPeriods intValue] ; i++)
+         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        for(int i = 1; i < [appDelegate.nbPeriods intValue] +1 ; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
