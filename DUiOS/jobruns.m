@@ -512,7 +512,7 @@ if (!sectionInfo.headerView) {
     
     NSString *tempDate = [dateFormatter stringFromDate:[appDelegate.periodArray objectAtIndex:section]];
     
-    SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
+    //SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     
     NSString *sectionTitle = [NSString stringWithFormat:@"%@%@%d%@", tempDate , @"  -  " , [sectionInfo.jobs count] , @" Jobs"];
     

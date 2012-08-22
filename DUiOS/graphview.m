@@ -145,7 +145,7 @@
                 }
                 
                 
-                if([item.status isEqualToString:@"LAUNCHING"])
+                if([item.status isEqualToString:@"LAUNCH_WAIT"])
                 {
                     nbLaunchWait = nbLaunchWait + 1;
                 }                
@@ -195,7 +195,7 @@
         }
         
         
-        if([item.status isEqualToString:@"LAUNCHING"])
+        if([item.status isEqualToString:@"LAUNCH_WAIT"])
         {
             nbLaunchWait = nbLaunchWait + 1;
         }                
@@ -241,7 +241,7 @@
                           @"REFUSED",
                           @"PENDING",
                           @"RUNNING",
-                          @"LAUNCHING",
+                          @"LAUNCH_WAIT",
                           nil];
     
     plotItem.aGraphView = self;
