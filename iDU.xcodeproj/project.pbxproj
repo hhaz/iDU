@@ -67,6 +67,13 @@
 		63EE8B78159F869100B53EAE /* carat.png in Resources */ = {isa = PBXBuildFile; fileRef = 63EE8B76159F869100B53EAE /* carat.png */; };
 		63EE8B7C159F86CF00B53EAE /* SectionHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE8B7B159F86CF00B53EAE /* SectionHeaderView.m */; };
 		63EE8B7F159F886900B53EAE /* SectionInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 63EE8B7E159F886900B53EAE /* SectionInfo.m */; };
+		63F3EE0815EA5D3D001E08AE /* user.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE0415EA5D3D001E08AE /* user.png */; };
+		63F3EE0915EA5D3D001E08AE /* server.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE0515EA5D3D001E08AE /* server.png */; };
+		63F3EE0A15EA5D3D001E08AE /* port.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE0615EA5D3D001E08AE /* port.png */; };
+		63F3EE0B15EA5D3D001E08AE /* question.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE0715EA5D3D001E08AE /* question.png */; };
+		63F3EE1015EA5E40001E08AE /* URL.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE0F15EA5E40001E08AE /* URL.png */; };
+		63F3EE1215EA5F21001E08AE /* company.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE1115EA5F21001E08AE /* company.png */; };
+		63F3EE1415EA6084001E08AE /* area.png in Resources */ = {isa = PBXBuildFile; fileRef = 63F3EE1315EA6084001E08AE /* area.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -237,6 +244,13 @@
 		63EE8B7B159F86CF00B53EAE /* SectionHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionHeaderView.m; sourceTree = "<group>"; };
 		63EE8B7D159F886900B53EAE /* SectionInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SectionInfo.h; sourceTree = "<group>"; };
 		63EE8B7E159F886900B53EAE /* SectionInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SectionInfo.m; sourceTree = "<group>"; };
+		63F3EE0415EA5D3D001E08AE /* user.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = user.png; sourceTree = "<group>"; };
+		63F3EE0515EA5D3D001E08AE /* server.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = server.png; sourceTree = "<group>"; };
+		63F3EE0615EA5D3D001E08AE /* port.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = port.png; sourceTree = "<group>"; };
+		63F3EE0715EA5D3D001E08AE /* question.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = question.png; sourceTree = "<group>"; };
+		63F3EE0F15EA5E40001E08AE /* URL.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = URL.png; sourceTree = "<group>"; };
+		63F3EE1115EA5F21001E08AE /* company.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = company.png; sourceTree = "<group>"; };
+		63F3EE1315EA6084001E08AE /* area.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = area.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -260,7 +274,14 @@
 			isa = PBXGroup;
 			children = (
 				63EE8B75159F869100B53EAE /* carat-open.png */,
+				63F3EE0415EA5D3D001E08AE /* user.png */,
+				63F3EE0515EA5D3D001E08AE /* server.png */,
+				63F3EE0615EA5D3D001E08AE /* port.png */,
+				63F3EE0715EA5D3D001E08AE /* question.png */,
+				63F3EE1315EA6084001E08AE /* area.png */,
 				63EE8B76159F869100B53EAE /* carat.png */,
+				63F3EE1115EA5F21001E08AE /* company.png */,
+				63F3EE0F15EA5E40001E08AE /* URL.png */,
 				63CEED4C157AA60100459131 /* filter.png */,
 				63CEED49157AA58D00459131 /* heart.png */,
 				63E0CEFB151E8ACC00CDE588 /* DU.png */,
@@ -576,6 +597,13 @@
 				63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */,
 				63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */,
 				63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */,
+				63F3EE0815EA5D3D001E08AE /* user.png in Resources */,
+				63F3EE0915EA5D3D001E08AE /* server.png in Resources */,
+				63F3EE0A15EA5D3D001E08AE /* port.png in Resources */,
+				63F3EE0B15EA5D3D001E08AE /* question.png in Resources */,
+				63F3EE1015EA5E40001E08AE /* URL.png in Resources */,
+				63F3EE1215EA5F21001E08AE /* company.png in Resources */,
+				63F3EE1415EA6084001E08AE /* area.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

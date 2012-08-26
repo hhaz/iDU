@@ -210,7 +210,7 @@
 {
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    UIAlertView *messageBox = [[UIAlertView alloc] initWithTitle:@"Credentials" message:@"Enter UVMS User & Password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
+    UIAlertView *messageBox = [[UIAlertView alloc] initWithTitle:@"Login" message:@"Enter UVMS User & Password" delegate:self cancelButtonTitle:@"Cancel" otherButtonTitles:@"OK", nil];
     messageBox.tag = 1;
     messageBox.alertViewStyle = UIAlertViewStyleLoginAndPasswordInput;
     

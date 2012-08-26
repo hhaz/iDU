@@ -30,6 +30,8 @@
     NSArray *contents = [[self contentsList] objectForKey:key];
     NSString *contentForThisRow = [contents objectAtIndex:[indexPath row]];
     
+    NSString *imageFile;
+    
     NSString *CellIdentifier = [contents objectAtIndex:[indexPath row]];   
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -49,10 +51,11 @@
     
     if ([indexPath section] == 0) {
             connectionStatus = cell;
+            imageFile = @"question.png";
     }
         
     if ([indexPath section] == 1) {
-        UITextField *url = [[UITextField alloc] initWithFrame:CGRectMake(70, 10, 185, 30)];
+        UITextField *url = [[UITextField alloc] initWithFrame:CGRectMake(95, 10, 185, 30)];
         url.adjustsFontSizeToFitWidth = YES;
         url.textColor = [UIColor blackColor];
         if ([indexPath row] == 0) {
@@ -62,6 +65,7 @@
             url.returnKeyType = UIReturnKeyDefault;
             url.text = appDelegate.url;
             theURL = url;
+            imageFile = @"URL.jpeg";
         }
         [url addTarget:self 
                  action:@selector(removeKeyBoard:)
@@ -72,7 +76,7 @@
     }
     
     if ([indexPath section] == 2) {
-        UITextField *uvms = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 185, 30)];
+        UITextField *uvms = [[UITextField alloc] initWithFrame:CGRectMake(155, 10, 185, 30)];
         uvms.adjustsFontSizeToFitWidth = YES;
         uvms.textColor = [UIColor blackColor];
         if ([indexPath row] == 0) {
@@ -81,6 +85,7 @@
             uvms.returnKeyType = UIReturnKeyDefault;
             uvms.text = appDelegate.uvmsHost;
             theUVMS = uvms;
+            imageFile = @"server.png";
         }
         if ([indexPath row] == 1) {
             uvms.placeholder = @"UVMS Port Number";
@@ -88,6 +93,7 @@
             uvms.returnKeyType = UIReturnKeyDefault;
             uvms.text = appDelegate.uvmsPort;
             thePort = uvms;
+             imageFile = @"port.png";
         }
         if ([indexPath row] == 2) {
             uvms.placeholder = @"User Name";
@@ -95,6 +101,7 @@
             uvms.returnKeyType = UIReturnKeyDefault;
             uvms.text = appDelegate.uvmsUser;
             theUserName = uvms;
+             imageFile = @"user.png";
         }
         uvms.clearButtonMode = UITextFieldViewModeWhileEditing;
         [uvms addTarget:self 
@@ -104,7 +111,7 @@
     }
     
     if ([indexPath section] == 3) {
-        UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(130, 10, 185, 30)];
+        UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(155, 10, 185, 30)];
         node.adjustsFontSizeToFitWidth = YES;
         node.textColor = [UIColor blackColor];
         if ([indexPath row] == 0) {
@@ -113,6 +120,7 @@
             node.returnKeyType = UIReturnKeyDefault;
             node.text = appDelegate.company;
             theCompany = node;
+            imageFile = @"company.png";
         }
         if ([indexPath row] == 1) {
             node.placeholder = @"required";
@@ -145,6 +153,7 @@
             node.text = @"X";
             node.text = appDelegate.area;
             theSpace = node;
+            imageFile = @"area.png";
         }
 
         [node addTarget:self 
@@ -172,7 +181,13 @@
        forControlEvents:UIControlEventEditingDidEndOnExit];
         [cell addSubview:textField];
     }
-
+    UIImage *tableImage = [UIImage imageNamed:imageFile];
+    [cell.imageView setImage:tableImage];
+    CGSize imageSize = CGSizeMake(25,25);
+    UIGraphicsBeginImageContext(imageSize);
+    CGRect imageRect = CGRectMake(1.0, 0.5, imageSize.width, imageSize.height);
+    [tableImage drawInRect:imageRect];
+    cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
 	[[cell textLabel] setText:contentForThisRow];
     }
 	
