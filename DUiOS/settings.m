@@ -55,7 +55,7 @@
     }
         
     if ([indexPath section] == 1) {
-        UITextField *url = [[UITextField alloc] initWithFrame:CGRectMake(95, 10, 185, 30)];
+        UITextField *url = [[UITextField alloc] initWithFrame:CGRectMake(95, 12, 185, 30)];
         url.adjustsFontSizeToFitWidth = YES;
         url.textColor = [UIColor blackColor];
         if ([indexPath row] == 0) {
@@ -76,7 +76,7 @@
     }
     
     if ([indexPath section] == 2) {
-        UITextField *uvms = [[UITextField alloc] initWithFrame:CGRectMake(155, 10, 185, 30)];
+        UITextField *uvms = [[UITextField alloc] initWithFrame:CGRectMake(155, 12, 185, 30)];
         uvms.adjustsFontSizeToFitWidth = YES;
         uvms.textColor = [UIColor blackColor];
         if ([indexPath row] == 0) {
@@ -111,7 +111,7 @@
     }
     
     if ([indexPath section] == 3) {
-        UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(155, 10, 185, 30)];
+        UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(155, 12, 185, 30)];
         node.adjustsFontSizeToFitWidth = YES;
         node.textColor = [UIColor blackColor];
         if ([indexPath row] == 0) {
@@ -164,7 +164,7 @@
         
     if ([indexPath section] == 4)
     {
-        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(30, 10, 270, 30)];
+        UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(30, 12, 270, 30)];
         textField.adjustsFontSizeToFitWidth = YES;
         textField.textColor = [UIColor blackColor];
         textField.keyboardType = UIKeyboardTypeURL;
