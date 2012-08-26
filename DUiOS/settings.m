@@ -65,7 +65,7 @@
             url.returnKeyType = UIReturnKeyDefault;
             url.text = appDelegate.url;
             theURL = url;
-            imageFile = @"url.png";
+            imageFile = @"url2.png";
         }
         [url addTarget:self 
                  action:@selector(removeKeyBoard:)

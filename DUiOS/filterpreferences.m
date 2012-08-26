@@ -26,6 +26,8 @@
     NSArray *contents = [[self contentsList] objectForKey:key];
     NSString *contentForThisRow = [contents objectAtIndex:[indexPath row]];
     
+    NSString *imageFile;
+    
     NSString *CellIdentifier = [contents objectAtIndex:[indexPath row]];   
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     
@@ -36,7 +38,7 @@
 		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         
         if ([indexPath section] == 0) {
-             UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(210, 13, 185, 30)];
+             UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(235, 11, 185, 30)];
             if ([indexPath row] == 0) {
                 node.adjustsFontSizeToFitWidth = YES;
                 node.textColor = [UIColor blackColor];
@@ -70,6 +72,7 @@
                 node.returnKeyType = UIReturnKeyDefault;
                 node.text = appDelegate.period;
                 periods = node;
+                imageFile = @"calendar.png";
                
             }
             if ([indexPath row] == 1) {
@@ -78,6 +81,7 @@
                 node.returnKeyType = UIReturnKeyDefault;
                 node.text = appDelegate.nbPeriods;
                 nbPeriods = node;
+                imageFile = @"numberorange.png";
             }
             [node addTarget:self 
                      action:@selector(removeKeyBoard:)
@@ -86,18 +90,26 @@
         }
         
         if ([indexPath section] == 1) {
-            UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(210, 13, 185, 30)];
+            UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(235, 13, 185, 30)];
             node.placeholder = @"required";
             node.keyboardType = UIKeyboardTypeNumberPad;
             node.returnKeyType = UIReturnKeyDefault;
             node.text = appDelegate.nbJobs;
             nbJobs = node;
+            imageFile = @"numberblue.png";
             [node addTarget:self 
                      action:@selector(removeKeyBoard:)
            forControlEvents:UIControlEventEditingDidEndOnExit];
             [cell addSubview:node];
         }
          
+        UIImage *tableImage = [UIImage imageNamed:imageFile];
+        [cell.imageView setImage:tableImage];
+        CGSize imageSize = CGSizeMake(25,25);
+        UIGraphicsBeginImageContext(imageSize);
+        CGRect imageRect = CGRectMake(1.0, 0.5, imageSize.width, imageSize.height);
+        [tableImage drawInRect:imageRect];
+        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
         [[cell textLabel] setText:contentForThisRow];
     }
 	
