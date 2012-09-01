@@ -273,10 +273,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         execId.numProc          = [appDelegate.args objectAtIndex:7];
         execId.uproc            = [appDelegate.args objectAtIndex:4];
         execId.mu               = [appDelegate.args objectAtIndex:5];
-        execId.session          = [appDelegate.args objectAtIndex:10];
-        execId.sessionVersion   = [appDelegate.args objectAtIndex:11];   
+        if(![[appDelegate.args objectAtIndex:10] isEqualToString:@"n/a"])
+        {
+            execId.session = [appDelegate.args objectAtIndex:10];
+        }
+        execId.sessionVersion   = [appDelegate.args objectAtIndex:11];
         execId.numSess          = [appDelegate.args objectAtIndex:12];
-        execId.task             = [appDelegate.args objectAtIndex:8];
+        if(![[appDelegate.args objectAtIndex:8] isEqualToString:@"n/a"])
+        {
+            execId.task = [appDelegate.args objectAtIndex:8];
+        }
         // à gérer : pas de numéro de version quand on est en X
         //execId.uprocVersion = @"000";
         
