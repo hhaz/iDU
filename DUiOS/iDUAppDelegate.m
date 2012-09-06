@@ -25,6 +25,7 @@
 @synthesize isRemoteNotif;
 @synthesize connection;
 @synthesize tokenDevice;
+@synthesize defaultSaved;
 
 - (void)dealloc
 {

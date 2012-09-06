@@ -25,16 +25,26 @@
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     
-    appDelegate.uvmsPort    = [defaults objectForKey:@"uvmsPort"];
-    appDelegate.uvmsHost    = [defaults objectForKey:@"uvmsHost"];
-    appDelegate.uvmsUser    = [defaults objectForKey:@"uvmsUser"];
-    appDelegate.company     = [defaults objectForKey:@"company"];
-    appDelegate.area        = [defaults objectForKey:@"area"];
-    appDelegate.url         = [defaults objectForKey:@"url"];
-    appDelegate.suffix      = [defaults objectForKey:@"suffix"];
-    appDelegate.nbJobs      = [defaults objectForKey:@"nbJobs"];
-    appDelegate.period      = [defaults objectForKey:@"period"];
-    appDelegate.nbPeriods   = [defaults objectForKey:@"nbPeriods"];
+    appDelegate.uvmsPort        = [defaults objectForKey:@"uvmsPort"];
+    appDelegate.uvmsHost        = [defaults objectForKey:@"uvmsHost"];
+    appDelegate.uvmsUser        = [defaults objectForKey:@"uvmsUser"];
+    appDelegate.company         = [defaults objectForKey:@"company"];
+    appDelegate.area            = [defaults objectForKey:@"area"];
+    appDelegate.url             = [defaults objectForKey:@"url"];
+    appDelegate.suffix          = [defaults objectForKey:@"suffix"];
+    appDelegate.nbJobs          = [defaults objectForKey:@"nbJobs"];
+    appDelegate.period          = [defaults objectForKey:@"period"];
+    appDelegate.nbPeriods       = [defaults objectForKey:@"nbPeriods"];
+    appDelegate.defaultSaved    = [defaults objectForKey:@"defaultSaved"];
+    if (appDelegate.defaultSaved == nil) {
+        appDelegate.uvmsHost = @"idu.orsypgroup.com";
+        appDelegate.uvmsPort = @"4184";
+        appDelegate.uvmsUser = @"admin";
+        appDelegate.area     = @"X";
+        appDelegate.url      = @"https://idu.orsypgroup.com";
+        appDelegate.suffix   = @"/du6ws/DuwsSEI";
+        appDelegate.company  = @"UNIV60";
+    }
     if (appDelegate.nbJobs == nil) {
         appDelegate.nbJobs = @"100";
     }
@@ -64,6 +74,7 @@
     [defaults setObject:appDelegate.nbJobs forKey:@"nbJobs"];
     [defaults setObject:appDelegate.period forKey:@"period"];
     [defaults setObject:appDelegate.nbPeriods forKey:@"nbPeriods"];
+    [defaults setObject:appDelegate.defaultSaved forKey:@"yes"];
     
     [defaults synchronize];
 

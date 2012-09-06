@@ -45,7 +45,7 @@
     if(status == DuWebServiceSvc_envirStatus_CONNECTED)
     {
         imageFile = @"DU.png";
-        cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     }
     else
     {
