@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12A269" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <deployment defaultVersion="1296" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
     </dependencies>
     <scenes>
@@ -54,7 +53,7 @@
             </objects>
             <point key="canvasLocation" x="1019" y="-292"/>
         </scene>
-        <!--Jobruns-->
+        <!--Jobruns - Job List-->
         <scene sceneID="Bfn-cF-BJQ">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -83,7 +82,7 @@
                             <outlet property="delegate" destination="SFC-UA-y1H" id="dEk-2W-i2D"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" id="sk3-Px-wcV"/>
+                    <navigationItem key="navigationItem" title="Job List" id="sk3-Px-wcV"/>
                     <connections>
                         <outlet property="theLaunches" destination="1FY-UW-DC6" id="Bxs-cL-gah"/>
                     </connections>
@@ -138,7 +137,7 @@
             </objects>
             <point key="canvasLocation" x="2548" y="-123"/>
         </scene>
-        <!--Joblogdetails-->
+        <!--Joblogdetails - Job Log-->
         <scene sceneID="ElV-Yd-9ha">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxB-FF-rJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,7 +157,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vyz-sW-pOo"/>
+                    <navigationItem key="navigationItem" title="Job Log" id="vyz-sW-pOo"/>
                     <connections>
                         <outlet property="myTextView" destination="Skf-P2-f3p" id="69G-cx-wrz"/>
                     </connections>
@@ -349,7 +348,7 @@
             </objects>
             <point key="canvasLocation" x="1477" y="1757"/>
         </scene>
-        <!--Graphview-->
+        <!--Graphview - Graph Summary-->
         <scene sceneID="JoN-tz-J7p">
             <objects>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEG-cs-917" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -365,7 +364,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="hR6-eq-AmI"/>
+                    <navigationItem key="navigationItem" title="Graph Summary" id="hR6-eq-AmI"/>
                     <connections>
                         <outlet property="hostingView" destination="OsO-Mo-itL" id="Z3Y-Pr-mVb"/>
                         <segue destination="SFC-UA-y1H" kind="push" identifier="seguejoblist" id="irZ-Oh-mud"/>
@@ -399,12 +398,81 @@
         <image name="filter.png" width="52" height="52"/>
         <image name="preferences.png" width="52" height="52"/>
     </resources>
+    <classes>
+        <class className="filterpreferences" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/filterpreferences.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nbJobs" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nbPeriods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="periods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="graphview" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/graphview.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="iDUFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iDUFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSecondController" candidateClass="settings"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theNodes" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblog" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblog.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblogdetails" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblogdetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="jobruns" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="settings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="webservicedetails" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/webservicedetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSettings" candidateClass="settings"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSuffix" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="9ms-NF-0SF"/>
+        <segue reference="E9i-Cd-thg"/>
     </inferredMetricsTieBreakers>
 </document>
