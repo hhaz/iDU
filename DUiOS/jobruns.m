@@ -128,7 +128,7 @@
         [cell addGestureRecognizer:twoFingerPinch];
         
 		[cell addSubview:[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(cell.frame)+50, CGRectGetMinY(cell.frame), CGRectGetWidth(cell.frame)-200 , ROW_HEIGHT)]];
-        [cell addSubview:[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(cell.frame)+ CGRectGetWidth(cell.frame)-180, CGRectGetMinY(cell.frame), CGRectGetWidth(cell.frame)-200, ROW_HEIGHT)]];
+        [cell addSubview:[[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMinX(cell.frame)+ CGRectGetWidth(cell.frame)-200, CGRectGetMinY(cell.frame), CGRectGetWidth(cell.frame)-200, ROW_HEIGHT)]];
     }
     
     cell.accessoryType = UITableViewCellAccessoryDetailDisclosureButton;
@@ -185,9 +185,81 @@
         CGRect imageRect = CGRectMake(0.0, 0.5, imageSize.width, imageSize.height); 
         [tableImage drawInRect:imageRect]; 
         cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext(); 
-        UIGraphicsEndImageContext(); 
-
+        UIGraphicsEndImageContext();
+    
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+	[button setBackgroundColor:[UIColor whiteColor]];
+    [button setImage:[UIImage imageNamed:@"rerun.png"] forState:UIControlStateNormal];
+     [button setImage:[UIImage imageNamed:@"rerunblue.png"] forState:UIControlStateHighlighted];
+    [button setFrame:CGRectMake(CGRectGetMinX(cell.frame)+ CGRectGetWidth(cell.frame)-70, CGRectGetMinY(cell.frame) + 8 , 22, 22)];
+	[button addTarget:self action:@selector(ckCheckButtonTapped:event:) forControlEvents:UIControlEventTouchUpInside];
+	[cell.contentView addSubview:button];
     return cell;
+}
+
+
+- (void)ckCheckButtonTapped:(id)sender event:(id)event
+{
+    
+    UITableViewCell *cell = (UITableViewCell *)[[sender superview] superview];
+    NSIndexPath *indexPath = [[self tableView] indexPathForCell:cell];
+    
+    NSString *key = [[self sectionKeys] objectAtIndex:[indexPath section]];
+    NSArray *contents = [[self contentsList] objectForKey:key];
+    
+    if( [[contents objectAtIndex: [indexPath row]] isKindOfClass:[DuWebServiceSvc_executionItem class]])
+    {
+        DuWebServiceSvc_executionItem *executionItem    = [contents objectAtIndex: [indexPath row]];
+        DuWebServiceSvc_rerunExecution *reRun           = [[DuWebServiceSvc_rerunExecution alloc]init];
+        
+        DuWebServiceSvc_executionId *job = [[DuWebServiceSvc_executionId alloc] init];
+        
+        job.mu              = executionItem.ident.mu;
+        job.numLanc         = executionItem.ident.numLanc;
+        job.numProc         = executionItem.ident.numProc;
+        job.numSess         = executionItem.ident.numSess;
+        job.session         = executionItem.ident.session;
+        job.sessionVersion  = executionItem.ident.sessionVersion;
+        job.uprocVersion    = executionItem.ident.uprocVersion;
+        job.uproc           = executionItem.ident.uproc;
+        job.session         = executionItem.ident.session;
+        job.task            = executionItem.ident.task;
+
+        reRun.executionId   = job;
+        reRun.context       = appDelegate.theContext;
+                
+        [appDelegate.binding rerunExecutionAsyncUsingParameters:reRun delegate:self];
+        
+        @try {
+            [appDelegate.binding rerunExecutionAsyncUsingParameters:reRun delegate:self];
+        }
+        @catch (NSException *excep) {
+            appDelegate.isConnected = FALSE;
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error - No Log" message:@"Error" delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        @finally {
+            NSLog(@"Finally");
+
+        }
+    }          
+}
+
+- (void) operation:(DuWebServiceSoapBindingOperation *)operation completedWithResponse:(DuWebServiceSoapBindingResponse *)response
+{
+    @try {
+        DuWebServiceSvc_rerunExecutionResponse *reRunresponse = (DuWebServiceSvc_rerunExecutionResponse *)([response.bodyParts objectAtIndex:0]);
+        
+        NSLog(@"%@",reRunresponse.description); // just to avoid compilation warning
+    }
+    @catch (NSException *excep) {
+        appDelegate.isConnected = FALSE;
+        SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error - No Log" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
 }
 
 int currentRowSelection = -1;

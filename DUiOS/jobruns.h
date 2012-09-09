@@ -13,7 +13,7 @@
 
 @protocol jobruns;
 
-@interface jobruns : UITableViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource,SectionHeaderViewDelegate> {
+@interface jobruns : UITableViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource,SectionHeaderViewDelegate,DuWebServiceSoapBindingResponseDelegate> {
     
     id<jobruns> delegate;
     IBOutlet UITableView *theLaunches;    
