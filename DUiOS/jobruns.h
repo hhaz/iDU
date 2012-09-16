@@ -16,7 +16,8 @@
 @interface jobruns : UITableViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource,SectionHeaderViewDelegate,DuWebServiceSoapBindingResponseDelegate> {
     
     id<jobruns> delegate;
-    IBOutlet UITableView *theLaunches;    
+    IBOutlet UITableView *theLaunches;
+    UIRefreshControl *refresh;
 }
 
 @property (nonatomic, retain) NSArray *nodeList;
@@ -35,5 +36,8 @@
 @property (nonatomic, strong) NSMutableArray* sectionInfoArray;
 @property (nonatomic, assign) NSInteger openSectionIndex;
 @property (nonatomic, assign) NSInteger uniformRowHeight;
+@property (nonatomic, assign) NSString *theNode;
+
+@property (nonatomic, retain) getJobs *retrieveJobs;
 
 @end

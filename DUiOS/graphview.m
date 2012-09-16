@@ -260,6 +260,7 @@
         jobRunsController.executionList = executionList;
         jobRunsController.launchList    = launchList;
         jobRunsController.filterStatus  = filterStatus;
+        jobRunsController.theNode       = nodeName;
     }
     
 }

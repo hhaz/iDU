@@ -32,6 +32,7 @@
 		638EE93C150BCC50006B10C1 /* PlotItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93B150BCC50006B10C1 /* PlotItem.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		638EE93F150BCC70006B10C1 /* PlotGallery.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE93E150BCC70006B10C1 /* PlotGallery.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		638EE942150BDE6E006B10C1 /* SimplePieChart.m in Sources */ = {isa = PBXBuildFile; fileRef = 638EE941150BDE6E006B10C1 /* SimplePieChart.m */; };
+		639C12D61606613F0053EA51 /* getJobs.m in Sources */ = {isa = PBXBuildFile; fileRef = 639C12D51606613F0053EA51 /* getJobs.m */; };
 		639DA1C414D4494500EA3372 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C314D4494500EA3372 /* UIKit.framework */; };
 		639DA1C614D4494500EA3372 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C514D4494500EA3372 /* Foundation.framework */; };
 		639DA1C814D4494500EA3372 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1C714D4494500EA3372 /* CoreGraphics.framework */; };
@@ -194,6 +195,8 @@
 		638EE93E150BCC70006B10C1 /* PlotGallery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlotGallery.m; sourceTree = "<group>"; };
 		638EE940150BDE6E006B10C1 /* SimplePieChart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SimplePieChart.h; sourceTree = "<group>"; };
 		638EE941150BDE6E006B10C1 /* SimplePieChart.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SimplePieChart.m; sourceTree = "<group>"; };
+		639C12D41606613F0053EA51 /* getJobs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = getJobs.h; sourceTree = "<group>"; };
+		639C12D51606613F0053EA51 /* getJobs.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = getJobs.m; sourceTree = "<group>"; };
 		639DA1BF14D4494500EA3372 /* iDU.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = iDU.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		639DA1C314D4494500EA3372 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		639DA1C514D4494500EA3372 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
@@ -499,6 +502,8 @@
 				639DA1E014D4494500EA3372 /* iDUSecondViewController.m */,
 				639DA1CA14D4494500EA3372 /* Supporting Files */,
 				63572CAA15B37EE0005F1E3A /* Localizable.strings */,
+				639C12D41606613F0053EA51 /* getJobs.h */,
+				639C12D51606613F0053EA51 /* getJobs.m */,
 			);
 			name = iDU;
 			path = DUiOS;
@@ -664,6 +669,7 @@
 				63EE8B7C159F86CF00B53EAE /* SectionHeaderView.m in Sources */,
 				63EE8B7F159F886900B53EAE /* SectionInfo.m in Sources */,
 				6373C4F915DB0C9000FA50C5 /* iDUFirstViewController.m in Sources */,
+				639C12D61606613F0053EA51 /* getJobs.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

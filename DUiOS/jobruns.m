@@ -440,6 +440,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
+    
+    if(refresh.refreshing)
+    {
+        executionList   = _retrieveJobs.executionList;
+        launchList      = _retrieveJobs.launchList;
+    }
+    
     theLaunches.rowHeight   = 20;
     
     [filteredExecutionList removeAllObjects];
@@ -594,11 +601,30 @@ if (!sectionInfo.headerView) {
 return sectionInfo.headerView;
 }
 
+- (void)refreshJobList
+{
+    NSLog(@"refresh");
+    [_retrieveJobs getJobs:self :_theNode :@""];
+    [refresh endRefreshing];
+}
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    if (_retrieveJobs == nil) {
+        _retrieveJobs = [[getJobs alloc]init];
+    }
+    
+    if(refresh == nil)
+    {
+        refresh = [[UIRefreshControl alloc]initWithFrame:CGRectMake(0, 0 , 220, 22)];
+        NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Refreshing Job List"];
+        refresh.attributedTitle = title;
+        [refresh addTarget:self action:@selector(refreshJobList) forControlEvents:UIControlEventValueChanged];
+    }
+
+    [theLaunches addSubview:refresh];
     
     filteredLaunchList = [[NSMutableArray alloc] init];
     filteredExecutionList = [[NSMutableArray alloc] init];

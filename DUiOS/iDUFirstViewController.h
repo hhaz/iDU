@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "settings.h"
 #import "iDUAppDelegate.h"
+#import "getJobs.h"
 
 @protocol iDUFirstViewController;
 
@@ -29,6 +30,7 @@
 @property (nonatomic, retain) NSString *theLog;
 @property (nonatomic, retain) iDUAppDelegate *appDelegate;
 
+@property (nonatomic, retain) getJobs *retrieveJobs;
 
 @property (nonatomic, retain) DuWebServiceSvc_executionItem *job;
 
