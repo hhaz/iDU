@@ -25,6 +25,8 @@
 @synthesize job;
 @synthesize theLog;
 
+#define REFRESH_HEADER_HEIGHT 52.0f
+
 // Customize the appearance of table view cells.
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
@@ -222,7 +224,24 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     aSecondController = [controller.childViewControllers objectAtIndex:0];
     
+    if(refresh == nil)
+    {
+        refresh = [[UIRefreshControl alloc]initWithFrame:CGRectMake(0, 0 , 220, 22)];
+        NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Refreshing Node List"];
+        refresh.attributedTitle = title;
+        [refresh addTarget:self action:@selector(refreshNodeList) forControlEvents:UIControlEventValueChanged];
+    }
+    
+    [theNodes addSubview:refresh];
+
 	// Do any additional setup after loading the view, typically from a nib.
+}
+
+- (void)refreshNodeList
+{
+    NSLog(@"refresh");
+    [self retrieveNodeList];
+    [refresh endRefreshing];
 }
 
 - (void)viewDidUnload
@@ -232,6 +251,54 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     // e.g. self.myOutlet = nil;
 }
 
+
+- (void) retrieveNodeList
+{
+    
+    DuWebServiceSvc_uvmsNodeFilter *nodeFilter = [[DuWebServiceSvc_uvmsNodeFilter alloc] init];
+    nodeFilter.node_ = @"*";
+    nodeFilter.company = appDelegate.company;
+    
+    DuWebServiceSvc_getDUEnvironmentList *EnvirList = [[DuWebServiceSvc_getDUEnvironmentList alloc]init];
+    EnvirList.token                                 = appDelegate.theContext.token;
+    EnvirList.nodeFilter                            = nodeFilter;
+    
+    DuWebServiceSvc_getDUEnvironmentListResponse *EnvirListResponse = [[DuWebServiceSvc_getDUEnvironmentListResponse alloc]init];
+    
+    DuWebServiceSoapBindingResponse *responseEnvir = [appDelegate.binding getDUEnvironmentListUsingParameters:EnvirList];
+    
+    if (responseEnvir.error == 0) {
+        @try {
+            EnvirListResponse = (DuWebServiceSvc_getDUEnvironmentListResponse *)([responseEnvir.bodyParts objectAtIndex:0]);
+            NSMutableArray *returnArray = [[NSMutableArray alloc] initWithCapacity:EnvirListResponse.envList.count];
+            
+            for (DuWebServiceSvc_envir *s in EnvirListResponse.envList )
+            {
+                if( [s.area isEqualToString:appDelegate.area])
+                {
+                    [returnArray addObject:s];
+                }
+            }
+            
+            appDelegate.nodeList = returnArray;
+        }
+        @catch (NSException *excep) {
+            NSLog(@"Exception during node list retrieval");
+            appDelegate.isConnected = FALSE;
+            SOAPFault *result = (SOAPFault *)[responseEnvir.bodyParts objectAtIndex:0];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        @finally {
+            NSLog(@"Finally");
+        }
+        
+    }
+    nodeList = appDelegate.nodeList;
+    [theNodes reloadData];
+}
+
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
@@ -239,7 +306,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     nodeList = appDelegate.nodeList;
     [theNodes reloadData];
     
-    if (appDelegate.isRemoteNotif && appDelegate.isConnected) {                     
+    if (appDelegate.isRemoteNotif && appDelegate.isConnected) {
          appDelegate.isRemoteNotif = FALSE;
         
         NSString *area      = [appDelegate.args objectAtIndex:2];

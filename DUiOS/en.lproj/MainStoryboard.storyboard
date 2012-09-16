@@ -1,13 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2549" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1498"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
         <!--IDU First View Controller - First-->
         <scene sceneID="11">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="NodeListViewController" title="First" id="2" customClass="iDUFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -50,13 +49,13 @@
                         <segue destination="dvi-Sz-sGc" kind="push" identifier="showjob" id="9ms-NF-0SF"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1019" y="-292"/>
+            <point key="canvasLocation" x="1085" y="-315"/>
         </scene>
         <!--Jobruns - Job List-->
         <scene sceneID="Bfn-cF-BJQ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController storyboardIdentifier="jobruns" id="SFC-UA-y1H" customClass="jobruns" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1FY-UW-DC6">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -87,13 +86,13 @@
                         <outlet property="theLaunches" destination="1FY-UW-DC6" id="Bxs-cL-gah"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2119" y="262"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8y7-0p-Ju5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dvi-Sz-sGc" customClass="joblog" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1jd-ya-6Vg">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -120,7 +119,6 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Job Status" id="Pgf-dy-lqU">
                         <barButtonItem key="backBarButtonItem" title="Back To List" id="BB9-DD-q1H"/>
@@ -134,13 +132,13 @@
                         <outlet property="myTableView" destination="5gk-S9-DVa" id="gb8-8E-zY4"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8y7-0p-Ju5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2548" y="-123"/>
         </scene>
         <!--Joblogdetails - Job Log-->
         <scene sceneID="ElV-Yd-9ha">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="WxB-FF-rJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="GbN-Ck-Tgv" customClass="joblogdetails" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cSc-CO-ivP">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -162,13 +160,13 @@
                         <outlet property="myTextView" destination="Skf-P2-f3p" id="69G-cx-wrz"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WxB-FF-rJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3165" y="-66"/>
         </scene>
         <!--Settings - Settings-->
         <scene sceneID="iou-he-TQK">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="SB3-8A-xGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="kNS-hD-Hfn" customClass="settings" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="jCO-dL-sVs">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
@@ -222,6 +220,7 @@
                         <outlet property="theSettings" destination="jCO-dL-sVs" id="3dl-Z3-v7t"/>
                     </connections>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="SB3-8A-xGH" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <activityIndicatorView opaque="NO" contentMode="scaleToFill" style="whiteLarge" id="pgg-BB-rCt">
                     <rect key="frame" x="0.0" y="0.0" width="37" height="37"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -232,7 +231,6 @@
         <!--Webservicedetails - Web Service URL-->
         <scene sceneID="piH-R4-ZeD">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="q3M-fa-fRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="azB-hj-jFJ" customClass="webservicedetails" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="LAK-uK-Znf">
                         <rect key="frame" x="0.0" y="64" width="320" height="372"/>
@@ -256,13 +254,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Web Service URL" id="TE9-dc-8NR"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="q3M-fa-fRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2448" y="1121"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="15">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
                 <tabBarController id="4" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9sc-MY-Bhd"/>
                     <nil key="simulatedBottomBarMetrics"/>
@@ -277,13 +275,13 @@
                         <segue destination="4Fy-tJ-22V" kind="relationship" relationship="viewControllers" id="Su7-Cs-5Ta"/>
                     </connections>
                 </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-60" y="-66"/>
         </scene>
         <!--Navigation Controller - Node List-->
         <scene sceneID="Ugm-M0-ckY">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-aJ-85o" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="tDH-F8-4Ld" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Node List" image="connections.png" id="7"/>
                     <toolbarItems/>
@@ -296,13 +294,13 @@
                         <segue destination="2" kind="relationship" relationship="rootViewController" id="IYc-18-69D"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-aJ-85o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="641" y="-310"/>
         </scene>
         <!--Navigation Controller - Settings-->
         <scene sceneID="abt-Sn-HHl">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Fo4-Aq-FgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="R2v-4V-DLB" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Settings" image="preferences.png" id="6nG-rv-NgS"/>
                     <toolbarItems/>
@@ -315,13 +313,13 @@
                         <segue destination="kNS-hD-Hfn" kind="relationship" relationship="rootViewController" id="Dca-JQ-ZUr"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Fo4-Aq-FgA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="671" y="375"/>
         </scene>
         <!--Filterpreferences - Filter Preferences-->
         <scene sceneID="JNx-y9-NgP">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Cvi-xY-PRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tableViewController id="2pI-Ss-GwT" customClass="filterpreferences" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="hak-Qm-bxt">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -345,13 +343,13 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Filter Preferences" id="wUF-dj-vfk"/>
                 </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Cvi-xY-PRq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1477" y="1757"/>
         </scene>
         <!--Graphview - Graph Summary-->
         <scene sceneID="JoN-tz-J7p">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kEG-cs-917" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dxf-3P-LEL" customClass="graphview" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IYW-SQ-wCb">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -370,13 +368,13 @@
                         <segue destination="SFC-UA-y1H" kind="push" identifier="seguejoblist" id="irZ-Oh-mud"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kEG-cs-917" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1535" y="177"/>
         </scene>
         <!--Navigation Controller - Preferences-->
         <scene sceneID="GIB-Pc-TJB">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EEf-Hc-oZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController id="4Fy-tJ-22V" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Preferences" image="filter.png" id="8jZ-gc-oDA"/>
                     <toolbarItems/>
@@ -389,6 +387,7 @@
                         <segue destination="2pI-Ss-GwT" kind="relationship" relationship="rootViewController" id="zzK-8d-963"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EEf-Hc-oZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="712" y="1175"/>
         </scene>
@@ -398,81 +397,12 @@
         <image name="filter.png" width="52" height="52"/>
         <image name="preferences.png" width="52" height="52"/>
     </resources>
-    <classes>
-        <class className="filterpreferences" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/filterpreferences.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="nbJobs" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="nbPeriods" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="periods" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="graphview" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/graphview.h"/>
-            <relationships>
-                <relationship kind="outlet" name="hostingView" candidateClass="UIScrollView"/>
-            </relationships>
-        </class>
-        <class className="iDUFirstViewController" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/iDUFirstViewController.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aSecondController" candidateClass="settings"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theNodes" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="joblog" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblog.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="joblogdetails" superclassName="UIViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblogdetails.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
-            </relationships>
-        </class>
-        <class className="jobruns" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
-            </relationships>
-        </class>
-        <class className="settings" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
-            <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
-                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-        <class className="webservicedetails" superclassName="UITableViewController">
-            <source key="sourceIdentifier" type="project" relativePath="./Classes/webservicedetails.h"/>
-            <relationships>
-                <relationship kind="outlet" name="aSettings" candidateClass="settings"/>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
-                <relationship kind="outlet" name="theSuffix" candidateClass="UITextField"/>
-                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
-            </relationships>
-        </class>
-    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="E9i-Cd-thg"/>
+        <segue reference="9ms-NF-0SF"/>
     </inferredMetricsTieBreakers>
 </document>

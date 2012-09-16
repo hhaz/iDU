@@ -25,6 +25,7 @@
 		634C8CC114E6B14200CCF1EA /* ActivityAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8CC014E6B14200CCF1EA /* ActivityAlertView.m */; };
 		63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 6312DAAB15A0A49100F46301 /* DollarURetina.png */; };
 		63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63572CAA15B37EE0005F1E3A /* Localizable.strings */; };
+		636580B11606125C00C4A128 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 636580B01606125C00C4A128 /* Default-568h@2x.png */; };
 		6369169D14F978DC00C92B23 /* graphview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369169C14F978DC00C92B23 /* graphview.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		636DF69714D5C4DB009C93FF /* dollaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 636DF69614D5C4DB009C93FF /* dollaru.png */; };
 		6373C4F915DB0C9000FA50C5 /* iDUFirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6373C4F815DB0C9000FA50C5 /* iDUFirstViewController.m */; };
@@ -182,6 +183,7 @@
 		634C8CBF14E6B14200CCF1EA /* ActivityAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityAlertView.h; sourceTree = "<group>"; };
 		634C8CC014E6B14200CCF1EA /* ActivityAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityAlertView.m; sourceTree = "<group>"; };
 		63572CAA15B37EE0005F1E3A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		636580B01606125C00C4A128 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6369169B14F978DC00C92B23 /* graphview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphview.h; sourceTree = "<group>"; };
 		6369169C14F978DC00C92B23 /* graphview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphview.m; sourceTree = "<group>"; };
 		636DF69614D5C4DB009C93FF /* dollaru.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = dollaru.png; path = ../dollaru.png; sourceTree = "<group>"; };
@@ -419,6 +421,7 @@
 		639DA1B414D4494500EA3372 = {
 			isa = PBXGroup;
 			children = (
+				636580B01606125C00C4A128 /* Default-568h@2x.png */,
 				6312DAAB15A0A49100F46301 /* DollarURetina.png */,
 				6312DAA615A0A39500F46301 /* DollarU.png */,
 				633DF777150BC91D000B9B54 /* QuartzCore.framework */,
@@ -624,6 +627,7 @@
 				63F3EE2015EAAE05001E08AE /* url2.png in Resources */,
 				63EA36C615FCF243005F8A10 /* rerun.png in Resources */,
 				63EA36C915FCF483005F8A10 /* rerunblue.png in Resources */,
+				636580B11606125C00C4A128 /* Default-568h@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -706,8 +710,8 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
-				PROVISIONING_PROFILE = "5DDDA5AC-6B8B-4A61-A784-A2C807C71CAB";
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				SDKROOT = iphoneos;
 			};
@@ -727,9 +731,9 @@
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
-				PROVISIONING_PROFILE = "5DDDA5AC-6B8B-4A61-A784-A2C807C71CAB";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
@@ -747,7 +751,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				"HEADER_SEARCH_PATHS[arch=*]" = CorePlot_1.0/Source/framework;
 				INFOPLIST_FILE = "DUiOS/iDU-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/CorePlot_1.0/Binaries/iOS\"",
@@ -763,10 +767,11 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5DDDA5AC-6B8B-4A61-A784-A2C807C71CAB";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
+				VALID_ARCHS = "armv7 armv6";
 				WARNING_LDFLAGS = (
 					"-ObjC",
 					"-all_load",
@@ -786,7 +791,7 @@
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				"HEADER_SEARCH_PATHS[arch=*]" = CorePlot_1.0/Source/framework;
 				INFOPLIST_FILE = "DUiOS/iDU-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/CorePlot_1.0/Binaries/iOS\"",
@@ -802,10 +807,11 @@
 				);
 				PRELINK_LIBS = "-ObjC -all_load";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "5DDDA5AC-6B8B-4A61-A784-A2C807C71CAB";
+				PROVISIONING_PROFILE = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "3BF9936E-694D-43FC-B1DB-5D4DD8E46BB1";
 				TARGETED_DEVICE_FAMILY = 1;
 				USER_HEADER_SEARCH_PATHS = CorePlot_1.0/Source/framework;
+				VALID_ARCHS = "armv7 armv6";
 				WARNING_LDFLAGS = (
 					"-ObjC",
 					"-all_load",

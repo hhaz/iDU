@@ -17,8 +17,8 @@
     
     id<iDUFirstViewController> delegate;
     IBOutlet UITableView *theNodes;
-    
-    
+    UIRefreshControl *refresh;
+
 }
 @property (nonatomic, retain) NSArray *nodeList;
 @property (nonatomic, retain) NSMutableArray *launchList;
@@ -28,6 +28,7 @@
 @property (nonatomic, retain) NSString *theNode;
 @property (nonatomic, retain) NSString *theLog;
 @property (nonatomic, retain) iDUAppDelegate *appDelegate;
+
 
 @property (nonatomic, retain) DuWebServiceSvc_executionItem *job;
 

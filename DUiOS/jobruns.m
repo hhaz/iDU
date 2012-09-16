@@ -157,14 +157,14 @@
        
        labelText.text = uprocLabel;
        labelText.font = [UIFont boldSystemFontOfSize:14];
-       labelText.lineBreakMode = UILineBreakModeWordWrap;
+       labelText.lineBreakMode = NSLineBreakByWordWrapping;
        labelText.numberOfLines = 2;	
        
        UILabel *labelText2 = [[cell subviews] objectAtIndex:2];
        labelText2.backgroundColor = [UIColor clearColor];
        labelText2.textColor = [UIColor blackColor];
        labelText2.text = @"OK";
-       labelText2.textAlignment = UITextAlignmentRight;
+       labelText2.textAlignment = NSTextAlignmentRight;
        
        labelText2.textColor = [UIColor blackColor];
        labelText2.text = @"OK";
@@ -175,7 +175,7 @@
        NSString *imageFlag  = [[appDelegate.contentStatus objectForKey:statusString] objectAtIndex:2];
 
        labelText2.font = [UIFont systemFontOfSize:12];
-       labelText2.lineBreakMode = UILineBreakModeClip;
+       labelText2.lineBreakMode = NSLineBreakByClipping;
        labelText2.numberOfLines = 2;
 
         UIImage *tableImage = [UIImage imageNamed:imageFlag]; 

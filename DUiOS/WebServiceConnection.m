@@ -125,72 +125,15 @@
             DuWebServiceSvc_envir *environment = [[DuWebServiceSvc_envir alloc] init];
             DuWebServiceSvc_contextHolder *ctxHolder = [[DuWebServiceSvc_contextHolder alloc] init];
             
-            environment.company = appDelegate.company;
-            environment.area = appDelegate.area;
+            environment.company     = appDelegate.company;
+            environment.area        = appDelegate.area;
                     
-            context.envir = environment;
-            ctxHolder.context = context;
-            ctxHolder.token = loginResponse.token;
+            context.envir           = environment;
+            ctxHolder.context       = context;
+            ctxHolder.token         = loginResponse.token;
             
-            appDelegate.theContext = ctxHolder;
+            appDelegate.theContext  = ctxHolder;
             
-            
-            DuWebServiceSvc_uvmsNodeFilter *nodeFilter = [[DuWebServiceSvc_uvmsNodeFilter alloc] init];
-            nodeFilter.node_ = @"*";
-            nodeFilter.company = environment.company;
-            
-            DuWebServiceSvc_getDUEnvironmentList *EnvirList = [[DuWebServiceSvc_getDUEnvironmentList alloc]init];
-            EnvirList.token = ctxHolder.token;
-            EnvirList.nodeFilter = nodeFilter;
-            
-            DuWebServiceSvc_getDUEnvironmentListResponse *EnvirListResponse = [[DuWebServiceSvc_getDUEnvironmentListResponse alloc]init];
-            
-            DuWebServiceSoapBindingResponse *responseEnvir = [appDelegate.binding getDUEnvironmentListUsingParameters:EnvirList];
-            
-            
-            if (responseEnvir.error == 0) {
-                @try {    
-                    EnvirListResponse = (DuWebServiceSvc_getDUEnvironmentListResponse *)([responseEnvir.bodyParts objectAtIndex:0]);
-                    NSMutableArray *returnArray = [[NSMutableArray alloc] initWithCapacity:EnvirListResponse.envList.count];
-                    
-                    for (DuWebServiceSvc_envir *s in EnvirListResponse.envList ) 
-                    {
-                        if( [s.area isEqualToString:environment.area])
-                        {
-                            [returnArray addObject:s];
-                        }
-                    }
-                    
-                    appDelegate.nodeList = returnArray;
-                    [myNodeView reloadData];
-                }
-                @catch (NSException *excep) {
-                    NSLog(@"Exception during node list retrieval");
-                    [activityAlert close];
-                    appDelegate.isConnected = FALSE;
-                    SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    [alert show];
-                    return;
-                }
-                @finally {
-                    NSLog(@"Finally");
-                }
-                
-            }
-            
-            // Refresh node list
-            
-            UINavigationController *controller = [[UINavigationController alloc] init ];
-            
-            controller = [appDelegate.tbController.viewControllers  objectAtIndex:0];
-            
-            appDelegate.tbController.selectedViewController = controller;
-            
-            [controller viewWillAppear:TRUE];
-
-            
-            //Remove the alert
             [activityAlert close];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             
