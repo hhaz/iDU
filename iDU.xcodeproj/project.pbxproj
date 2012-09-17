@@ -25,6 +25,8 @@
 		634C8CC114E6B14200CCF1EA /* ActivityAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = 634C8CC014E6B14200CCF1EA /* ActivityAlertView.m */; };
 		63572CA915B347CA005F1E3A /* DollarURetina.png in Resources */ = {isa = PBXBuildFile; fileRef = 6312DAAB15A0A49100F46301 /* DollarURetina.png */; };
 		63572CAB15B37EE0005F1E3A /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 63572CAA15B37EE0005F1E3A /* Localizable.strings */; };
+		6360CDB81607AE1600A3226E /* jobsInCollectionViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360CDB71607AE1600A3226E /* jobsInCollectionViewViewController.m */; };
+		6360CDBC1607BA1700A3226E /* collectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 6360CDBB1607BA1700A3226E /* collectionViewCell.m */; };
 		636580B11606125C00C4A128 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 636580B01606125C00C4A128 /* Default-568h@2x.png */; };
 		6369169D14F978DC00C92B23 /* graphview.m in Sources */ = {isa = PBXBuildFile; fileRef = 6369169C14F978DC00C92B23 /* graphview.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		636DF69714D5C4DB009C93FF /* dollaru.png in Resources */ = {isa = PBXBuildFile; fileRef = 636DF69614D5C4DB009C93FF /* dollaru.png */; };
@@ -184,6 +186,10 @@
 		634C8CBF14E6B14200CCF1EA /* ActivityAlertView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityAlertView.h; sourceTree = "<group>"; };
 		634C8CC014E6B14200CCF1EA /* ActivityAlertView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityAlertView.m; sourceTree = "<group>"; };
 		63572CAA15B37EE0005F1E3A /* Localizable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localizable.strings; sourceTree = "<group>"; };
+		6360CDB61607AE1600A3226E /* jobsInCollectionViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = jobsInCollectionViewViewController.h; sourceTree = "<group>"; };
+		6360CDB71607AE1600A3226E /* jobsInCollectionViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = jobsInCollectionViewViewController.m; sourceTree = "<group>"; };
+		6360CDBA1607BA1700A3226E /* collectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = collectionViewCell.h; sourceTree = "<group>"; };
+		6360CDBB1607BA1700A3226E /* collectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = collectionViewCell.m; sourceTree = "<group>"; };
 		636580B01606125C00C4A128 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		6369169B14F978DC00C92B23 /* graphview.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = graphview.h; sourceTree = "<group>"; };
 		6369169C14F978DC00C92B23 /* graphview.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = graphview.m; sourceTree = "<group>"; };
@@ -466,6 +472,10 @@
 				63DFF02F158D03B3004061CE /* computePeriod.h */,
 				63DFF030158D03B3004061CE /* computePeriod.m */,
 				639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */,
+				6360CDB61607AE1600A3226E /* jobsInCollectionViewViewController.h */,
+				6360CDB71607AE1600A3226E /* jobsInCollectionViewViewController.m */,
+				6360CDBA1607BA1700A3226E /* collectionViewCell.h */,
+				6360CDBB1607BA1700A3226E /* collectionViewCell.m */,
 				63CEED4E157AA86000459131 /* filterpreferences.h */,
 				63CEED4F157AA86000459131 /* filterpreferences.m */,
 				63EE8B7A159F86CF00B53EAE /* SectionHeaderView.h */,
@@ -670,6 +680,8 @@
 				63EE8B7F159F886900B53EAE /* SectionInfo.m in Sources */,
 				6373C4F915DB0C9000FA50C5 /* iDUFirstViewController.m in Sources */,
 				639C12D61606613F0053EA51 /* getJobs.m in Sources */,
+				6360CDB81607AE1600A3226E /* jobsInCollectionViewViewController.m in Sources */,
+				6360CDBC1607BA1700A3226E /* collectionViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12B19" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
+        <development version="4500" identifier="xcode"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
     </dependencies>
     <scenes>
@@ -42,16 +43,87 @@
                     </view>
                     <navigationItem key="navigationItem" title="Node List" id="szo-oh-hs3">
                         <barButtonItem key="backBarButtonItem" title="Node List" id="bMb-in-t8g"/>
+                        <barButtonItem key="rightBarButtonItem" id="tVy-jc-Qjd">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nJL-1w-sa7">
+                                <rect key="frame" x="244" y="6" width="71" height="33"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <state key="normal" title="Test">
+                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="Test" destination="2" eventType="touchUpInside" id="a7X-xI-sgZ"/>
+                                </connections>
+                            </button>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="1OT-nv-YuA" id="PwX-Eq-ztp"/>
                         <outlet property="theNodes" destination="1OT-nv-YuA" id="N4w-Lk-QMr"/>
                         <segue destination="dvi-Sz-sGc" kind="push" identifier="showjob" id="9ms-NF-0SF"/>
+                        <segue destination="QkN-oS-ByB" kind="push" identifier="collectionTest" id="4Fz-Dv-hmW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1085" y="-315"/>
+        </scene>
+        <!--Jobs In Collection View View Controller-->
+        <scene sceneID="I0I-ej-MYR">
+            <objects>
+                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="QkN-oS-ByB" customClass="jobsInCollectionViewViewController" sceneMemberID="viewController">
+                    <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="axw-SU-OuY">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="HsY-59-rUc">
+                            <size key="itemSize" width="151" height="45"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="Cell" id="y8o-pc-EHF" customClass="collectionViewCell">
+                                <rect key="frame" x="0.0" y="0.0" width="151" height="45"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="151" height="45"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" id="XGW-fM-dOk">
+                                            <rect key="frame" x="7" y="7" width="25" height="25"/>
+                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        </imageView>
+                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="jEp-Nv-apd">
+                                            <rect key="frame" x="40" y="11" width="96" height="21"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <outlet property="imgProfile" destination="XGW-fM-dOk" id="eZt-IH-peb"/>
+                                    <outlet property="lblTitle" destination="jEp-Nv-apd" id="AG4-y4-wXp"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                        <connections>
+                            <outlet property="dataSource" destination="QkN-oS-ByB" id="wl4-Pq-pkr"/>
+                            <outlet property="delegate" destination="QkN-oS-ByB" id="C2w-AT-t0t"/>
+                        </connections>
+                    </collectionView>
+                    <navigationItem key="navigationItem" id="fSg-MK-Dxc"/>
+                </collectionViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5eH-28-K9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1615" y="-892"/>
         </scene>
         <!--Jobruns - Job List-->
         <scene sceneID="Bfn-cF-BJQ">
@@ -88,7 +160,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2119" y="262"/>
+            <point key="canvasLocation" x="2035" y="170"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
@@ -134,7 +206,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8y7-0p-Ju5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2548" y="-123"/>
+            <point key="canvasLocation" x="2528" y="-443"/>
         </scene>
         <!--Joblogdetails - Job Log-->
         <scene sceneID="ElV-Yd-9ha">
@@ -199,7 +271,7 @@
                     <navigationItem key="navigationItem" title="Settings" id="U8f-3U-vr7">
                         <barButtonItem key="rightBarButtonItem" title="Connect" id="dhR-KY-dmd">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="y1H-QB-IhV">
-                                <rect key="frame" x="244" y="5" width="71" height="33"/>
+                                <rect key="frame" x="244" y="6" width="71" height="33"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <state key="normal" title="Connect">
@@ -356,7 +428,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="OsO-Mo-itL">
-                                <rect key="frame" x="0.0" y="4" width="320" height="352"/>
+                                <rect key="frame" x="0.0" y="4" width="320" height="351"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </scrollView>
                         </subviews>

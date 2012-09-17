@@ -351,4 +351,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
 }
 
+-(IBAction)Test
+{
+    
+    [self performSegueWithIdentifier:@"collectionTest" sender:self];
+}
+
+
 @end
