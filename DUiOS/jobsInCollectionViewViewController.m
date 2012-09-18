@@ -9,6 +9,7 @@
 #import "jobsInCollectionViewViewController.h"
 #import "collectionViewCell.h"
 #import "DuWebServiceSvc.h"
+#import "graphview.h"
 
 @implementation jobsInCollectionViewViewController
 @synthesize appDelegate;
@@ -26,6 +27,20 @@
 {
     [super viewDidLoad];
     appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
+    _retrieveJobs = [[getJobs alloc]init];
+    
+    if(refresh == nil)
+    {
+        refresh = [[UIRefreshControl alloc]initWithFrame:CGRectMake(0, 0 , 220, 22)];
+        NSAttributedString *title = [[NSAttributedString alloc]initWithString:@"Refreshing Node List"];
+        refresh.attributedTitle = title;
+        [refresh addTarget:self action:@selector(refreshNodeList) forControlEvents:UIControlEventValueChanged];
+    }
+    
+    [theNodes addSubview:refresh];
+    
+
+    
 	// Do any additional setup after loading the view.
 }
 
@@ -77,9 +92,27 @@
     return cell;
 }
 
-- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    collectionViewCell *cell = (collectionViewCell *)[collectionView  cellForItemAtIndexPath:indexPath];
     
+    _theNode = cell.lblTitle.text;
     
+    [_retrieveJobs getJobs:self :_theNode :@"seguegraph2" :TRUE];
+    
+}
+
+-(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+
+{
+    if ([[segue identifier] isEqualToString:@"seguegraph2"])
+    {
+        graphview *graphviewController = [segue destinationViewController];
+        
+        graphviewController.nodeName        = _theNode;
+        graphviewController.launchList      = _retrieveJobs.launchList;
+        graphviewController.executionList   = _retrieveJobs.executionList;
+    }
 }
 
 

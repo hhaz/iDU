@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void) getJobs:(id)sender:(NSString *)node:(NSString *)segue
+- (void) getJobs:(id)sender:(NSString *)node:(NSString *)segue:(Boolean)alert
 {
     if (_appDelegate == nil) {
         _appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -30,12 +30,17 @@
     computePeriod *computeDate = [[computePeriod alloc] init];
     
     // Show the alert
+    
     ActivityAlertView *activityAlert = [[ActivityAlertView alloc]
                                         initWithTitle:@"Retrieving Information"
                                         message:@"Please wait..."
                                         delegate:self cancelButtonTitle:nil
                                         otherButtonTitles:nil];
-    [activityAlert show];
+    if(alert)
+    {
+        [activityAlert show];
+    }
+    
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     [computeDate compute];
@@ -149,7 +154,10 @@
         }
     }
     
-    [activityAlert close];
+    if(alert)
+    {
+        [activityAlert close];
+    }
     
 }
 

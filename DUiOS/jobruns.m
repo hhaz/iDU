@@ -604,7 +604,7 @@ return sectionInfo.headerView;
 - (void)refreshJobList
 {
     NSLog(@"refresh");
-    [_retrieveJobs getJobs:self :_theNode :@""];
+    [_retrieveJobs getJobs:self :_theNode :@"" :FALSE];
     [refresh endRefreshing];
 }
 

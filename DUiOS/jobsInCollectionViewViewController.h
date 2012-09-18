@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 #import "iDUAppDelegate.h"
+#import "getJobs.h"
 
 @interface jobsInCollectionViewViewController : UICollectionViewController
+{
+    UIRefreshControl *refresh;
+    IBOutlet UICollectionView *theNodes;
+}
 
 @property (nonatomic, retain) iDUAppDelegate *appDelegate;
+@property (nonatomic, retain) NSString *theNode;
+@property (nonatomic, retain) getJobs *retrieveJobs;
 
 @end

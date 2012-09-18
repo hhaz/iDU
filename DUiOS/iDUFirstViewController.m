@@ -81,7 +81,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     theNode = cell.textLabel.text;
     
-    [_retrieveJobs getJobs:self :theNode :@"seguegraph"];
+    [_retrieveJobs getJobs:self :theNode :@"seguegraph" :TRUE];
     
     NSLog(@"Cell Selected");
     
