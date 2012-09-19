@@ -19,6 +19,7 @@
 		632A269E14DD8F5300440AA0 /* webservicedetails.m in Sources */ = {isa = PBXBuildFile; fileRef = 632A269D14DD8F5300440AA0 /* webservicedetails.m */; };
 		632CE31115A23B3F002FCFAE /* car.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 632CE30F15A23B3F002FCFAE /* car.m4a */; };
 		632CE31215A23B3F002FCFAE /* emergency.m4a in Resources */ = {isa = PBXBuildFile; fileRef = 632CE31015A23B3F002FCFAE /* emergency.m4a */; };
+		63352211160A619900C67428 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63352210160A619900C67428 /* SettingsViewController.m */; };
 		633DF776150BC60C000B9B54 /* libCorePlot-CocoaTouch.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 633DF774150BC5B3000B9B54 /* libCorePlot-CocoaTouch.a */; };
 		633DF778150BC91D000B9B54 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 633DF777150BC91D000B9B54 /* QuartzCore.framework */; };
 		63412DA81583D73400C8768B /* WebServiceConnection.m in Sources */ = {isa = PBXBuildFile; fileRef = 63412DA71583D73400C8768B /* WebServiceConnection.m */; };
@@ -100,6 +101,8 @@
 		632A269D14DD8F5300440AA0 /* webservicedetails.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = webservicedetails.m; sourceTree = "<group>"; };
 		632CE30F15A23B3F002FCFAE /* car.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = car.m4a; sourceTree = "<group>"; };
 		632CE31015A23B3F002FCFAE /* emergency.m4a */ = {isa = PBXFileReference; lastKnownFileType = file; path = emergency.m4a; sourceTree = "<group>"; };
+		6335220F160A619900C67428 /* SettingsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SettingsViewController.h; path = ../SettingsViewController.h; sourceTree = "<group>"; };
+		63352210160A619900C67428 /* SettingsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SettingsViewController.m; path = ../SettingsViewController.m; sourceTree = "<group>"; };
 		633DF774150BC5B3000B9B54 /* libCorePlot-CocoaTouch.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libCorePlot-CocoaTouch.a"; sourceTree = "<group>"; };
 		633DF777150BC91D000B9B54 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		633DF77A150BC9D8000B9B54 /* _CPTConstraintsFixed.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = _CPTConstraintsFixed.h; sourceTree = "<group>"; };
@@ -469,6 +472,8 @@
 				6320045C14E9D883006E2FFA /* png */,
 				639DA1D214D4494500EA3372 /* iDUAppDelegate.h */,
 				639DA1D314D4494500EA3372 /* iDUAppDelegate.m */,
+				6335220F160A619900C67428 /* SettingsViewController.h */,
+				63352210160A619900C67428 /* SettingsViewController.m */,
 				63DFF02F158D03B3004061CE /* computePeriod.h */,
 				63DFF030158D03B3004061CE /* computePeriod.m */,
 				639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */,
@@ -682,6 +687,7 @@
 				639C12D61606613F0053EA51 /* getJobs.m in Sources */,
 				6360CDB81607AE1600A3226E /* jobsInCollectionViewViewController.m in Sources */,
 				6360CDBC1607BA1700A3226E /* collectionViewCell.m in Sources */,
+				63352211160A619900C67428 /* SettingsViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
