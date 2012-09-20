@@ -16,105 +16,8 @@
 @synthesize contentsList = ivContentsList;
 @synthesize sectionKeys = ivSectionKeys;
 @synthesize arrayPeriods;
+@synthesize activeTextField;
 
-
-// Customize the appearance of table view cells.
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    //static NSString *CellIdentifier = @"Cell";
-    NSString *key = [[self sectionKeys] objectAtIndex:[indexPath section]];
-    NSArray *contents = [[self contentsList] objectForKey:key];
-    NSString *contentForThisRow = [contents objectAtIndex:[indexPath row]];
-    
-    NSString *imageFile;
-    
-    NSString *CellIdentifier = [contents objectAtIndex:[indexPath row]];   
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
-    
-    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
-    
-    if (cell == nil)
-	{
-		cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
-        
-        if ([indexPath section] == 0) {
-             UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(235, 11, 185, 30)];
-            if ([indexPath row] == 0) {
-                node.adjustsFontSizeToFitWidth = YES;
-                node.textColor = [UIColor blackColor];
-
-                node.placeholder = @"required";
-                UIPickerView *picker = [[UIPickerView alloc] init ];
-            
-                [picker sizeToFit];
-                picker.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
-                [picker setDataSource: self];
-                [picker setDelegate: self];		
-                picker.showsSelectionIndicator = YES;
-            
-                node.inputView =  picker;
-            
-                UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
-                keyboardDoneButtonView.barStyle = UIBarStyleBlack;
-                keyboardDoneButtonView.translucent = YES;
-                keyboardDoneButtonView.tintColor = nil;
-                [keyboardDoneButtonView sizeToFit];
-            
-                UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
-                                                                           style:UIBarButtonItemStyleBordered target:self
-                                                                          action:@selector(pickerDoneClicked:)];
-            
-                [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
-            
-                // Plug the keyboardDoneButtonView into the text field...
-                node.inputAccessoryView = keyboardDoneButtonView;  
-            
-                node.returnKeyType = UIReturnKeyDefault;
-                node.text = appDelegate.period;
-                periods = node;
-                imageFile = @"calendar.png";
-               
-            }
-            if ([indexPath row] == 1) {
-                node.placeholder = @"required";
-                node.keyboardType = UIKeyboardTypeNumberPad;
-                node.returnKeyType = UIReturnKeyDefault;
-                node.text = appDelegate.nbPeriods;
-                nbPeriods = node;
-                imageFile = @"numberorange.png";
-            }
-            [node addTarget:self 
-                     action:@selector(removeKeyBoard:)
-           forControlEvents:UIControlEventEditingDidEndOnExit];
-            [cell addSubview:node];
-        }
-        
-        if ([indexPath section] == 1) {
-            UITextField *node = [[UITextField alloc] initWithFrame:CGRectMake(235, 13, 185, 30)];
-            node.placeholder = @"required";
-            node.keyboardType = UIKeyboardTypeNumberPad;
-            node.returnKeyType = UIReturnKeyDefault;
-            node.text = appDelegate.nbJobs;
-            nbJobs = node;
-            imageFile = @"numberblue.png";
-            [node addTarget:self 
-                     action:@selector(removeKeyBoard:)
-           forControlEvents:UIControlEventEditingDidEndOnExit];
-            [cell addSubview:node];
-        }
-         
-        UIImage *tableImage = [UIImage imageNamed:imageFile];
-        [cell.imageView setImage:tableImage];
-        CGSize imageSize = CGSizeMake(25,25);
-        UIGraphicsBeginImageContext(imageSize);
-        CGRect imageRect = CGRectMake(1.0, 0.5, imageSize.width, imageSize.height);
-        [tableImage drawInRect:imageRect];
-        cell.imageView.image = UIGraphicsGetImageFromCurrentImageContext();
-        [[cell textLabel] setText:contentForThisRow];
-    }
-	
-    return cell;
-}
 
 - (void)viewWillDisappear:(BOOL)animated {
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -126,6 +29,39 @@
     computePeriod *computeDate = [[computePeriod alloc] init];
     [computeDate compute];
 
+}
+
+-(IBAction)displayPicker:(id)sender
+{
+    activeTextField = (UITextField *)sender;
+    
+    if (self) {
+        picker = [[UIPickerView alloc] init ];
+        
+        [picker sizeToFit];
+        picker.autoresizingMask = (UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight);
+        [picker setDataSource:self];
+        [picker setDelegate:self];
+        picker.showsSelectionIndicator = YES;
+        
+        activeTextField.inputView = picker;
+        
+        UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+        keyboardDoneButtonView.barStyle = UIBarStyleBlack;
+        keyboardDoneButtonView.translucent = YES;
+        keyboardDoneButtonView.tintColor = nil;
+        [keyboardDoneButtonView sizeToFit];
+        
+        UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"Done"
+                                                                       style:UIBarButtonItemStyleBordered target:self
+                                                                      action:@selector(pickerDoneClicked:)];
+        
+        [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
+        
+        activeTextField.inputAccessoryView = keyboardDoneButtonView;
+        
+    }
+    
 }
 
 
@@ -141,22 +77,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    nbJobs.text         = appDelegate.nbJobs;
+    periods.text        = appDelegate.period;
+    nbPeriods.text      = appDelegate.nbPeriods;
 
-    NSMutableArray *keys = [[NSMutableArray alloc] init];
-    NSMutableDictionary *contents = [[NSMutableDictionary alloc] init];
-	
-    NSString *period = @"Periods";
-    NSString *nbrJobs = @"Max. Number of Jobs to Display";
-    	
-    [contents setObject:[NSArray arrayWithObjects:@"Period Type",@"Number of periods",nil] forKey:period];
-    [contents setObject:[NSArray arrayWithObject:@"Number of Jobs"] forKey:nbrJobs];
-    
-    [keys addObject:period];
-    [keys addObject:nbrJobs];
-    
-    [self setSectionKeys:keys];
-    [self setContentsList:contents];
-    
     arrayPeriods = [[NSMutableArray alloc] init];
     [arrayPeriods addObject:@"Minutes"];
     [arrayPeriods addObject:@"Hours"];
@@ -210,46 +137,5 @@
     [sender resignFirstResponder];
 }
 
-
-
-- (NSString *)tableView:(UITableView *)tableView
-titleForHeaderInSection:(NSInteger)section
-{
-    NSString *key = [[self sectionKeys] objectAtIndex:section];
-    
-    return key;
-}
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-   	NSInteger sections = [[self contentsList] count];
-    
-    return sections;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    NSString *key = [[self sectionKeys] objectAtIndex:section];
-    NSArray *contents = [[self contentsList] objectForKey:key];
-    NSInteger rows = [contents count];
-    
-    return rows;
-}
-
-
-
-#pragma mark - Table view delegate
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Navigation logic may go here. Create and push another view controller.
-    /*
-     <#DetailViewController#> *detailViewController = [[<#DetailViewController#> alloc] initWithNibName:@"<#Nib name#>" bundle:nil];
-     // ...
-     // Pass the selected object to the new view controller.
-     [self.navigationController pushViewController:detailViewController animated:YES];
-     [detailViewController release];
-     */
-}
 
 @end

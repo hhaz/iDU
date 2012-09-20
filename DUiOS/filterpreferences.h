@@ -17,6 +17,8 @@
     IBOutlet UITextField *nbPeriods;
     IBOutlet UITextField *nbJobs;
     
+    IBOutlet UIPickerView  *picker;
+    
     NSMutableDictionary *ivContentsList;
     NSMutableArray *ivSectionKeys;
 }
@@ -25,5 +27,6 @@
 @property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) NSMutableArray *sectionKeys;
 @property (nonatomic, retain) NSMutableArray *arrayPeriods;
+@property (nonatomic, retain) UITextField *activeTextField;
 
 @end

@@ -142,7 +142,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 }
 
 
-- (void) retrieveNodeList
+- (void)retrieveNodeList
 {
     
     DuWebServiceSvc_uvmsNodeFilter *nodeFilter = [[DuWebServiceSvc_uvmsNodeFilter alloc] init];
@@ -193,8 +193,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 {
     [super viewWillAppear:animated];
   
-    nodeList = appDelegate.nodeList;
-    [theNodes reloadData];
+    [self retrieveNodeList];
+//    nodeList = appDelegate.nodeList;
+//    [theNodes reloadData];
     
     if (appDelegate.isRemoteNotif && appDelegate.isConnected) {
          appDelegate.isRemoteNotif = FALSE;

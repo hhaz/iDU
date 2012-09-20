@@ -46,6 +46,11 @@
     _WSURL              = appDelegate.url;
     _WSSuffix           = appDelegate.suffix;
     
+    NSString *dToken = [[appDelegate.tokenDevice description] stringByTrimmingCharactersInSet:[NSCharacterSet characterSetWithCharactersInString:@"<>"]];
+    dToken = [dToken stringByReplacingOccurrencesOfString:@" " withString:@""];
+    
+    theTokenDevice.text = dToken;
+    
     if(appDelegate.isConnected)
     {
         connectionStatus.text = @"Connected";
