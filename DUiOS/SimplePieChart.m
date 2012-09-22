@@ -88,11 +88,9 @@
 	// Graph padding
 	CGFloat boundsPadding = bounds.size.width / 20.0f;
 	graph.paddingLeft	= boundsPadding;
-	//graph.paddingTop	= graph.titleDisplacement.y * 2;
-    graph.paddingTop	= 20;
+    graph.paddingTop	= 5;
 	graph.paddingRight	= boundsPadding;
-	//graph.paddingBottom = boundsPadding;
-    graph.paddingBottom = 95;
+    graph.paddingBottom = 50;
 
 	graph.axisSet = nil;
 
@@ -118,21 +116,22 @@
 
 	// Add legend
 	CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];
-	theLegend.numberOfColumns = 3;
+	theLegend.numberOfColumns = 4;
 	theLegend.fill			  = [CPTFill fillWithColor:[CPTColor whiteColor]];
 	theLegend.borderLineStyle = [CPTLineStyle lineStyle];
 	theLegend.cornerRadius	  = 5.0;
 
-    CPTMutableTextStyle *textStyleLegend = [CPTMutableTextStyle textStyle];
-	textStyleLegend.color				   = [CPTColor blackColor];
-	textStyleLegend.fontName			   = @"Helvetica";
-	textStyleLegend.fontSize			   = bounds.size.height / 40.0f;
-    theLegend.textStyle = textStyleLegend;
+    CPTMutableTextStyle *textStyleLegend    = [CPTMutableTextStyle textStyle];
+	textStyleLegend.color                   = [CPTColor blackColor];
+	textStyleLegend.fontName                = @"Helvetica";
+	textStyleLegend.fontSize                = bounds.size.height / 50.0f;
+    theLegend.textStyle                     = textStyleLegend;
 
 	graph.legend = theLegend;
 
-	graph.legendAnchor		 = CPTRectAnchorRight;
-	graph.legendDisplacement = CGPointMake(-boundsPadding - 10.0, 185.0);
+	graph.legendAnchor		 = CPTRectAnchorCenter;
+    graph.legendDisplacement = CGPointMake(0, bounds.size.height / 2.5 + 20);
+    
 }
 
 - (void)handleTap:(UITapGestureRecognizer *)gesture {

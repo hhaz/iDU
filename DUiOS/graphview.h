@@ -16,14 +16,14 @@
 @interface graphview : UIViewController {
     
     	PlotItem *detailItem;
-    	UIScrollView *hostingView;
+    	IBOutlet UIScrollView *scrollView;
+        IBOutlet UIView *hostingView;
     
 }
 
 @property (nonatomic, retain) PlotItem *detailItem;
 @property (nonatomic, retain) NSString *bindingAddress;
 @property (nonatomic, retain) DuWebServiceSvc_contextHolder *theContext;
-@property (nonatomic, retain) IBOutlet UIScrollView *hostingView;
 @property (nonatomic, retain) NSArray *data;
 @property (nonatomic, retain) NSString *nodeName;
 @property (nonatomic, retain) NSString *filterStatus;

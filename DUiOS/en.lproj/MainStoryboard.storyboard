@@ -8,7 +8,7 @@
         <!--IDU First View Controller - First-->
         <scene sceneID="11">
             <objects>
-                <viewController storyboardIdentifier="NodeListViewController" title="First" id="2" customClass="iDUFirstViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="" title="First" id="2" customClass="iDUFirstViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="16">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -39,33 +39,20 @@
                                 </connections>
                             </tableView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Node List" id="szo-oh-hs3">
                         <barButtonItem key="backBarButtonItem" title="Node List" id="bMb-in-t8g"/>
-                        <barButtonItem key="rightBarButtonItem" id="tVy-jc-Qjd">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nJL-1w-sa7">
-                                <rect key="frame" x="244" y="6" width="71" height="33"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="10"/>
-                                <state key="normal" title="Switch View">
-                                    <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="highlighted">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="Test" destination="2" eventType="touchUpInside" id="a7X-xI-sgZ"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="Fgd-UJ-Pnp">
+                            <connections>
+                                <segue destination="QkN-oS-ByB" kind="push" id="fbt-Qp-grT"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="myTableView" destination="1OT-nv-YuA" id="PwX-Eq-ztp"/>
                         <outlet property="theNodes" destination="1OT-nv-YuA" id="N4w-Lk-QMr"/>
                         <segue destination="dvi-Sz-sGc" kind="push" identifier="showjob" id="9ms-NF-0SF"/>
-                        <segue destination="QkN-oS-ByB" kind="push" identifier="collectionTest" id="4Fz-Dv-hmW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
@@ -94,8 +81,8 @@
                                                     <rect key="frame" x="13" y="11" width="25" height="25"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="ASw-CV-hqS">
-                                                    <rect key="frame" x="83" y="7" width="192" height="30"/>
+                                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Is connected ?" minimumFontSize="17" clearButtonMode="whileEditing" id="ASw-CV-hqS">
+                                                    <rect key="frame" x="53" y="9" width="120" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="12"/>
@@ -104,6 +91,21 @@
                                                         <action selector="removeKeyBoard:" destination="u6B-UI-YVV" eventType="editingDidEndOnExit" id="Q44-HA-4DU"/>
                                                     </connections>
                                                 </textField>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" id="NYy-n7-Mob">
+                                                    <rect key="frame" x="220" y="14" width="60" height="19"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                                    <state key="normal" title="Connect">
+                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
+                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <state key="highlighted">
+                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    </state>
+                                                    <connections>
+                                                        <action selector="TryConnection" destination="u6B-UI-YVV" eventType="touchUpInside" id="lTN-vO-4lp"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -334,34 +336,7 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection id="qQj-xA-M7M">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="eHy-UH-ySi">
-                                        <rect key="frame" x="0.0" y="612" width="320" height="46"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="300" height="43"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="NYy-n7-Mob">
-                                                    <rect key="frame" x="0.0" y="0.0" width="300" height="44"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
-                                                    <state key="normal" title="Connect">
-                                                        <color key="titleColor" red="0.19607843459999999" green="0.30980393290000002" blue="0.52156865600000002" alpha="1" colorSpace="calibratedRGB"/>
-                                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <state key="highlighted">
-                                                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                    </state>
-                                                    <connections>
-                                                        <action selector="TryConnection" destination="u6B-UI-YVV" eventType="touchUpInside" id="lTN-vO-4lp"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                        </view>
-                                    </tableViewCell>
-                                </cells>
+                                <cells/>
                             </tableViewSection>
                         </sections>
                         <connections>
@@ -385,10 +360,10 @@
             </objects>
             <point key="canvasLocation" x="1085" y="-1167"/>
         </scene>
-        <!--Jobs In Collection View View Controller - Node List-->
+        <!--Nodes In Collection View View Controller - Node List-->
         <scene sceneID="I0I-ej-MYR">
             <objects>
-                <collectionViewController autoresizesArchivedViewToFullSize="NO" id="QkN-oS-ByB" customClass="jobsInCollectionViewViewController" sceneMemberID="viewController">
+                <collectionViewController storyboardIdentifier="" autoresizesArchivedViewToFullSize="NO" id="QkN-oS-ByB" customClass="nodesInCollectionViewViewController" sceneMemberID="viewController">
                     <collectionView key="view" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" minimumZoomScale="0.0" maximumZoomScale="0.0" dataMode="prototypes" id="axw-SU-OuY">
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -439,7 +414,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eH-28-K9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1797" y="580"/>
+            <point key="canvasLocation" x="1704" y="462"/>
         </scene>
         <!--Jobruns - Job List-->
         <scene sceneID="Bfn-cF-BJQ">
@@ -450,17 +425,18 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="jobcell" id="c3t-Qh-9i4">
+                            <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="jobcell" id="c3t-Qh-9i4">
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                    <rect key="frame" x="0.0" y="0.0" width="300" height="43"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
                                 <gestureRecognizers/>
                                 <connections>
                                     <segue destination="dvi-Sz-sGc" kind="push" identifier="DisplayJobLog" id="E9i-Cd-thg"/>
+                                    <segue destination="dvi-Sz-sGc" kind="push" trigger="accessoryAction" id="l6f-Wu-RCs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -476,7 +452,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2537" y="-870"/>
+            <point key="canvasLocation" x="2719" y="-578"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
@@ -512,7 +488,7 @@
                         <barButtonItem key="backBarButtonItem" title="Back To List" id="BB9-DD-q1H"/>
                         <barButtonItem key="rightBarButtonItem" title="Show Log" id="7oI-Wd-lhi">
                             <connections>
-                                <segue destination="GbN-Ck-Tgv" kind="push" id="Wvj-ST-fjx"/>
+                                <segue destination="GbN-Ck-Tgv" kind="modal" modalTransitionStyle="partialCurl" id="Wvj-ST-fjx"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -522,24 +498,30 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8y7-0p-Ju5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2600" y="237"/>
+            <point key="canvasLocation" x="3291" y="-1567"/>
         </scene>
         <!--Joblogdetails - Job Log-->
         <scene sceneID="ElV-Yd-9ha">
             <objects>
                 <viewController id="GbN-Ck-Tgv" customClass="joblogdetails" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cSc-CO-ivP">
-                        <rect key="frame" x="0.0" y="64" width="320" height="455"/>
+                        <rect key="frame" x="0.0" y="20" width="320" height="548"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Skf-P2-f3p">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Oue-4F-uTW">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                <subviews>
+                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="Skf-P2-f3p">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="548"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                        <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                    </textView>
+                                </subviews>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -550,7 +532,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxB-FF-rJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3197" y="230"/>
+            <point key="canvasLocation" x="3765" y="-1562"/>
         </scene>
         <!--Webservicedetails - Web Service URL-->
         <scene sceneID="piH-R4-ZeD">
@@ -630,22 +612,30 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="455"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="OsO-Mo-itL">
-                                <rect key="frame" x="0.0" y="4" width="320" height="439"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" id="OsO-Mo-itL">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="455"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" id="JfL-Jq-eDz">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="409"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                                    </view>
+                                </subviews>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Graph Summary" id="hR6-eq-AmI"/>
                     <connections>
-                        <outlet property="hostingView" destination="OsO-Mo-itL" id="Z3Y-Pr-mVb"/>
+                        <outlet property="hostingView" destination="JfL-Jq-eDz" id="NFh-9R-3CT"/>
+                        <outlet property="scrollView" destination="OsO-Mo-itL" id="jdz-qs-w3j"/>
                         <segue destination="SFC-UA-y1H" kind="push" identifier="seguejoblist" id="irZ-Oh-mud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEG-cs-917" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2037" y="-543"/>
+            <point key="canvasLocation" x="2229" y="-183"/>
         </scene>
         <!--Filterpreferences - Filter Preferences-->
         <scene sceneID="sBX-cz-gRW">
@@ -800,6 +790,7 @@
                 <navigationController id="E7e-cp-AhT" sceneMemberID="viewController">
                     <tabBarItem key="tabBarItem" title="Preferences" image="filter.png" id="OdK-yD-euF"/>
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="669-vh-fnH"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="4zz-wv-uWf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -829,6 +820,120 @@
         <image name="url2.png" width="64" height="64"/>
         <image name="user.png" width="121" height="193"/>
     </resources>
+    <classes>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="removeKeyBoard:"/>
+                <relationship kind="outlet" name="connectionStatus" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenDevice" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="collectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/collectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imgNotification" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgProfile" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lblTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="filterpreferences" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/filterpreferences.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nbJobs" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nbPeriods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="periods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="graphview" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/graphview.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="iDUFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iDUFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="switchControl" candidateClass="UISwitch"/>
+                <relationship kind="outlet" name="theNodes" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblog" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblog.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblogdetails" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblogdetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="jobruns" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="nodesInCollectionViewViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/nodesInCollectionViewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="theNodes" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="settings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="webservicedetails" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/webservicedetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSettings" candidateClass="settings"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSuffix" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>
@@ -836,6 +941,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="9ms-NF-0SF"/>
-        <segue reference="RyL-Ml-Bh6"/>
+        <segue reference="AL1-Z5-ImV"/>
     </inferredMetricsTieBreakers>
 </document>

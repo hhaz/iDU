@@ -18,7 +18,6 @@
 @implementation iDUFirstViewController
 @synthesize nodeList;
 @synthesize myTableView;
-@synthesize aSecondController;
 @synthesize launchList;
 @synthesize executionList;
 @synthesize theNode;
@@ -109,11 +108,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     _retrieveJobs = [[getJobs alloc]init];
     appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.tbController = self.tabBarController;
-    
-   UINavigationController *controller = [self.tabBarController.viewControllers  objectAtIndex:1];
-    
-    aSecondController = [controller.childViewControllers objectAtIndex:0];
-    
+     
     if(refresh == nil)
     {
         refresh = [[UIRefreshControl alloc]initWithFrame:CGRectMake(0, 0 , 220, 22)];
@@ -123,9 +118,11 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     [theNodes addSubview:refresh];
-
-	// Do any additional setup after loading the view, typically from a nib.
+    
+     UIImage *tableImage = [UIImage imageNamed:@"du.png"];
+    switchControl.onImage = tableImage;
 }
+
 
 - (void)refreshNodeList
 {
@@ -358,5 +355,9 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [self performSegueWithIdentifier:@"collectionTest" sender:self];
 }
 
+
+- (IBAction)changePage {
+    [self performSegueWithIdentifier:@"collectionTest" sender:self];
+}
 
 @end

@@ -106,13 +106,16 @@
         if (colors == nil) {
             colors = [[NSMutableArray alloc] initWithCapacity:3];
             UIColor *color = nil;
-            color = [UIColor colorWithRed:0.82 green:0.84 blue:0.87 alpha:1.0];
+
+            color = [UIColor colorWithRed:0.75 green:0.80 blue:0.87 alpha:1.0];
             [colors addObject:(id)[color CGColor]];
-            color = [UIColor colorWithRed:0.41 green:0.41 blue:0.59 alpha:1.0];
+            color = [UIColor colorWithRed:0.35 green:0.45 blue:0.59 alpha:1.0];
             [colors addObject:(id)[color CGColor]];
-            color = [UIColor colorWithRed:0.41 green:0.41 blue:0.59 alpha:1.0];
+            color = [UIColor colorWithRed:0.35 green:0.45 blue:0.59 alpha:1.0];
             [colors addObject:(id)[color CGColor]];
         }
+      //  89,116,152
+        // 193,206,223
         [(CAGradientLayer *)self.layer setColors:colors];
         [(CAGradientLayer *)self.layer setLocations:[NSArray arrayWithObjects:[NSNumber numberWithFloat:0.0], [NSNumber numberWithFloat:0.48], [NSNumber numberWithFloat:1.0], nil]];
     }

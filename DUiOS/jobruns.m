@@ -267,14 +267,6 @@ int currentSectionSelection = -1;
 bool isExtended = false;
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    /*if ([indexPath row] == currentRowSelection && [indexPath section] == currentSectionSelection && !isExtended) {
-        isExtended = true;
-        return  ROW_HEIGHT*2;
-    }
-    else { 
-        isExtended = false;
-        return ROW_HEIGHT;
-    }*/
     
     return ROW_HEIGHT;
 }
@@ -293,19 +285,17 @@ bool isExtended = false;
     
 }
 
-- (void)tableView:(UITableView *)tableView
-didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    
-    // Customize the number of rows in the table view.
-    int row = [indexPath row];
-    currentRowSelection = row;
-    currentSectionSelection = [indexPath section];
-    
-     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
-    
+- (void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath
+{
     NSString *key = [[self sectionKeys] objectAtIndex:[indexPath section]];
-    NSArray *contents = [[self contentsList] objectForKey:key];    
+    NSArray *contents = [[self contentsList] objectForKey:key];
     
+    [self getJobAndSegue:contents :indexPath];
+    
+}
+
+- (void)getJobAndSegue:(NSArray *)contents:(NSIndexPath *)indexPath
+{
     if( [[contents objectAtIndex: [indexPath row]] isKindOfClass:[DuWebServiceSvc_executionItem class]])
     {
         DuWebServiceSvc_executionItem *executionItem = [contents objectAtIndex: [indexPath row]];
@@ -334,7 +324,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         
         if (Response.error == 0)
         {
-            @try { 
+            @try {
                 
                 joblogResponse = (DuWebServiceSvc_getExecutionLogResponse *)([Response.bodyParts objectAtIndex:0]);
                 
@@ -342,7 +332,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
                 {
                     theLog = [theLog stringByAppendingString:logligne];
                 }
-            }           
+            }
             @catch (NSException *excep) {
                 appDelegate.isConnected = FALSE;
                 SOAPFault *result = (SOAPFault *)[Response.bodyParts objectAtIndex:0];
@@ -353,16 +343,16 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
             @finally {
                 NSLog(@"Finally");
                 currentJob = executionItem;
-                [self performSegueWithIdentifier:@"DisplayJobLog" sender:cell]; 
+                [self performSegueWithIdentifier:@"DisplayJobLog" sender:self];
             }
         }
-
+        
     }
     else {
         DuWebServiceSvc_launchItem *launchItem = [contents objectAtIndex: [indexPath row]];
         
         DuWebServiceSvc_launchId *jobLaunch = [[DuWebServiceSvc_launchId alloc] init];
-                
+        
         jobLaunch.mu                = launchItem.ident.mu;
         jobLaunch.numLanc           = launchItem.ident.numLanc;
         jobLaunch.numProc           = launchItem.ident.numProc;
@@ -373,11 +363,21 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         jobLaunch.uproc             = launchItem.ident.uproc;
         
         currentLaunch = launchItem;
-        [self performSegueWithIdentifier:@"DisplayJobLog" sender:cell]; 
-
+        [self performSegueWithIdentifier:@"DisplayJobLog" sender:self];
+        
     }
     
 }
+
+- (void)tableView:(UITableView *)tableView
+didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
+    NSString *key = [[self sectionKeys] objectAtIndex:[indexPath section]];
+    NSArray *contents = [[self contentsList] objectForKey:key];
+    
+    [self getJobAndSegue:contents :indexPath];
+    
+   }
 
 
 -(void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
@@ -591,7 +591,6 @@ if (!sectionInfo.headerView) {
     
     NSString *tempDate = [dateFormatter stringFromDate:[appDelegate.periodArray objectAtIndex:section]];
     
-    //SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
     
     NSString *sectionTitle = [NSString stringWithFormat:@"%@%@%d%@", tempDate , @"  -  " , [sectionInfo.jobs count] , @" Jobs"];
     

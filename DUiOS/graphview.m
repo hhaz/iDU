@@ -23,7 +23,6 @@
 @synthesize executionList;
 @synthesize bindingAddress;
 @synthesize theContext;
-@synthesize hostingView;
 @synthesize data;
 @synthesize nodeName;
 @synthesize filterStatus;
@@ -77,13 +76,6 @@
 }
 
 #pragma mark - View lifecycle
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView
-{
-}
-*/
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad
@@ -247,6 +239,10 @@
     plotItem.aGraphView = self;
     detailItem = plotItem;
     [detailItem renderInView:hostingView withTheme:[CPTTheme themeNamed:@"None"]];
+    
+    [scrollView addSubview:hostingView];
+    
+    scrollView.contentSize = CGSizeMake(hostingView.frame.size.width, hostingView.frame.size.height);
 
 }
 
