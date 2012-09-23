@@ -23,6 +23,7 @@
 @property (nonatomic, retain) CPTGraphHostingView *layerView;
 
 @property (nonatomic) NSUInteger selectedIndex;
+@property (nonatomic,retain) CPTPieChart *pie;
 
 
 @end

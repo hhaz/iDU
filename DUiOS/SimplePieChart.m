@@ -17,6 +17,7 @@
 @synthesize plotStatus;
 @synthesize selectedIndex;
 @synthesize layerView;
+@synthesize pie;
 
 
 +(void)load
@@ -61,6 +62,9 @@
 	[self addGraph:graph toHostingView:layerHostingView];
 	[self applyTheme:theme toGraph:graph withDefault:[CPTTheme themeNamed:kCPTPlainWhiteTheme]];
     
+    UIPinchGestureRecognizer *pinch = [[UIPinchGestureRecognizer alloc]initWithTarget:self action:@selector(pinch:)];
+    
+    [layerHostingView addGestureRecognizer:pinch];
     
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     
@@ -113,6 +117,8 @@
 
 	piePlot.delegate = self;
 	[graph addPlot:piePlot];
+    
+    pie = piePlot;
 
 	// Add legend
 	CPTLegend *theLegend = [CPTLegend legendWithGraph:graph];
@@ -133,6 +139,26 @@
     graph.legendDisplacement = CGPointMake(0, bounds.size.height / 2.5 + 20);
     
 }
+
+- (void)pinch:(UIPinchGestureRecognizer *)pinchRecognizer {
+    
+    pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
+    
+    if (pinchRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+          pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
+    }
+    else {
+        if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
+              pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
+        }
+        else if ((pinchRecognizer.state == UIGestureRecognizerStateCancelled) || (pinchRecognizer.state == UIGestureRecognizerStateEnded)) {
+           
+        }
+    }
+    
+}
+
 
 - (void)handleTap:(UITapGestureRecognizer *)gesture {
     if (gesture.state == UIGestureRecognizerStateEnded) {
@@ -183,8 +209,7 @@
 		whiteText.color = [CPTColor blackColor];
 	}
 
-	CPTTextLayer *newLayer = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%3.0f", [[plotData objectAtIndex:index] floatValue]]
-														   style:whiteText];
+	CPTTextLayer *newLayer = [[CPTTextLayer alloc] initWithText:[NSString stringWithFormat:@"%3.0f", [[plotData objectAtIndex:index] floatValue]] style:whiteText];
 	return newLayer;
 }
 

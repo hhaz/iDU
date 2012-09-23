@@ -10,7 +10,6 @@
 #import "ManageDefaults.h"
 #import "WebServiceConnection.h"
 
-
 @implementation iDUAppDelegate
 
 @synthesize window = _window;
@@ -43,7 +42,7 @@
     
     isConnected     = FALSE;
     isRemoteNotif   = FALSE;
-    
+      
     // Initialize status dictionary
     
     NSMutableArray *keys = [[NSMutableArray alloc] init];
@@ -83,13 +82,10 @@
     // Let the device know we want to receive push notifications
 	[[UIApplication sharedApplication] registerForRemoteNotificationTypes:
      (UIRemoteNotificationTypeBadge | UIRemoteNotificationTypeSound | UIRemoteNotificationTypeAlert)];
-    
+
     connection = [[WebServiceConnection alloc]init];
     
-    if(!isConnected)
-    {    
-        [connection TryConnection:nil];
-    }
+    [self performSelector:@selector(performConnection) withObject:nil afterDelay:3];
     
     NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (remoteNotif != nil)
@@ -98,6 +94,14 @@
     }
 
     return YES;
+}
+
+- (void)performConnection
+{
+    if(!isConnected)
+    {
+     [connection TryConnection:nil];
+    }
 }
 							
 - (void)applicationWillResignActive:(UIApplication *)application

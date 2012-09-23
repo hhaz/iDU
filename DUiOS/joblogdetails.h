@@ -13,6 +13,8 @@
 
 @interface joblogdetails : UIViewController <UINavigationBarDelegate, UITextViewDelegate> {
     
+    IBOutlet UITextView *myTextView;
+    
 }
 
 @property (nonatomic, retain) IBOutlet UITextView *myTextView;

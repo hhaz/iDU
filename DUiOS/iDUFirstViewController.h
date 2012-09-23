@@ -14,11 +14,10 @@
 @protocol iDUFirstViewController;
 
 
-@interface iDUFirstViewController : UIViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource> {
+@interface iDUFirstViewController : UIViewController <UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource,UIScrollViewDelegate> {
     
     id<iDUFirstViewController> delegate;
     IBOutlet UITableView *theNodes;
-    IBOutlet UISwitch *switchControl;
     UIRefreshControl *refresh;
 
 }

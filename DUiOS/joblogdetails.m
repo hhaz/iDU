@@ -45,10 +45,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    myTextView.editable = false;
-    
-    
+
     myTextView.text = theLog;
 }
 

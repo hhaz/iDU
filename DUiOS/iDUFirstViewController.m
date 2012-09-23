@@ -13,7 +13,7 @@
 #import "ActivityAlertView.h"
 #import "joblog.h"
 #import "getJobs.h"
-
+#import "AnimationViewController.h"
 
 @implementation iDUFirstViewController
 @synthesize nodeList;
@@ -105,6 +105,13 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    AnimationViewController *splashScreenViewController = [[AnimationViewController alloc] initWithNibName:@"AnimationViewController" bundle:nil];
+    
+    splashScreenViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+    
+    [self.navigationController presentViewController:splashScreenViewController animated: YES completion: nil];
+
     _retrieveJobs = [[getJobs alloc]init];
     appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.tbController = self.tabBarController;
@@ -119,8 +126,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     [theNodes addSubview:refresh];
     
-     UIImage *tableImage = [UIImage imageNamed:@"du.png"];
-    switchControl.onImage = tableImage;
+    
+   
 }
 
 
@@ -190,9 +197,10 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 {
     [super viewWillAppear:animated];
   
-    [self retrieveNodeList];
-//    nodeList = appDelegate.nodeList;
-//    [theNodes reloadData];
+    if(nodeList.count == 0)
+    {
+        [self retrieveNodeList];
+    }
     
     if (appDelegate.isRemoteNotif && appDelegate.isConnected) {
          appDelegate.isRemoteNotif = FALSE;
@@ -352,11 +360,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 -(IBAction)Test
 {
     
-    [self performSegueWithIdentifier:@"collectionTest" sender:self];
-}
-
-
-- (IBAction)changePage {
     [self performSegueWithIdentifier:@"collectionTest" sender:self];
 }
 
