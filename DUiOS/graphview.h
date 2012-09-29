@@ -11,10 +11,11 @@
 #import "CorePlot-CocoaTouch.h"
 #import "PlotGallery.h"
 #import "PlotItem.h"
+//#import "SimplePieChart.h"
 
 
-@interface graphview : UIViewController {
-    
+@interface graphview : UIViewController<UIPageViewControllerDelegate,UIPageViewControllerDataSource> {
+        
     	PlotItem *detailItem;
     	IBOutlet UIScrollView *scrollView;
         IBOutlet UIView *hostingView;
@@ -22,11 +23,11 @@
 }
 
 @property (nonatomic, retain) PlotItem *detailItem;
-@property (nonatomic, retain) NSString *bindingAddress;
-@property (nonatomic, retain) DuWebServiceSvc_contextHolder *theContext;
-@property (nonatomic, retain) NSArray *data;
 @property (nonatomic, retain) NSString *nodeName;
 @property (nonatomic, retain) NSString *filterStatus;
 @property (nonatomic, retain) NSMutableArray *executionList;
 @property (nonatomic, retain) NSMutableArray *launchList;
+
+@property (strong, nonatomic) UIPageViewController *pageViewController;
+
 @end

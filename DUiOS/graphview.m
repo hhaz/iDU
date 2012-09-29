@@ -9,11 +9,13 @@
 #import "graphview.h"
 #import "DuWebServiceSvc.h"
 #import "iDUAppDelegate.h"
-#import "SimplePieChart.h"
 #import "PlotItem.h"
 #import "jobruns.h"
+#import "SimplePieChart.h"
+#import "Test1ViewController.h"
 
 @interface graphview()
+@property (nonatomic,retain) Test1ViewController *pageOne;
 
 -(CPTTheme *)currentTheme;
 
@@ -21,13 +23,23 @@
 
 @implementation graphview
 @synthesize executionList;
-@synthesize bindingAddress;
-@synthesize theContext;
-@synthesize data;
 @synthesize nodeName;
 @synthesize filterStatus;
 @synthesize launchList;
 @dynamic detailItem;
+
+
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerBeforeViewController:(UIViewController *)viewController
+{
+    return _pageOne;
+}
+
+- (UIViewController *)pageViewController:(UIPageViewController *)pageViewController viewControllerAfterViewController:(UIViewController *)viewController
+{
+    return _pageOne;
+    
+}
 
 #pragma mark -
 #pragma mark Managing the detail item
@@ -81,7 +93,34 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-        
+    
+    self.pageViewController = [[UIPageViewController alloc] initWithTransitionStyle:UIPageViewControllerTransitionStyleScroll navigationOrientation:UIPageViewControllerNavigationOrientationHorizontal options:nil];
+    
+    [self.pageViewController didMoveToParentViewController:self];
+    _pageOne = [self.storyboard instantiateViewControllerWithIdentifier:@"Test1"];
+    
+    self.pageViewController.dataSource = self;
+    self.pageViewController.delegate = self;
+    
+    [self.pageViewController setViewControllers:[NSArray arrayWithObjects:_pageOne, nil] direction:UIPageViewControllerNavigationDirectionForward animated:NO completion:nil];
+    
+    [self addChildViewController:self.pageViewController];
+    [self.view addSubview:self.pageViewController.view];
+    
+    // Set the page view controller's bounds using an inset rect so that self's view is visible around the edges of the pages.
+    CGRect pageViewRect = self.view.bounds;
+    if ([[UIDevice currentDevice] userInterfaceIdiom] == UIUserInterfaceIdiomPad) {
+        pageViewRect = CGRectInset(pageViewRect, 40.0, 40.0);
+    }
+    self.pageViewController.view.frame = pageViewRect;
+    
+    [self.pageViewController didMoveToParentViewController:self];
+    
+    self.pageViewController.dataSource = self;
+    self.pageViewController.delegate   = self;
+    
+    self.view.gestureRecognizers = self.pageViewController.gestureRecognizers;
+    
     NSInteger nbOK          = 0;
     NSInteger nbOverrun     = 0;
     NSInteger nbEventWait   = 0;
@@ -236,13 +275,12 @@
                           @"LAUNCH_WAIT",
                           nil];
     
-    plotItem.aGraphView = self;
+    //plotItem.aGraphView = self;
     detailItem = plotItem;
     [detailItem renderInView:hostingView withTheme:[CPTTheme themeNamed:@"None"]];
-    
     [scrollView addSubview:hostingView];
-    
     scrollView.contentSize = CGSizeMake(hostingView.frame.size.width, hostingView.frame.size.height);
+    
 
 }
 

@@ -85,7 +85,7 @@
 
     connection = [[WebServiceConnection alloc]init];
     
-    [self performSelector:@selector(performConnection) withObject:nil afterDelay:3];
+    [self performSelector:@selector(performConnection) withObject:nil afterDelay:1];
     
     NSDictionary *remoteNotif = [launchOptions objectForKey:UIApplicationLaunchOptionsRemoteNotificationKey];
     if (remoteNotif != nil)

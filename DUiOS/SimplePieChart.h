@@ -7,7 +7,7 @@
 //
 
 #import "PlotItem.h"
-#import "graphview.h"
+#import "Test1ViewController.h"
 
 
 @interface SimplePieChart : PlotItem<CPTPlotSpaceDelegate,
@@ -19,11 +19,15 @@
 @property (nonatomic, retain) NSArray *plotLegend;
 @property (nonatomic, retain) NSArray *plotColor;
 @property (nonatomic, retain) NSArray *plotStatus;
-@property (nonatomic, retain) graphview *aGraphView;
+@property (nonatomic, retain) Test1ViewController *aGraphView;
 @property (nonatomic, retain) CPTGraphHostingView *layerView;
 
 @property (nonatomic) NSUInteger selectedIndex;
 @property (nonatomic,retain) CPTPieChart *pie;
+
+@property (nonatomic, retain) NSMutableArray *executionList;
+@property (nonatomic, retain) NSMutableArray *launchList;
+@property (nonatomic, retain) NSString *nodeName;
 
 
 @end

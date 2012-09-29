@@ -18,17 +18,17 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nodecell" id="S5d-eT-3uG">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="nodecell" id="S5d-eT-3uG">
                                         <rect key="frame" x="0.0" y="46" width="320" height="46"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                                            <rect key="frame" x="10" y="1" width="280" height="43"/>
+                                            <rect key="frame" x="10" y="1" width="267" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <connections>
-                                            <segue destination="dxf-3P-LEL" kind="push" identifier="seguegraph" id="RyL-Ml-Bh6"/>
+                                            <segue destination="dKL-Tr-ufG" kind="push" identifier="segueTest" id="PaY-3K-pCw"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -414,7 +414,7 @@
                 </collectionViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5eH-28-K9Q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2230" y="462"/>
+            <point key="canvasLocation" x="2142" y="466"/>
         </scene>
         <!--Jobruns - Job List-->
         <scene sceneID="Bfn-cF-BJQ">
@@ -452,7 +452,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2719" y="-578"/>
+            <point key="canvasLocation" x="2915" y="-562"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
@@ -572,6 +572,7 @@
                         <segue destination="tDH-F8-4Ld" kind="relationship" relationship="viewControllers" id="26"/>
                         <segue destination="ohV-BT-R3R" kind="relationship" relationship="viewControllers" id="fAh-pk-osp"/>
                         <segue destination="E7e-cp-AhT" kind="relationship" relationship="viewControllers" id="v78-3o-GLY"/>
+                        <segue destination="dKL-Tr-ufG" kind="relationship" relationship="viewControllers" id="wi7-OL-U91"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
@@ -628,7 +629,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEG-cs-917" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2755" y="-183"/>
+            <point key="canvasLocation" x="2647" y="89"/>
         </scene>
         <!--Filterpreferences - Filter Preferences-->
         <scene sceneID="sBX-cz-gRW">
@@ -777,6 +778,47 @@
             </objects>
             <point key="canvasLocation" x="625" y="-1153"/>
         </scene>
+        <!--Test1 View Controller-->
+        <scene sceneID="nVq-E9-yOy">
+            <objects>
+                <viewController storyboardIdentifier="Test1" id="WIG-67-4di" customClass="Test1ViewController" sceneMemberID="viewController">
+                    <scrollView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="gwT-qz-f9i">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" id="wmI-Cn-Aae">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                            </view>
+                        </subviews>
+                    </scrollView>
+                    <connections>
+                        <outlet property="hostingView" destination="wmI-Cn-Aae" id="nwW-0p-FaV"/>
+                        <outlet property="scrollView" destination="gwT-qz-f9i" id="v0j-uB-FLf"/>
+                        <segue destination="SFC-UA-y1H" kind="push" identifier="segueJob2" id="AwK-QP-UYc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="415-Si-O4i" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="625" y="992"/>
+        </scene>
+        <!--Page Test Root View Controller - Graph Summary-->
+        <scene sceneID="Z4Q-h1-f74">
+            <objects>
+                <viewController id="dKL-Tr-ufG" customClass="pageTestRootViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TWj-fI-Kla">
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="654-z4-cgf"/>
+                    <navigationItem key="navigationItem" title="Graph Summary" id="7qs-E8-JAh"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naU-ed-eUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="91" y="1305"/>
+        </scene>
         <!--Navigation Controller - Preferences-->
         <scene sceneID="DFy-4Z-zqa">
             <objects>
@@ -829,6 +871,13 @@
                 <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="Test1ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Test1ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
             </relationships>
         </class>
         <class className="UICollectionReusableView" superclassName="UIView">
@@ -901,6 +950,9 @@
                 <relationship kind="outlet" name="theNodes" candidateClass="UICollectionView"/>
             </relationships>
         </class>
+        <class className="pageTestRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/pageTestRootViewController.h"/>
+        </class>
         <class className="settings" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
             <relationships>
@@ -932,7 +984,8 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="RyL-Ml-Bh6"/>
-        <segue reference="9ms-NF-0SF"/>
+        <segue reference="l6f-Wu-RCs"/>
+        <segue reference="irZ-Oh-mud"/>
+        <segue reference="PaY-3K-pCw"/>
     </inferredMetricsTieBreakers>
 </document>

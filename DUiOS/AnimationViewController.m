@@ -28,15 +28,15 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [UIView animateWithDuration:2
+    [UIView animateWithDuration:1
                           delay:0
                         options: UIViewAnimationCurveEaseIn
                      animations:^{
                          // imageView.frame = imageFrame;
-                         imageView.transform = CGAffineTransformMakeScale(30, 30);
+                         imageView.transform = CGAffineTransformMakeScale(25, 25);
                      }
                      completion:^(BOOL finished){
-                         NSLog(@"Done!");
+                         NSLog(@"Animation done!");
                      }];
     
 }

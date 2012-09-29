@@ -14,6 +14,7 @@
 #import "joblog.h"
 #import "getJobs.h"
 #import "AnimationViewController.h"
+#import "pageTestRootViewController.h"
 
 @implementation iDUFirstViewController
 @synthesize nodeList;
@@ -80,11 +81,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     UITableViewCell *cell = [tableView cellForRowAtIndexPath:indexPath];
     theNode = cell.textLabel.text;
     
-    [_retrieveJobs getJobs:self :theNode :@"seguegraph" :TRUE];
+    //[_retrieveJobs getJobs:self :theNode :@"seguegraph" :TRUE];
+    
+    [_retrieveJobs getJobs:self :theNode :@"segueTest" :TRUE];
     
     NSLog(@"Cell Selected");
     
 }
+
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return [appDelegate.nodeList count];
 }
@@ -333,6 +338,15 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
         graphviewController.launchList      = _retrieveJobs.launchList;
         graphviewController.executionList   = _retrieveJobs.executionList;
     }
+    if ([[segue identifier] isEqualToString:@"segueTest"])
+    {
+        pageTestRootViewController *graphviewController = [segue destinationViewController];
+        
+        graphviewController.modelController.nodeName        = theNode;
+        graphviewController.modelController.launchList      = _retrieveJobs.launchList;
+        graphviewController.modelController.executionList   = _retrieveJobs.executionList;
+    }
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated

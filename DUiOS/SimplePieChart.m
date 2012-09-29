@@ -19,7 +19,6 @@
 @synthesize layerView;
 @synthesize pie;
 
-
 +(void)load
 {
 	[super registerPlotItem:self];
@@ -69,10 +68,6 @@
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(handleTap:)];
     
     [layerHostingView addGestureRecognizer:tap];
-    
-    UISwipeGestureRecognizer *swipeDown =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
-    swipeDown.direction =UISwipeGestureRecognizerDirectionDown;    
-    [layerHostingView addGestureRecognizer:swipeDown];
     
     UISwipeGestureRecognizer *swipeLeft =[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipe:)];
     swipeLeft.direction =UISwipeGestureRecognizerDirectionLeft;    
@@ -142,15 +137,18 @@
 
 - (void)pinch:(UIPinchGestureRecognizer *)pinchRecognizer {
     
+    static CGFloat initialRadius;
+    
     pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
     
     if (pinchRecognizer.state == UIGestureRecognizerStateBegan) {
         
-          pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
+        initialRadius = pie.pieRadius;
+        pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
     }
     else {
         if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
-              pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
+              pie.pieRadius = initialRadius * pinchRecognizer.scale;
         }
         else if ((pinchRecognizer.state == UIGestureRecognizerStateCancelled) || (pinchRecognizer.state == UIGestureRecognizerStateEnded)) {
            
@@ -164,15 +162,16 @@
     if (gesture.state == UIGestureRecognizerStateEnded) {
         
         aGraphView.filterStatus = [plotStatus objectAtIndex:selectedIndex];
-        [aGraphView performSegueWithIdentifier:@"seguejoblist" sender:self];
+        [aGraphView performSegueWithIdentifier:@"segueJob2" sender:self];
     }
 }
 
+
 - (void)handleSwipe:(UISwipeGestureRecognizer *)recognizer 
 { 
-    if(recognizer.direction == UISwipeGestureRecognizerDirectionDown)
+    if(recognizer.direction == UISwipeGestureRecognizerDirectionLeft)
     {
-        NSLog(@"Swipe Down");
+        NSLog(@"Swipe Left");
         NSMutableArray *newPlot = [[NSMutableArray alloc]initWithCapacity:plotData.count];
         
         for(int i = 0 ; i < plotData.count ; i++)
