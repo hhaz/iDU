@@ -39,6 +39,13 @@
                          NSLog(@"Animation done!");
                      }];
     
+    [UIView beginAnimations:nil context:NULL];
+    [UIView setAnimationDuration:4.0f];
+    
+    imageView.alpha = 0.0f;
+    
+    [UIView commitAnimations];
+    
 }
 
 - (void)viewDidAppear:(BOOL)animated
