@@ -144,14 +144,14 @@
     if (pinchRecognizer.state == UIGestureRecognizerStateBegan) {
         
         initialRadius = pie.pieRadius;
-        pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
+        //pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
     }
     else {
         if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
               pie.pieRadius = initialRadius * pinchRecognizer.scale;
         }
         else if ((pinchRecognizer.state == UIGestureRecognizerStateCancelled) || (pinchRecognizer.state == UIGestureRecognizerStateEnded)) {
-           
+            pie.pieRadius = initialRadius * pinchRecognizer.scale;
         }
     }
     
