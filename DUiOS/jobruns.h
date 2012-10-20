@@ -17,11 +17,17 @@
     
     id<jobruns> delegate;
     IBOutlet UITableView *theLaunches;
+    IBOutlet UITextField *fromDate;
+    IBOutlet UITextField *toDate;
     UIRefreshControl *refresh;
 }
 
+@property (nonatomic, retain) IBOutlet UITextField *fromDate;
+@property (nonatomic, retain) IBOutlet UITextField *toDate;
+
+@property (nonatomic, retain) UITextField *currentTextField;
+
 @property (nonatomic, retain) NSArray *nodeList;
-@property (nonatomic, retain) IBOutlet UITableView *myTableView;
 @property (nonatomic, retain) NSMutableArray *launchList;
 @property (nonatomic, retain) NSMutableArray *executionList;
 @property (nonatomic, retain) NSString *theLog;
@@ -38,6 +44,11 @@
 @property (nonatomic, assign) NSInteger uniformRowHeight;
 @property (nonatomic, assign) NSString *theNode;
 
+@property (nonatomic, retain) UIDatePicker *datePicker;
+
 @property (nonatomic, retain) getJobs *retrieveJobs;
+
+
+-(IBAction)displayDate:(id)sender;
 
 @end

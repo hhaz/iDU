@@ -83,7 +83,7 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
     //[_retrieveJobs getJobs:self :theNode :@"seguegraph" :TRUE];
     
-    [_retrieveJobs getJobs:self :theNode :@"segueTest" :TRUE];
+    [_retrieveJobs getJobs:self :theNode :@"segueTest" :TRUE :nil :nil];
     
     NSLog(@"Cell Selected");
     

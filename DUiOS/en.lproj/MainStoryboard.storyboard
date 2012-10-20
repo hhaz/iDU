@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2840" systemVersion="12C54" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <development version="4500" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1926"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
     </dependencies>
     <scenes>
         <!--IDU First View Controller - First-->
@@ -421,12 +421,51 @@
             <objects>
                 <tableViewController storyboardIdentifier="jobruns" id="SFC-UA-y1H" customClass="jobruns" sceneMemberID="viewController">
                     <tableView key="view" opaque="NO" clipsSubviews="YES" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="1FY-UW-DC6">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <view key="tableHeaderView" contentMode="scaleToFill" id="1gJ-te-TNy">
+                            <rect key="frame" x="0.0" y="0.0" width="320" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="From : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="3zW-PN-2QL">
+                                    <rect key="frame" x="0.0" y="6" width="46" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="To : " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="z6b-GK-o1r">
+                                    <rect key="frame" x="168" y="6" width="22" height="21"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" id="YPy-ez-y4k">
+                                    <rect key="frame" x="36" y="4" width="126" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="displayDate:" destination="SFC-UA-y1H" eventType="editingDidBegin" id="FVm-Jb-gIT"/>
+                                    </connections>
+                                </textField>
+                                <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" textAlignment="center" minimumFontSize="17" id="GMv-6z-5C2">
+                                    <rect key="frame" x="189" y="4" width="126" height="25"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="10"/>
+                                    <textInputTraits key="textInputTraits"/>
+                                    <connections>
+                                        <action selector="displayDate:" destination="SFC-UA-y1H" eventType="editingDidBegin" id="KpZ-W4-AMb"/>
+                                    </connections>
+                                </textField>
+                            </subviews>
+                            <color key="backgroundColor" name="alternateSelectedControlTextColor" catalog="System" colorSpace="catalog"/>
+                        </view>
                         <prototypes>
                             <tableViewCell multipleTouchEnabled="YES" contentMode="scaleToFill" selectionStyle="blue" accessoryType="detailDisclosureButton" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="jobcell" id="c3t-Qh-9i4">
-                                <rect key="frame" x="0.0" y="22" width="320" height="44"/>
+                                <rect key="frame" x="0.0" y="53" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="287" height="43"/>
@@ -447,23 +486,25 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Job List" id="sk3-Px-wcV"/>
                     <connections>
+                        <outlet property="fromDate" destination="YPy-ez-y4k" id="BMI-TL-QFh"/>
                         <outlet property="theLaunches" destination="1FY-UW-DC6" id="Bxs-cL-gah"/>
+                        <outlet property="toDate" destination="GMv-6z-5C2" id="eds-Jy-8IH"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2915" y="-562"/>
+            <point key="canvasLocation" x="2915" y="-750"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
             <objects>
                 <viewController id="dvi-Sz-sGc" customClass="joblog" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="1jd-ya-6Vg">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" separatorStyle="singleLineEtched" rowHeight="44" sectionHeaderHeight="10" sectionFooterHeight="10" id="5gk-S9-DVa">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                                 <prototypes>
@@ -505,11 +546,11 @@
             <objects>
                 <viewController id="GbN-Ck-Tgv" customClass="joblogdetails" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cSc-CO-ivP">
-                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <rect key="frame" x="0.0" y="64" width="320" height="367"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" text="Test" id="gsf-vq-SZ0">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="460"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="367"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -805,7 +846,6 @@
         <!--Page Test Root View Controller - Graph Summary-->
         <scene sceneID="Z4Q-h1-f74">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="naU-ed-eUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewController id="dKL-Tr-ufG" customClass="pageTestRootViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="TWj-fI-Kla">
                         <rect key="frame" x="0.0" y="64" width="320" height="367"/>
@@ -815,6 +855,7 @@
                     <tabBarItem key="tabBarItem" title="Item" id="654-z4-cgf"/>
                     <navigationItem key="navigationItem" title="Graph Summary" id="7qs-E8-JAh"/>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="naU-ed-eUG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="579" y="1293"/>
         </scene>
@@ -939,8 +980,11 @@
         <class className="jobruns" superclassName="UITableViewController">
             <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
             <relationships>
-                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="action" name="displayDate:"/>
+                <relationship kind="action" name="pickerDoneClicked:"/>
+                <relationship kind="outlet" name="fromDate" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toDate" candidateClass="UITextField"/>
             </relationships>
         </class>
         <class className="nodesInCollectionViewViewController" superclassName="UICollectionViewController">
@@ -983,7 +1027,7 @@
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
+        <segue reference="irZ-Oh-mud"/>
         <segue reference="l6f-Wu-RCs"/>
-        <segue reference="AwK-QP-UYc"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -20,6 +20,85 @@
     return self;
 }
 
+
+//Compute number of periods between two dates
+-(void)compute2:(NSDate *)fromDate:(NSDate *)toDate
+{
+    
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
+    
+    [appDelegate.periodArray removeAllObjects];
+    
+    NSCalendar *gregorian = [[NSCalendar alloc]
+                             initWithCalendarIdentifier:NSGregorianCalendar];
+    
+    NSUInteger unitFlags = NSDayCalendarUnit;
+    
+    NSDateComponents *components = [gregorian components:unitFlags
+                                                fromDate:fromDate
+                                                  toDate:toDate options:0];
+    NSInteger days = [components day];
+    
+    NSDate *newDate;
+    NSTimeInterval delay;
+    
+    if([appDelegate.period isEqualToString:@"Minutes"])
+    {
+        // Minutes.
+        newDate = toDate;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        delay = 1 * 60;
+        for(int i = 1; i < days * 60 ; i++)
+        {
+            newDate = [newDate dateByAddingTimeInterval:-delay];
+            [appDelegate.periodArray addObject:newDate];
+        }
+
+    }
+
+    if([appDelegate.period isEqualToString:@"Hours"])
+    {
+        // Hours.
+        newDate = toDate;
+        delay = 1 * 60 * 60;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        for(int i = 1; i < days*24; i++)
+        {
+            newDate = [newDate dateByAddingTimeInterval:-delay];
+            [appDelegate.periodArray addObject:newDate];
+        }
+    }
+    
+    if([appDelegate.period isEqualToString:@"Days"])
+    {
+        // Days.
+        newDate = toDate;
+        delay = 24 * 60 * 60;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        for(int i = 1; i < days ; i++)
+        {
+            newDate = [newDate dateByAddingTimeInterval:-delay];
+            [appDelegate.periodArray addObject:newDate];
+        }
+    }
+    
+    if([appDelegate.period isEqualToString:@"Weeks"])
+    {
+        // Weeks.
+        newDate = toDate;
+        delay = 7 * 24 * 60 * 60;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        for(int i = 1; i < days/7 +1 ; i++)
+        {
+            newDate = [newDate dateByAddingTimeInterval:-delay];
+            [appDelegate.periodArray addObject:newDate];
+        }
+    }
+    
+    appDelegate.nbPeriods = [NSString stringWithFormat:@"%i",[appDelegate.periodArray count]];
+    
+}
+
 -(void)compute
 {
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate]; 
@@ -90,8 +169,7 @@
     
     if([appDelegate.period isEqualToString:@"Weeks"])
     {
-        // Weeks. 4 weeks
-        // Days.
+        // Weeks.
         newDate = refDay;
         delay = 7 * 24 * 60 * 60; 
          [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];

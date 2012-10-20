@@ -17,7 +17,6 @@
 
 @implementation jobruns
 @synthesize nodeList;
-@synthesize myTableView;
 @synthesize launchList;
 @synthesize executionList;
 @synthesize theLog;
@@ -32,6 +31,9 @@
 @synthesize sectionInfoArray;
 @synthesize openSectionIndex=openSectionIndex_;
 @synthesize uniformRowHeight=rowHeight_;
+@synthesize toDate, fromDate;
+@synthesize datePicker;
+@synthesize currentTextField;
 
 #define ROW_HEIGHT 40
 #define HEADER_HEIGHT 45
@@ -168,8 +170,7 @@
        
        labelText2.textColor = [UIColor blackColor];
        labelText2.text = @"OK";
-    
-    
+        
        labelText2.text      = [[appDelegate.contentStatus objectForKey:statusString] objectAtIndex:0];
        labelText2.textColor = [[appDelegate.contentStatus objectForKey:statusString] objectAtIndex:1];
        NSString *imageFlag  = [[appDelegate.contentStatus objectForKey:statusString] objectAtIndex:2];
@@ -272,8 +273,8 @@ bool isExtended = false;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section {
-    computePeriod *computeDate = [[computePeriod alloc] init];
-    [computeDate compute];
+    //computePeriod *computeDate = [[computePeriod alloc] init];
+    //[computeDate compute];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd MMMM YYYY HH:mm"];
@@ -582,8 +583,8 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
  */
 SectionInfo *sectionInfo = [self.sectionInfoArray objectAtIndex:section];
 if (!sectionInfo.headerView) {
-    computePeriod *computeDate = [[computePeriod alloc] init];
-    [computeDate compute];
+    //computePeriod *computeDate = [[computePeriod alloc] init];
+    //[computeDate compute];
     
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"dd MMMM YYYY HH:mm"];
@@ -603,7 +604,16 @@ return sectionInfo.headerView;
 - (void)refreshJobList
 {
     NSLog(@"refresh");
-    [_retrieveJobs getJobs:self :_theNode :@"" :FALSE];
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MMM-dd HH:mm"];
+    
+    if([dateFormat dateFromString:fromDate.text] != nil && [dateFormat dateFromString:toDate.text] != nil)
+    {
+        computePeriod *computeDate = [[computePeriod alloc] init];
+        [computeDate compute2:[dateFormat dateFromString:fromDate.text]:[dateFormat dateFromString:toDate.text]];
+    }
+    
+    [_retrieveJobs getJobs:self :_theNode :@"" :FALSE :[dateFormat dateFromString:fromDate.text] :[dateFormat dateFromString:toDate.text]];
     [refresh endRefreshing];
 }
 
@@ -611,6 +621,10 @@ return sectionInfo.headerView;
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    datePicker = [[UIDatePicker alloc] init ];
+    datePicker.locale = [NSLocale currentLocale];
+    
     if (_retrieveJobs == nil) {
         _retrieveJobs = [[getJobs alloc]init];
     }
@@ -655,6 +669,44 @@ return sectionInfo.headerView;
 {
     // Return YES for supported orientations
     return (interfaceOrientation == UIInterfaceOrientationPortrait);
+}
+
+-(void)dateSelected
+{
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MMM-dd HH:mm"];
+    
+    
+    currentTextField.text = [dateFormat stringFromDate:datePicker.date];
+}
+
+-(IBAction)pickerDoneClicked:(id)sender {
+    [currentTextField resignFirstResponder];
+}
+
+-(IBAction)displayDate:(id)sender
+{
+    currentTextField = (UITextField *)sender;
+    
+    currentTextField.inputView = datePicker;
+    
+    [datePicker addTarget:self action:@selector(dateSelected)forControlEvents:UIControlEventValueChanged];
+    
+    UIToolbar* keyboardDoneButtonView = [[UIToolbar alloc] init];
+    keyboardDoneButtonView.barStyle = UIBarStyleBlack;
+    keyboardDoneButtonView.translucent = YES;
+    keyboardDoneButtonView.tintColor = nil;
+    [keyboardDoneButtonView sizeToFit];
+    
+    UIBarButtonItem* doneButton = [[UIBarButtonItem alloc] initWithTitle:@"OK"
+                                                                   style:UIBarButtonItemStyleBordered target:self
+                                                                  action:@selector(pickerDoneClicked:)];
+    
+    [keyboardDoneButtonView setItems:[NSArray arrayWithObjects:doneButton, nil]];
+    
+    // Plug the keyboardDoneButtonView into the text field...
+    currentTextField.inputAccessoryView = keyboardDoneButtonView;
+    
 }
 
 

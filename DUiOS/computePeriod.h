@@ -11,5 +11,7 @@
 @interface computePeriod : UIView
 
 -(void)compute;
+-(void)compute2:(NSDate *)fromDate:(NSDate *)toDate;
+
 
 @end

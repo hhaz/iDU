@@ -96,7 +96,7 @@
     
     _theNode = cell.lblTitle.text;
     
-    [_retrieveJobs getJobs:self :_theNode :@"seguegraph2" :TRUE];
+    [_retrieveJobs getJobs:self :_theNode :@"seguegraph2" :TRUE :nil :nil];
     
 }
 

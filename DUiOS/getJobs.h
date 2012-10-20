@@ -18,6 +18,6 @@
 @property (nonatomic, retain) NSMutableArray *executionList;
 
 
-- (void) getJobs:(id)sender:(NSString *)node:(NSString *)segue:(Boolean)alert;
+- (void) getJobs:(id)sender:(NSString *)node:(NSString *)segue:(Boolean)alert:(NSDate *)fromDate:(NSDate *)toDate;
 
 @end

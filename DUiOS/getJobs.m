@@ -20,7 +20,7 @@
     return self;
 }
 
-- (void) getJobs:(id)sender:(NSString *)node:(NSString *)segue:(Boolean)alert
+- (void) getJobs:(id)sender:(NSString *)node:(NSString *)segue:(Boolean)alert:(NSDate *)fromDate:(NSDate *)toDate
 {
     if (_appDelegate == nil) {
         _appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
@@ -43,8 +43,6 @@
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
-    [computeDate compute];
-    
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyyMMdd"];
     [dateFormatter setTimeZone:[NSTimeZone localTimeZone]];
@@ -52,9 +50,20 @@
     [hourFormatter setDateFormat:@"HHmmss"];
     [hourFormatter setTimeZone:[NSTimeZone localTimeZone]];
     
-    NSString *endDateMin = [dateFormatter stringFromDate:[_appDelegate.periodArray lastObject]];
-    NSString *endDateMax = [dateFormatter stringFromDate:[_appDelegate.periodArray objectAtIndex:0]];
+    NSString *endDateMin;
+    NSString *endDateMax;
     
+    if(toDate == nil && fromDate == nil)
+    {
+        [computeDate compute];
+        endDateMin = [dateFormatter stringFromDate:[_appDelegate.periodArray lastObject]];
+        endDateMax = [dateFormatter stringFromDate:[_appDelegate.periodArray objectAtIndex:0]];
+    }
+    else
+    {
+       endDateMin = [dateFormatter stringFromDate:fromDate];
+       endDateMax = [dateFormatter stringFromDate:toDate];
+    }
     DuWebServiceSvc_launchFilter *filter = [[DuWebServiceSvc_launchFilter alloc] init];
     
     DuWebServiceSvc_getListLaunch *listLaunch = [[DuWebServiceSvc_getListLaunch alloc] init];
