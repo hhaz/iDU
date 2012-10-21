@@ -686,9 +686,17 @@ return sectionInfo.headerView;
 
 -(IBAction)displayDate:(id)sender
 {
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc]init];
+    [dateFormat setDateFormat:@"yyyy-MMM-dd HH:mm"];
+    
     currentTextField = (UITextField *)sender;
     
     currentTextField.inputView = datePicker;
+    
+    if (fromDate.text != @"" && currentTextField == toDate) {
+        datePicker.minimumDate = [dateFormat dateFromString:fromDate.text];
+    }
     
     [datePicker addTarget:self action:@selector(dateSelected)forControlEvents:UIControlEventValueChanged];
     

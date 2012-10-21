@@ -46,9 +46,10 @@
     {
         // Minutes.
         newDate = toDate;
-        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
         delay = 1 * 60;
-        for(int i = 1; i < days * 60 ; i++)
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 0; i < days * 60 ; i++)
         {
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -62,7 +63,8 @@
         newDate = toDate;
         delay = 1 * 60 * 60;
         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        for(int i = 1; i < days*24; i++)
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 0; i < days*24; i++)
         {
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -75,7 +77,8 @@
         newDate = toDate;
         delay = 24 * 60 * 60;
         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        for(int i = 1; i < days ; i++)
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 0; i < days ; i++)
         {
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -88,7 +91,8 @@
         newDate = toDate;
         delay = 7 * 24 * 60 * 60;
         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        for(int i = 1; i < days/7 +1 ; i++)
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 0; i < days/7; i++)
         {
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -116,12 +120,12 @@
     [dateFormatter2 setTimeZone:[NSTimeZone localTimeZone]];
     NSDate *refDay = [NSDate date];
     
-    integer_t offset = [[NSTimeZone localTimeZone] secondsFromGMT] / 3600;
+    //integer_t offset = [[NSTimeZone localTimeZone] secondsFromGMT] / 3600;
     
-    NSTimeInterval delayGMT = offset * 60 * 60;
+    //NSTimeInterval delayGMT = offset * 60 * 60;
     
        // Manage timezone differences
-    refDay = [refDay dateByAddingTimeInterval:delayGMT];
+    //refDay = [refDay dateByAddingTimeInterval:delayGMT];
 
     
     NSDate *newDate;
@@ -131,10 +135,11 @@
     if([appDelegate.period isEqualToString:@"Minutes"])
     {
         // Minutes. 
-         newDate = refDate;
-         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        delay = 1 * 60; 
-        for(int i = 1; i < [appDelegate.nbPeriods intValue] +1 ; i++)
+        newDate = refDate;
+        delay = 1 * 60;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 2; i < [appDelegate.nbPeriods intValue]; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -145,9 +150,10 @@
     {
         // Hours. 
         newDate = refDate;
-        delay = 1 * 60 * 60; 
-         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        for(int i = 1; i <[appDelegate.nbPeriods intValue] +1; i++)
+        delay = 1 * 60 * 60;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 2; i <[appDelegate.nbPeriods intValue]; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
@@ -158,9 +164,10 @@
     {
         // Days.
         newDate = refDay;
-        delay = 24 * 60 * 60; 
+        delay = 24 * 60 * 60;
         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        for(int i = 1; i < [appDelegate.nbPeriods intValue] + 1; i++)
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 2; i < [appDelegate.nbPeriods intValue]; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];            
@@ -171,9 +178,10 @@
     {
         // Weeks.
         newDate = refDay;
-        delay = 7 * 24 * 60 * 60; 
-         [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
-        for(int i = 1; i < [appDelegate.nbPeriods intValue] +1 ; i++)
+        delay = 7 * 24 * 60 * 60;
+        [appDelegate.periodArray addObject:[newDate dateByAddingTimeInterval:delay]];
+        [appDelegate.periodArray addObject:newDate];
+        for(int i = 2; i < [appDelegate.nbPeriods intValue]; i++)
         {    
             newDate = [newDate dateByAddingTimeInterval:-delay];
             [appDelegate.periodArray addObject:newDate];
