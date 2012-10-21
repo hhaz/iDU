@@ -697,6 +697,10 @@ return sectionInfo.headerView;
     if (fromDate.text != @"" && currentTextField == toDate) {
         datePicker.minimumDate = [dateFormat dateFromString:fromDate.text];
     }
+    else
+    {
+        datePicker.minimumDate = nil;
+    }
     
     [datePicker addTarget:self action:@selector(dateSelected)forControlEvents:UIControlEventValueChanged];
     
