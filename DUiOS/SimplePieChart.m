@@ -73,6 +73,9 @@
     swipeLeft.direction =UISwipeGestureRecognizerDirectionLeft;    
     [layerHostingView addGestureRecognizer:swipeLeft];
     
+    UIRotationGestureRecognizer *rotate =[[UIRotationGestureRecognizer alloc]initWithTarget:self action:@selector(handleRotate:)];
+    [layerHostingView addGestureRecognizer:rotate];
+    
 	graph.title = title;
 	CPTMutableTextStyle *textStyle = [CPTMutableTextStyle textStyle];
 	textStyle.color				   = [CPTColor grayColor];
@@ -135,6 +138,23 @@
     
 }
 
+- (void)handleRotate:(UIRotationGestureRecognizer *)pinchRecognizer {
+    
+    static CGFloat initialAngle;
+    
+    initialAngle = pie.startAngle;
+    
+    if (pinchRecognizer.state == UIGestureRecognizerStateBegan) {
+        
+        pinchRecognizer.rotation = initialAngle;
+    }
+    
+    pie.startAngle = pinchRecognizer.rotation;
+    
+
+}
+
+
 - (void)pinch:(UIPinchGestureRecognizer *)pinchRecognizer {
     
     static CGFloat initialRadius;
@@ -144,7 +164,6 @@
     if (pinchRecognizer.state == UIGestureRecognizerStateBegan) {
         
         initialRadius = pie.pieRadius;
-        //pie.pieRadius = pie.pieRadius * pinchRecognizer.scale;
     }
     else {
         if (pinchRecognizer.state == UIGestureRecognizerStateChanged) {
