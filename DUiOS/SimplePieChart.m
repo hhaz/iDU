@@ -146,10 +146,10 @@
     
     if (pinchRecognizer.state == UIGestureRecognizerStateBegan) {
         
-        pinchRecognizer.rotation = initialAngle;
+        pinchRecognizer.rotation = -initialAngle;
     }
     
-    pie.startAngle = pinchRecognizer.rotation;
+    pie.startAngle = -pinchRecognizer.rotation;
     
 
 }
