@@ -9,9 +9,10 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 #import "DuWebServiceSvc.h"
-//#import "duiosAppDelegate.h"
 
-@protocol WebServiceConnection;
+@protocol WebServiceConnection
+-(void)connectionStatus;
+@end
 
 @interface WebServiceConnection : UIViewController <UITextViewDelegate> {
         
@@ -20,8 +21,9 @@
 @property (nonatomic, retain) DuWebServiceSvc_contextHolder *theContext;
 @property (nonatomic, retain) NSString *bindingAddress;
 @property (nonatomic, retain) UITableView *myNodeView;;
-//@property (nonatomic, retain) duiosAppDelegate *appDelegate;
 
--(void)TryConnection:(UITableView *)nodeView;
+
+-(void)TryConnection:(UITableView *)nodeView delegate:(id<WebServiceConnection>)responseDelegate;
+-(void)connect:(NSString *)user:(NSString *)password delegate:(id<WebServiceConnection>)responseDelegate;
 
 @end

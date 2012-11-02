@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2843" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="2.0" toolsVersion="2844" systemVersion="12C60" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="4">
     <dependencies>
         <development version="4500" identifier="xcode"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1929"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="1930"/>
     </dependencies>
     <scenes>
         <!--IDU First View Controller - First-->
@@ -57,7 +57,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="10" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1611" y="-315"/>
+            <point key="canvasLocation" x="2137" y="-315"/>
         </scene>
         <!--Settings View Controller - Settings-->
         <scene sceneID="XyM-Lh-Wpw">
@@ -103,7 +103,7 @@
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="TryConnection" destination="u6B-UI-YVV" eventType="touchUpInside" id="lTN-vO-4lp"/>
+                                                        <action selector="TryConnection" destination="u6B-UI-YVV" eventType="touchUpInside" id="pVE-ai-tBB"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -358,7 +358,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QUE-j4-I5E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1085" y="-1167"/>
+            <point key="canvasLocation" x="1627" y="-1114"/>
         </scene>
         <!--Nodes In Collection View View Controller - Node List-->
         <scene sceneID="I0I-ej-MYR">
@@ -493,7 +493,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cZu-8U-WM7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2915" y="-750"/>
+            <point key="canvasLocation" x="3441" y="-750"/>
         </scene>
         <!--Joblog - Job Status-->
         <scene sceneID="j8U-GL-1kT">
@@ -539,7 +539,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8y7-0p-Ju5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3291" y="-1567"/>
+            <point key="canvasLocation" x="3817" y="-1567"/>
         </scene>
         <!--Joblogdetails - Job Log-->
         <scene sceneID="ElV-Yd-9ha">
@@ -566,7 +566,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WxB-FF-rJa" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3779" y="-1558"/>
+            <point key="canvasLocation" x="4305" y="-1558"/>
         </scene>
         <!--Webservicedetails - Web Service URL-->
         <scene sceneID="piH-R4-ZeD">
@@ -596,12 +596,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q3M-fa-fRz" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1596" y="-1167"/>
+            <point key="canvasLocation" x="2122" y="-1167"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Tab View Controller-->
         <scene sceneID="15">
             <objects>
-                <tabBarController id="4" sceneMemberID="viewController">
+                <tabBarController id="4" customClass="TabViewController" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="9sc-MY-Bhd"/>
                     <nil key="simulatedBottomBarMetrics"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" id="5">
@@ -617,7 +617,7 @@
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="14" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="535" y="-168"/>
+            <point key="canvasLocation" x="-99" y="-304"/>
         </scene>
         <!--Navigation Controller - Node List-->
         <scene sceneID="Ugm-M0-ckY">
@@ -636,7 +636,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yhv-aJ-85o" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1167" y="-310"/>
+            <point key="canvasLocation" x="1693" y="-310"/>
         </scene>
         <!--Graphview - Graph Summary-->
         <scene sceneID="JoN-tz-J7p">
@@ -669,7 +669,97 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kEG-cs-917" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2647" y="89"/>
+            <point key="canvasLocation" x="3173" y="89"/>
+        </scene>
+        <!--Login View Controller-->
+        <scene sceneID="78e-Tj-Ipy">
+            <objects>
+                <viewController storyboardIdentifier="LoginViewController" modalTransitionStyle="partialCurl" useStoryboardIdentifierAsRestorationIdentifier="YES" id="x2U-wP-dCi" customClass="LoginViewController" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oc9-px-W1P">
+                        <rect key="frame" x="0.0" y="20" width="320" height="460"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4jt-ho-0qD">
+                                <rect key="frame" x="8" y="392" width="148" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Login">
+                                    <color key="titleColor" red="0.19607843137254902" green="0.30980392156862746" blue="0.52156862745098043" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="login" destination="x2U-wP-dCi" eventType="touchUpInside" id="MyN-6D-Wml"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OIO-t7-u0w">
+                                <rect key="frame" x="164" y="392" width="148" height="38"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" size="button"/>
+                                <state key="normal" title="Cancel">
+                                    <color key="titleColor" red="0.1960784314" green="0.30980392159999998" blue="0.52156862749999999" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="highlighted">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="cancel" destination="x2U-wP-dCi" eventType="touchUpInside" id="6eX-bB-JFT"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DU.png" id="NGj-F9-KFi">
+                                <rect key="frame" x="70" y="33" width="181" height="161"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="UVMS User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N68-Si-i3c">
+                                <rect key="frame" x="50" y="276" width="104" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="j2O-Ig-uQz">
+                                <rect key="frame" x="149" y="272" width="151" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HHP-Fa-5SU">
+                                <rect key="frame" x="50" y="321" width="91" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" minimumFontSize="17" clearButtonMode="whileEditing" id="f1y-VB-WSI">
+                                <rect key="frame" x="149" y="318" width="151" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                            </textField>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="user.png" id="WEJ-jF-cuo">
+                                <rect key="frame" x="17" y="276" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Password.png" id="0BC-os-1c3">
+                                <rect key="frame" x="17" y="321" width="25" height="25"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="Tbo-lk-aXd"/>
+                    <connections>
+                        <outlet property="loginButton" destination="4jt-ho-0qD" id="ccl-kK-S8S"/>
+                        <outlet property="password" destination="f1y-VB-WSI" id="k9t-OS-DOe"/>
+                        <outlet property="user" destination="j2O-Ig-uQz" id="bZL-AZ-1HF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bGk-XH-LBF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-49" y="-1023"/>
         </scene>
         <!--Filterpreferences - Filter Preferences-->
         <scene sceneID="sBX-cz-gRW">
@@ -816,7 +906,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bg5-ba-zde" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="625" y="-1153"/>
+            <point key="canvasLocation" x="1151" y="-1153"/>
         </scene>
         <!--Test1 View Controller-->
         <scene sceneID="nVq-E9-yOy">
@@ -881,6 +971,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="DU.png" width="512" height="512"/>
+        <image name="Password.png" width="1000" height="1000"/>
         <image name="area.png" width="32" height="32"/>
         <image name="calendar.png" width="48" height="48"/>
         <image name="company.png" width="64" height="64"/>
@@ -895,6 +987,144 @@
         <image name="url2.png" width="64" height="64"/>
         <image name="user.png" width="121" height="193"/>
     </resources>
+    <classes>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel"/>
+                <relationship kind="action" name="login"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="user" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="removeKeyBoard:"/>
+                <relationship kind="outlet" name="connectionStatus" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenDevice" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabViewController.h"/>
+        </class>
+        <class className="Test1ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Test1ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="collectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/collectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imgNotification" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgProfile" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lblTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="filterpreferences" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/filterpreferences.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nbJobs" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nbPeriods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="periods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="graphview" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/graphview.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="iDUFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iDUFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theNodes" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblog" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblog.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblogdetails" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblogdetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="jobruns" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
+            <relationships>
+                <relationship kind="action" name="displayDate:"/>
+                <relationship kind="outlet" name="fromDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toDate" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="nodesInCollectionViewViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/nodesInCollectionViewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="theNodes" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="pageTestRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/pageTestRootViewController.h"/>
+        </class>
+        <class className="settings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="webservicedetails" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/webservicedetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSettings" candidateClass="settings"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSuffix" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

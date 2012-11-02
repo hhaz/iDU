@@ -13,7 +13,7 @@
 
 @protocol SettingsViewController;
 
-@interface SettingsViewController : UITableViewController<UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource> {
+@interface SettingsViewController : UITableViewController<UINavigationBarDelegate, UITableViewDelegate, UITableViewDataSource,UIPickerViewDelegate,UIPickerViewDataSource,WebServiceConnection> {
     
     id<SettingsViewController> delegate;
     IBOutlet UITableView *theSettings;

@@ -14,13 +14,131 @@
 @implementation WebServiceConnection
 @synthesize bindingAddress,theContext,myNodeView;
 
--(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+-(void)connect:(NSString *)user:(NSString *)password delegate:(id<WebServiceConnection>)responseDelegate
+{
+    
+    // Check connection values
+    NSString *incorrectField = [[NSString alloc] init];
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
-    switch (alertView.tag) {
+    incorrectField = @"";
+    
+    bindingAddress = [NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%@%@", appDelegate.url , appDelegate.suffix]];
+    
+    
+    if([appDelegate.uvmsHost isEqualToString:@""] || [appDelegate.uvmsHost length] ==0)
+    {
+        incorrectField = @"UVMS";
+    }
+    
+    if([appDelegate.uvmsPort isEqualToString:@""] || [appDelegate.uvmsPort length] ==0)
+    {
+        incorrectField = @"UVMS Port";
+    }
+    
+    if([appDelegate.company isEqualToString:@""] || [appDelegate.company length] ==0)
+    {
+        incorrectField = @"Company";
+    }
+    
+    if([appDelegate.area isEqualToString:@""] || [appDelegate.area length] ==0)
+    {
+        incorrectField = @"Area";
+    }
+    
+    if (incorrectField != nil && incorrectField != @"")
+    {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:[NSString stringWithFormat:@"%@%@",incorrectField, @" cannot be empty"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+        return;
+    }
+    
+    appDelegate.binding = [[DuWebServiceSvc DuWebServiceSoapBinding] initWithAddress:bindingAddress];
+    appDelegate.binding.logXMLInOut = YES;
+    
+    DuWebServiceSvc_uvmsContext *uvmsContext = [[DuWebServiceSvc_uvmsContext alloc] init];
+    
+    uvmsContext.uvmsHost        = appDelegate.uvmsHost;
+    uvmsContext.uvmsUser        = user;
+    uvmsContext.uvmsPassword    = password;
+    
+    uvmsContext.uvmsPort = [NSNumber numberWithInteger:[appDelegate.uvmsPort integerValue ]];
+    
+    DuWebServiceSvc_login *login = [[DuWebServiceSvc_login alloc] init];
+    login.uvms = uvmsContext;
+    
+    DuWebServiceSvc_loginResponse *loginResponse = [[DuWebServiceSvc_loginResponse alloc] init];
+    DuWebServiceSoapBindingResponse *response = [appDelegate.binding loginUsingParameters:login];
+    
+    if (response.error == 0) {
+        @try {
+            loginResponse = (DuWebServiceSvc_loginResponse *)([response.bodyParts objectAtIndex:0]);
+            NSString *token = loginResponse.token;
+             appDelegate.isConnected = TRUE;
+            NSLog(@"Token : %@", token);
+        }
+        @catch (NSException *excep) {
+            NSLog(@"Exception during connection");
+
+            appDelegate.isConnected = FALSE;
+            SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            return;
+        }
+        @finally {
+            NSLog(@"Finally connection");
+        }
+    }
+    else
+    {
+        appDelegate.isConnected = FALSE;
+        
+        NSString *errorMessage = [NSString stringWithFormat:@"%@%@%@", [NSString stringWithFormat:@"%d",response.error.code], @" : ", response.error.localizedDescription];
+        
+        UIAlertView *connectionError = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [connectionError show];
+        return;
+    }
+    
+    appDelegate.isConnected = TRUE;
+    
+    DuWebServiceSvc_context *context = [[DuWebServiceSvc_context alloc] init];
+    DuWebServiceSvc_envir *environment = [[DuWebServiceSvc_envir alloc] init];
+    DuWebServiceSvc_contextHolder *ctxHolder = [[DuWebServiceSvc_contextHolder alloc] init];
+    
+    environment.company     = appDelegate.company;
+    environment.area        = appDelegate.area;
+    
+    context.envir           = environment;
+    ctxHolder.context       = context;
+    ctxHolder.token         = loginResponse.token;
+    
+    appDelegate.theContext  = ctxHolder;
+    
+  	[responseDelegate connectionStatus];
+     
+    // Refresh node list
+    
+  /*  UINavigationController *controller = [[UINavigationController alloc] init ];
+    
+    controller = [appDelegate.tbController.viewControllers  objectAtIndex:0];
+    
+    appDelegate.tbController.selectedViewController = controller;
+    
+    [controller viewWillAppear:TRUE];
+    
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
+   */
+    
+ 
+}
+
+-(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+      switch (alertView.tag) {
         case 1: // Try to connect to the Web Service
         if (buttonIndex == 1)
-        {           
+        {
             // Show the alert
             ActivityAlertView *activityAlert = [[ActivityAlertView alloc]
                                                  initWithTitle:@"Connecting"
@@ -30,136 +148,31 @@
             [activityAlert show];
             [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
             
-            // Check connection values
-            NSString *incorrectField = [[NSString alloc] init];
-            
-            incorrectField = @"";            
-            
-            bindingAddress = [NSString stringWithFormat:@"%@", [NSString stringWithFormat:@"%@%@", appDelegate.url , appDelegate.suffix]];
-            
-            
-            if([appDelegate.uvmsHost isEqualToString:@""] || [appDelegate.uvmsHost length] ==0)
-            {
-                incorrectField = @"UVMS";
-            }
-            
-            if([appDelegate.uvmsPort isEqualToString:@""] || [appDelegate.uvmsPort length] ==0)
-            {
-                incorrectField = @"UVMS Port";
-            }
-            
-            if([appDelegate.company isEqualToString:@""] || [appDelegate.company length] ==0)
-            {
-                incorrectField = @"Company";
-            }
-            
-            if([appDelegate.area isEqualToString:@""] || [appDelegate.area length] ==0)
-            {
-                incorrectField = @"Area";
-            }
-            
-            if (incorrectField != nil && incorrectField != @"")
-            {
-                [activityAlert close];
-                
-                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Connection Error" message:[NSString stringWithFormat:@"%@%@",incorrectField, @" cannot be empty"] delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [alert show];
-                return;
-            }
-            
-            appDelegate.binding = [[DuWebServiceSvc DuWebServiceSoapBinding] initWithAddress:bindingAddress];
-            appDelegate.binding.logXMLInOut = YES; 
-            
-            DuWebServiceSvc_uvmsContext *uvmsContext = [[DuWebServiceSvc_uvmsContext alloc] init];
-            
+                      
             UITextField *username = [alertView textFieldAtIndex:0];
             UITextField *password = [alertView textFieldAtIndex:1];
             
-            uvmsContext.uvmsHost        = appDelegate.uvmsHost;
-            uvmsContext.uvmsUser        = username.text;
-            uvmsContext.uvmsPassword    = password.text;
-            
-            uvmsContext.uvmsPort = [NSNumber numberWithInteger:[appDelegate.uvmsPort integerValue ]];
-            
-            DuWebServiceSvc_login *login = [[DuWebServiceSvc_login alloc] init];
-            login.uvms = uvmsContext;
-            
-            DuWebServiceSvc_loginResponse *loginResponse = [[DuWebServiceSvc_loginResponse alloc] init];    
-            DuWebServiceSoapBindingResponse *response = [appDelegate.binding loginUsingParameters:login];
-            
-            if (response.error == 0) {
-                @try {
-                    loginResponse = (DuWebServiceSvc_loginResponse *)([response.bodyParts objectAtIndex:0]);
-                    NSString *token = loginResponse.token;
-                    NSLog(@"Token : %@", token);
-                }
-                @catch (NSException *excep) {
-                    NSLog(@"Exception during connection");
-                    [activityAlert close];
-                    appDelegate.isConnected = FALSE;
-                    SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
-                    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                    alert.tag = 2;
-                    [alert show];
-                    return;
-                }
-                @finally {
-                    NSLog(@"Finally connection");
-                }                
-            }
-            else
-            {
-                [activityAlert close];
-                appDelegate.isConnected = FALSE;
-                
-                NSString *errorMessage = [NSString stringWithFormat:@"%@%@%@", [NSString stringWithFormat:@"%d",response.error.code], @" : ", response.error.localizedDescription];
-                
-                UIAlertView *connectionError = [[UIAlertView alloc] initWithTitle:@"Error" message:errorMessage delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-                [connectionError show];
-                return;
-            }
-            
-            appDelegate.isConnected = TRUE;
-            
-            DuWebServiceSvc_context *context = [[DuWebServiceSvc_context alloc] init];
-            DuWebServiceSvc_envir *environment = [[DuWebServiceSvc_envir alloc] init];
-            DuWebServiceSvc_contextHolder *ctxHolder = [[DuWebServiceSvc_contextHolder alloc] init];
-            
-            environment.company     = appDelegate.company;
-            environment.area        = appDelegate.area;
-                    
-            context.envir           = environment;
-            ctxHolder.context       = context;
-            ctxHolder.token         = loginResponse.token;
-            
-            appDelegate.theContext  = ctxHolder;
-            
-            // Refresh node list
-            
-            UINavigationController *controller = [[UINavigationController alloc] init ];
-            
-            controller = [appDelegate.tbController.viewControllers  objectAtIndex:0];
-            
-            appDelegate.tbController.selectedViewController = controller;
-            
-            [controller viewWillAppear:TRUE];
+            [self connect:username.text :password.text delegate:(id)self];
             
             [activityAlert close];
-            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             
         }
         break;
 
         case 2: // Connection failed display the login window again
             if (alertView.tag == 2) {
-                [self TryConnection:myNodeView];
+                [self TryConnection:myNodeView delegate:(id)self];
             }
             break;
     }
 }
 
+-(void)connectionStatus
+{
+    return;
+}
 
--(void)TryConnection:(UITableView *)nodeView
+-(void)TryConnection:(UITableView *)nodeView delegate:(id<WebServiceConnection>)responseDelegate
 {
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     
@@ -174,6 +187,7 @@
     myNodeView = nodeView;
     
     [messageBox show];
+
 }
 
 

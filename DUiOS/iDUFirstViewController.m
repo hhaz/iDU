@@ -15,6 +15,7 @@
 #import "getJobs.h"
 #import "AnimationViewController.h"
 #import "pageTestRootViewController.h"
+#import "LoginViewController.h"
 
 @implementation iDUFirstViewController
 @synthesize nodeList;
@@ -110,13 +111,19 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
     
-    AnimationViewController *splashScreenViewController = [[AnimationViewController alloc] initWithNibName:@"AnimationViewController" bundle:nil];
+    LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    [self presentViewController:loginView animated:YES completion:nil];
+
+    
+   /* AnimationViewController *splashScreenViewController = [[AnimationViewController alloc] initWithNibName:@"AnimationViewController" bundle:nil];
     
     splashScreenViewController.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
     
     [self.navigationController presentViewController:splashScreenViewController animated: YES completion: nil];
-
+*/
     _retrieveJobs = [[getJobs alloc]init];
     appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     appDelegate.tbController = self.tabBarController;

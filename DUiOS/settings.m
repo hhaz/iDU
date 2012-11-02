@@ -237,7 +237,7 @@
     appDelegate.company     = theCompany.text;
     appDelegate.area        = theSpace.text;    
     
-    [connection TryConnection:nil];
+    //[connection TryConnection:nil];
     
     ManageDefaults *duiosDefault = [[ManageDefaults alloc]init];
     [duiosDefault saveDefaults];

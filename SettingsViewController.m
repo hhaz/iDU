@@ -8,6 +8,7 @@
 
 #import "SettingsViewController.h"
 #import "ManageDefaults.h"
+#import "LoginViewController.h"
 
 @interface SettingsViewController ()
 
@@ -183,12 +184,28 @@
     appDelegate.company     = theCompany.text;
     appDelegate.area        = theSpace.text;
     
-    [_connection TryConnection:nil];
+    //[_connection TryConnection:nil delegate:self];
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MainStoryboard" bundle:nil];
+    
+    LoginViewController *loginView = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController"];
+    
+    [self presentViewController:loginView animated:YES completion:nil];
     
     ManageDefaults *duiosDefault = [[ManageDefaults alloc]init];
     [duiosDefault saveDefaults];
     
 }
+
+-(void)connectionStatus
+{
+    iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
+    if (appDelegate.isConnected) {
+       
+    }
+    
+}
+
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
