@@ -63,6 +63,15 @@
 {
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     if (appDelegate.isConnected) {
+        UINavigationController *controller = [[UINavigationController alloc] init ];
+        
+        controller = [appDelegate.tbController.viewControllers  objectAtIndex:0];
+        
+        appDelegate.tbController.selectedViewController = controller;
+        
+        [controller viewWillAppear:TRUE];
+        
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [self dismissViewControllerAnimated:TRUE completion:nil];
     }
 }

@@ -137,8 +137,6 @@ didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     }
     
     [theNodes addSubview:refresh];
-    
-    
    
 }
 
