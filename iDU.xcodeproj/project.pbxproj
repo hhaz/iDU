@@ -47,6 +47,9 @@
 		639DA1D714D4494500EA3372 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */; };
 		639DA1E114D4494500EA3372 /* iDUSecondViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 639DA1E014D4494500EA3372 /* iDUSecondViewController.m */; };
 		639DA1FF14D44C2200EA3372 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 639DA1FE14D44C2200EA3372 /* libxml2.dylib */; };
+		63A103191644313D00F1F9F3 /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A103181644313D00F1F9F3 /* LoginViewController.m */; };
+		63A1031D16447E7600F1F9F3 /* TabViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 63A1031C16447E7600F1F9F3 /* TabViewController.m */; };
+		63A1031F164488D100F1F9F3 /* Password.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A1031E164488D100F1F9F3 /* Password.png */; };
 		63A92B3015CB1DF900D03CDF /* DUInactive.png in Resources */ = {isa = PBXBuildFile; fileRef = 63A92B2F15CB1DF900D03CDF /* DUInactive.png */; };
 		63AF83E614D617DB004A2E3B /* preferences.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E514D617DB004A2E3B /* preferences.png */; };
 		63AF83E814D617F6004A2E3B /* world.png in Resources */ = {isa = PBXBuildFile; fileRef = 63AF83E714D617F6004A2E3B /* world.png */; };
@@ -230,6 +233,11 @@
 		639DA1DF14D4494500EA3372 /* iDUSecondViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = iDUSecondViewController.h; sourceTree = "<group>"; };
 		639DA1E014D4494500EA3372 /* iDUSecondViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = iDUSecondViewController.m; sourceTree = "<group>"; };
 		639DA1FE14D44C2200EA3372 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		63A103171644313D00F1F9F3 /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
+		63A103181644313D00F1F9F3 /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
+		63A1031B16447E7600F1F9F3 /* TabViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TabViewController.h; sourceTree = "<group>"; };
+		63A1031C16447E7600F1F9F3 /* TabViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TabViewController.m; sourceTree = "<group>"; };
+		63A1031E164488D100F1F9F3 /* Password.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Password.png; sourceTree = "<group>"; };
 		63A92B2F15CB1DF900D03CDF /* DUInactive.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DUInactive.png; sourceTree = "<group>"; };
 		63AF83E514D617DB004A2E3B /* preferences.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = preferences.png; sourceTree = "<group>"; };
 		63AF83E714D617F6004A2E3B /* world.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = world.png; sourceTree = "<group>"; };
@@ -312,6 +320,7 @@
 		6320045C14E9D883006E2FFA /* png */ = {
 			isa = PBXGroup;
 			children = (
+				63A1031E164488D100F1F9F3 /* Password.png */,
 				63F3EE1515EAABF7001E08AE /* calendar.png */,
 				63EE8B75159F869100B53EAE /* carat-open.png */,
 				63F3EE0415EA5D3D001E08AE /* user.png */,
@@ -497,6 +506,10 @@
 				63C8B5D81617035900CA4F2A /* pageTestRootViewController.h */,
 				63C8B5D91617035900CA4F2A /* pageTestRootViewController.m */,
 				639DA1D514D4494500EA3372 /* MainStoryboard.storyboard */,
+				63A1031B16447E7600F1F9F3 /* TabViewController.h */,
+				63A1031C16447E7600F1F9F3 /* TabViewController.m */,
+				63A103171644313D00F1F9F3 /* LoginViewController.h */,
+				63A103181644313D00F1F9F3 /* LoginViewController.m */,
 				630C31271616580600133C4B /* Test1ViewController.h */,
 				630C31281616580600133C4B /* Test1ViewController.m */,
 				638A1420160F714900B24627 /* AnimationViewController.h */,
@@ -673,6 +686,7 @@
 				63EA36C915FCF483005F8A10 /* rerunblue.png in Resources */,
 				636580B11606125C00C4A128 /* Default-568h@2x.png in Resources */,
 				638A1424160F714900B24627 /* AnimationViewController.xib in Resources */,
+				63A1031F164488D100F1F9F3 /* Password.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -718,6 +732,8 @@
 				63C8B5DD1617036F00CA4F2A /* pageTestModelController.m in Sources */,
 				63C8B5DE1617037400CA4F2A /* pageTestRootViewController.m in Sources */,
 				63C8B5F21617489C00CA4F2A /* ColoredBarChart.m in Sources */,
+				63A103191644313D00F1F9F3 /* LoginViewController.m in Sources */,
+				63A1031D16447E7600F1F9F3 /* TabViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

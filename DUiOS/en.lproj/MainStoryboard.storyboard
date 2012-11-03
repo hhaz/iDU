@@ -710,41 +710,41 @@
                                 </connections>
                             </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="DU.png" id="NGj-F9-KFi">
-                                <rect key="frame" x="70" y="39" width="181" height="161"/>
+                                <rect key="frame" x="155" y="120" width="11" height="12"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="UVMS User" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="N68-Si-i3c">
-                                <rect key="frame" x="50" y="240" width="104" height="21"/>
+                                <rect key="frame" x="50" y="253" width="104" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="j2O-Ig-uQz">
-                                <rect key="frame" x="149" y="236" width="151" height="30"/>
+                                <rect key="frame" x="149" y="249" width="151" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="HHP-Fa-5SU">
-                                <rect key="frame" x="50" y="285" width="91" height="21"/>
+                                <rect key="frame" x="50" y="298" width="91" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter password" minimumFontSize="17" clearButtonMode="whileEditing" id="f1y-VB-WSI">
-                                <rect key="frame" x="149" y="282" width="151" height="30"/>
+                                <rect key="frame" x="149" y="295" width="151" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
                             </textField>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="user.png" id="WEJ-jF-cuo">
-                                <rect key="frame" x="17" y="240" width="25" height="25"/>
+                                <rect key="frame" x="17" y="253" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" image="Password.png" id="0BC-os-1c3">
-                                <rect key="frame" x="17" y="285" width="25" height="25"/>
+                                <rect key="frame" x="17" y="298" width="25" height="25"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
@@ -752,6 +752,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tbo-lk-aXd"/>
                     <connections>
+                        <outlet property="imageView" destination="NGj-F9-KFi" id="XMn-RL-Cbs"/>
                         <outlet property="loginButton" destination="4jt-ho-0qD" id="ccl-kK-S8S"/>
                         <outlet property="password" destination="f1y-VB-WSI" id="k9t-OS-DOe"/>
                         <outlet property="user" destination="j2O-Ig-uQz" id="bZL-AZ-1HF"/>
@@ -993,6 +994,8 @@
             <relationships>
                 <relationship kind="action" name="cancel"/>
                 <relationship kind="action" name="login"/>
+                <relationship kind="action" name="removeKeyBoard:"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
                 <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
                 <relationship kind="outlet" name="password" candidateClass="UITextField"/>
                 <relationship kind="outlet" name="user" candidateClass="UITextField"/>

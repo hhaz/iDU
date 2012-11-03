@@ -15,7 +15,7 @@
 
 @implementation LoginViewController
 
-@synthesize loginButton,connection;
+@synthesize loginButton,connection,imageView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +37,16 @@
     [password addTarget:self
              action:@selector(removeKeyBoard:)
    forControlEvents:UIControlEventEditingDidEndOnExit];
+    
+    [UIView animateWithDuration:1
+                          delay:0
+                        options: UIViewAnimationCurveEaseIn
+                     animations:^{
+                         imageView.transform = CGAffineTransformMakeScale(18, 18);
+                     }
+                     completion:nil
+                     ];
+
     
     
 	// Do any additional setup after loading the view.
