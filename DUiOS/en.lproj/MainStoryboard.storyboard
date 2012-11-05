@@ -695,7 +695,7 @@
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="4jt-ho-0qD">
-                                        <rect key="frame" x="11" y="390" width="148" height="38"/>
+                                        <rect key="frame" x="11" y="400" width="148" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" title="Login">
@@ -710,7 +710,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="OIO-t7-u0w">
-                                        <rect key="frame" x="167" y="390" width="148" height="38"/>
+                                        <rect key="frame" x="167" y="400" width="148" height="38"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                         <fontDescription key="fontDescription" type="boldSystem" size="button"/>
                                         <state key="normal" title="Cancel">
@@ -751,6 +751,10 @@
                                         <rect key="frame" x="14" y="268" width="25" height="25"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     </imageView>
+                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" style="gray" id="LZ7-eU-iLw">
+                                        <rect key="frame" x="154" y="368" width="20" height="20"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES"/>
+                                    </activityIndicatorView>
                                 </subviews>
                             </scrollView>
                         </subviews>
@@ -758,6 +762,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="Tbo-lk-aXd"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="LZ7-eU-iLw" id="RjF-pQ-Bow"/>
                         <outlet property="imageView" destination="NGj-F9-KFi" id="XMn-RL-Cbs"/>
                         <outlet property="loginButton" destination="4jt-ho-0qD" id="ccl-kK-S8S"/>
                         <outlet property="password" destination="f1y-VB-WSI" id="k9t-OS-DOe"/>
@@ -995,6 +1000,147 @@
         <image name="url2.png" width="64" height="64"/>
         <image name="user.png" width="121" height="193"/>
     </resources>
+    <classes>
+        <class className="LoginViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/LoginViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="cancel"/>
+                <relationship kind="action" name="login"/>
+                <relationship kind="outlet" name="activityIndicator" candidateClass="UIActivityIndicatorView"/>
+                <relationship kind="outlet" name="imageView" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="loginButton" candidateClass="UIButton"/>
+                <relationship kind="outlet" name="password" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+                <relationship kind="outlet" name="user" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="SettingsViewController" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/SettingsViewController.h"/>
+            <relationships>
+                <relationship kind="action" name="removeKeyBoard:"/>
+                <relationship kind="outlet" name="connectionStatus" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenDevice" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="TabViewController" superclassName="UITabBarController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/TabViewController.h"/>
+        </class>
+        <class className="Test1ViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/Test1ViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="UICollectionReusableView" superclassName="UIView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionReusableView.h"/>
+        </class>
+        <class className="UICollectionViewCell" superclassName="UICollectionReusableView">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewCell.h"/>
+        </class>
+        <class className="UICollectionViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewController.h"/>
+        </class>
+        <class className="UICollectionViewFlowLayout" superclassName="UICollectionViewLayout">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/UICollectionViewFlowLayout.h"/>
+        </class>
+        <class className="collectionViewCell" superclassName="UICollectionViewCell">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/collectionViewCell.h"/>
+            <relationships>
+                <relationship kind="outlet" name="imgNotification" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="imgProfile" candidateClass="UIImageView"/>
+                <relationship kind="outlet" name="lblTitle" candidateClass="UILabel"/>
+            </relationships>
+        </class>
+        <class className="filterpreferences" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/filterpreferences.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="nbJobs" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="nbPeriods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="periods" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="picker" candidateClass="UIPickerView"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="graphview" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/graphview.h"/>
+            <relationships>
+                <relationship kind="outlet" name="hostingView" candidateClass="UIView"/>
+                <relationship kind="outlet" name="scrollView" candidateClass="UIScrollView"/>
+            </relationships>
+        </class>
+        <class className="iDUFirstViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/iDUFirstViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theNodes" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblog" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblog.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+            </relationships>
+        </class>
+        <class className="joblogdetails" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/joblogdetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTextView" candidateClass="UITextView"/>
+            </relationships>
+        </class>
+        <class className="jobruns" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/jobruns.h"/>
+            <relationships>
+                <relationship kind="action" name="displayDate:"/>
+                <relationship kind="outlet" name="fromDate" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theLaunches" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="toDate" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="nodesInCollectionViewViewController" superclassName="UICollectionViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/nodesInCollectionViewViewController.h"/>
+            <relationships>
+                <relationship kind="outlet" name="theNodes" candidateClass="UICollectionView"/>
+            </relationships>
+        </class>
+        <class className="pageTestRootViewController" superclassName="UIViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/pageTestRootViewController.h"/>
+        </class>
+        <class className="settings" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/settings.h"/>
+            <relationships>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theCompany" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="thePort" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theSettings" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSpace" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theToken" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theTokenLabel" candidateClass="UILabel"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUVMS" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theUserName" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+        <class className="webservicedetails" superclassName="UITableViewController">
+            <source key="sourceIdentifier" type="project" relativePath="./Classes/webservicedetails.h"/>
+            <relationships>
+                <relationship kind="outlet" name="aSettings" candidateClass="settings"/>
+                <relationship kind="outlet" name="myTableView" candidateClass="UITableView"/>
+                <relationship kind="outlet" name="theSuffix" candidateClass="UITextField"/>
+                <relationship kind="outlet" name="theURL" candidateClass="UITextField"/>
+            </relationships>
+        </class>
+    </classes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>
         <simulatedOrientationMetrics key="orientation"/>

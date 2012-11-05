@@ -15,7 +15,7 @@
 
 @implementation LoginViewController
 
-@synthesize loginButton,connection,imageView,scrollView,currentTextField;
+@synthesize loginButton,connection,imageView,scrollView,currentTextField,activityIndicator;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -37,6 +37,7 @@
     [super viewDidLoad];
     password.delegate = self;
     user.delegate = self;
+    activityIndicator.hidesWhenStopped = TRUE;
 
     [self registerForKeyboardNotifications];
     scrollView.contentSize=scrollView.frame.size;
@@ -79,8 +80,10 @@
 - (void) login
 {
     NSLog(@"Login");
+    [activityIndicator startAnimating];
     connection = [[WebServiceConnection alloc]init];
     [connection connect:user.text :password.text delegate:self];
+    [activityIndicator stopAnimating];
 }
 
 -(void)connectionStatus

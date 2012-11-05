@@ -16,6 +16,7 @@
     IBOutlet UITextField *password;
     IBOutlet UIImageView *imageView;
     IBOutlet UIScrollView *scrollView;
+    IBOutlet UIActivityIndicatorView *activityIndicator;
 }
 
 @property IBOutlet UIButton *loginButton;
@@ -23,6 +24,7 @@
 @property (nonatomic,retain) UIImageView *imageView;
 @property (nonatomic,retain) UIScrollView *scrollView;
 @property (nonatomic,retain) UITextField  *currentTextField;
+@property (nonatomic,retain) UIActivityIndicatorView *activityIndicator;
 
 - (IBAction)login;
 -(IBAction)cancel;

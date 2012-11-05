@@ -16,6 +16,7 @@
 
 -(void)connect:(NSString *)user:(NSString *)password delegate:(id<WebServiceConnection>)responseDelegate
 {
+    [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
     
     // Check connection values
     NSString *incorrectField = [[NSString alloc] init];
@@ -119,17 +120,9 @@
   	[responseDelegate connectionStatus];
      
     // Refresh node list
-    
-  /*  UINavigationController *controller = [[UINavigationController alloc] init ];
-    
-    controller = [appDelegate.tbController.viewControllers  objectAtIndex:0];
-    
-    appDelegate.tbController.selectedViewController = controller;
-    
-    [controller viewWillAppear:TRUE];
+  
     
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
-   */
     
  
 }
