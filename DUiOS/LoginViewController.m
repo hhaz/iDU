@@ -15,7 +15,7 @@
 
 @implementation LoginViewController
 
-@synthesize loginButton,connection,imageView;
+@synthesize loginButton,connection,imageView,scrollView,currentTextField;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -26,9 +26,23 @@
     return self;
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+
+    
+}
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    password.delegate = self;
+    user.delegate = self;
+
+    [self registerForKeyboardNotifications];
+    scrollView.contentSize=scrollView.frame.size;
+    
+    //scrollView.contentSize=CGSizeMake(1000, 1000);
+    
     iDUAppDelegate *appDelegate = (iDUAppDelegate *)[[UIApplication sharedApplication] delegate];
     user.text = appDelegate.uvmsUser;
     [user addTarget:self
@@ -91,10 +105,84 @@
     [self dismissViewControllerAnimated:TRUE completion:nil];
 }
 
+
 - (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation
 {
     // Return YES for supported orientations
     return (interfaceOrientation != UIInterfaceOrientationPortraitUpsideDown);
+}
+
+
+- (void)registerForKeyboardNotifications
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWasShown:)
+                                                 name:UIKeyboardDidShowNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(keyboardWillBeHidden:)
+                                                 name:UIKeyboardWillHideNotification object:nil];
+
+    [[UIDevice currentDevice] beginGeneratingDeviceOrientationNotifications];
+    [[NSNotificationCenter defaultCenter] addObserver: self selector: @selector(deviceOrientationDidChange:) name: UIDeviceOrientationDidChangeNotification object: nil];
+    
+}
+
+- (void)deviceOrientationDidChange:(NSNotification *)notification
+{
+    scrollView.contentSize=scrollView.frame.size;;
+}
+
+
+// Called when the UIKeyboardDidShowNotification is sent.
+- (void)keyboardWasShown:(NSNotification*)aNotification
+{
+    NSDictionary* info = [aNotification userInfo];
+    CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
+    
+    NSInteger kbHeight;
+    
+    UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
+    
+    if (orientation == UIDeviceOrientationFaceUp || orientation == UIDeviceOrientationFaceDown || orientation == UIDeviceOrientationUnknown)
+    {
+        kbHeight = kbSize.height;
+    }
+    else
+    {
+        kbHeight = kbSize.width;
+    }
+    
+    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbHeight, 0.0);
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+    
+    // If active text field is hidden by keyboard, scroll it so it's visible
+    // Your application might not need or want this behavior.
+    CGRect aRect = self.view.frame;
+    aRect.size.height -= kbHeight;
+    if (!CGRectContainsPoint(aRect, currentTextField.frame.origin) ) {
+        CGPoint scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbHeight);
+        [scrollView setContentOffset:scrollPoint animated:YES];
+    }
+}
+// Called when the UIKeyboardWillHideNotification is sent
+- (void)keyboardWillBeHidden:(NSNotification*)aNotification
+{
+    UIEdgeInsets contentInsets = UIEdgeInsetsZero;
+    scrollView.contentInset = contentInsets;
+    scrollView.scrollIndicatorInsets = contentInsets;
+}
+
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    currentTextField = textField;
+    
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    currentTextField = nil;
 }
 
 @end

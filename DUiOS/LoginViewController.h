@@ -9,17 +9,20 @@
 #import <UIKit/UIKit.h>
 #import "WebServiceConnection.h"
 
-@interface LoginViewController : UIViewController<WebServiceConnection>
+@interface LoginViewController : UIViewController<WebServiceConnection,UITextFieldDelegate>
 {
     IBOutlet UIButton *loginButton;
     IBOutlet UITextField *user;
     IBOutlet UITextField *password;
     IBOutlet UIImageView *imageView;
+    IBOutlet UIScrollView *scrollView;
 }
 
 @property IBOutlet UIButton *loginButton;
 @property (nonatomic,retain) WebServiceConnection *connection;
 @property (nonatomic,retain) UIImageView *imageView;
+@property (nonatomic,retain) UIScrollView *scrollView;
+@property (nonatomic,retain) UITextField  *currentTextField;
 
 - (IBAction)login;
 -(IBAction)cancel;
