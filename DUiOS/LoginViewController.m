@@ -53,7 +53,7 @@
              action:@selector(removeKeyBoard:)
    forControlEvents:UIControlEventEditingDidEndOnExit];
     
-    [UIView animateWithDuration:1
+   [UIView animateWithDuration:1
                           delay:0
                         options: UIViewAnimationCurveEaseIn
                      animations:^{
@@ -62,7 +62,6 @@
                      completion:nil
                      ];
 
-    
     
 	// Do any additional setup after loading the view.
 }
@@ -101,6 +100,7 @@
         [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
         [self dismissViewControllerAnimated:TRUE completion:nil];
     }
+    [activityIndicator stopAnimating];
 }
 
 -(IBAction)cancel
@@ -142,32 +142,21 @@
 {
     NSDictionary* info = [aNotification userInfo];
     CGSize kbSize = [[info objectForKey:UIKeyboardFrameBeginUserInfoKey] CGRectValue].size;
-    
-    NSInteger kbHeight;
+    CGPoint scrollPoint;
     
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     
     if (orientation == UIDeviceOrientationFaceUp || orientation == UIDeviceOrientationFaceDown || orientation == UIDeviceOrientationUnknown)
     {
-        kbHeight = kbSize.height;
+        scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbSize.height);
     }
     else
     {
-        kbHeight = kbSize.width;
+        scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y);
     }
-    
-    UIEdgeInsets contentInsets = UIEdgeInsetsMake(0.0, 0.0, kbHeight, 0.0);
-    scrollView.contentInset = contentInsets;
-    scrollView.scrollIndicatorInsets = contentInsets;
-    
-    // If active text field is hidden by keyboard, scroll it so it's visible
-    // Your application might not need or want this behavior.
-    CGRect aRect = self.view.frame;
-    aRect.size.height -= kbHeight;
-    if (!CGRectContainsPoint(aRect, currentTextField.frame.origin) ) {
-        CGPoint scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbHeight);
-        [scrollView setContentOffset:scrollPoint animated:YES];
-    }
+  
+    [scrollView setContentOffset:scrollPoint animated:YES];
+
 }
 // Called when the UIKeyboardWillHideNotification is sent
 - (void)keyboardWillBeHidden:(NSNotification*)aNotification
@@ -186,6 +175,9 @@
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     currentTextField = nil;
+    CGPoint scrollPoint = CGPointMake(0.0, 0.0);
+    [scrollView setContentOffset:scrollPoint animated:YES];
+
 }
 
 @end

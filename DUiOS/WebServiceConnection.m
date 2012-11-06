@@ -85,6 +85,7 @@
             SOAPFault *result = (SOAPFault *)[response.bodyParts objectAtIndex:0];
             UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:result.faultstring delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
+            [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
             return;
         }
         @finally {
