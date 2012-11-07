@@ -146,7 +146,7 @@
     
     UIDeviceOrientation orientation = [[UIDevice currentDevice] orientation];
     
-    if (orientation == UIDeviceOrientationFaceUp || orientation == UIDeviceOrientationFaceDown || orientation == UIDeviceOrientationUnknown)
+    if (orientation == UIInterfaceOrientationPortrait || orientation == UIInterfaceOrientationPortraitUpsideDown || orientation == UIDeviceOrientationUnknown)
     {
         scrollPoint = CGPointMake(0.0, currentTextField.frame.origin.y-kbSize.height);
     }
